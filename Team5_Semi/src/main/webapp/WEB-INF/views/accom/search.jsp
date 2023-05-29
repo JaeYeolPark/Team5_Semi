@@ -151,20 +151,21 @@
 											<div class="row g-0">
 												<!-- 카드 이미지 -->
 												<div class="col-md-4" style="width: 300px;">
-													<img
-														src="${item.firstimage }"
-														class="card-img rounded-2" alt="Card image">
+													<img src="${item.firstimage }" class="card-img rounded-2"
+														alt="Card image">
 												</div>
 												<!-- 카드 오른쪽 글 -->
 												<div class="col-md-8" style="padding-left: 20px;">
 													<div class="card-body py-md-2 d-flex flex-column h-100">
 														<!-- 각 숙소 이름 주소 -->
 														<h4 class="card-title mt-2 mb-3" style="color: #3f8ace;">
-															<a href="hotel-detail.html">
-																<c:out value="${item.title }"/>
+															<a href="hotel-detail.html"> <c:out
+																	value="${item.title }" />
 															</a>
 														</h4>
-														<div><c:out value="${item.addr1 }"/></div>
+														<div>
+															<c:out value="${item.addr1 }" />
+														</div>
 														<!-- Amenities -->
 														<ul class="nav nav-divider mt-2">
 															<li class="nav-item">Air Conditioning</li>
@@ -201,9 +202,26 @@
 								<ul
 									class="pagination pagination-template d-flex justify-content-center">
 									<div class="pagination">
-										<a href="#">&laquo;</a> <a href="#" class="active">1</a> <a
-											href="#">2</a> <a href="#">3</a> <a href="#">4</a> <a
-											href="#">5</a> <a href="#">&raquo;</a>
+										<!-- 처음 페이지 -->
+										<button onclick="movePage(1)">&laquo;</button>
+										<!-- 이전 페이지 -->
+										<button onclick="movePage(${pageInfo.prevPage})">&lsaquo;</button>
+
+										<!-- 10개 페이지가 보여지는 부분 -->
+										<c:forEach begin="${pageInfo.startPage}"
+											end="${pageInfo.endPage}" varStatus="status" step="1">
+											<c:if test="${status.current == pageInfo.currentPage}">
+												<button disabled>${status.current}</button>
+											</c:if>
+											<c:if test="${status.current != pageInfo.currentPage}">
+												<button onclick="movePage(${status.current})">
+													${status.current}</button>
+											</c:if>
+										</c:forEach>
+										<!-- 다음 페이지 -->
+										<button onclick="movePage(${pageInfo.nextPage})">&rsaquo;</button>
+										<!-- 마지막 페이지 -->
+										<button onclick="movePage(${pageInfo.maxPage})">&raquo;</button>
 									</div>
 								</ul>
 							</nav>

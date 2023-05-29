@@ -26,8 +26,19 @@ public class DetailController {
 	public String list(Model model, @RequestParam Map<String, Object> param) {
 		log.info("search list 요청, param : " + param);
 		int page = 1;
+		
+		
+		
+		
+		
+		int accmCount = service.getAccmCount(param);
 		List<Accommodation> accmList = service.selectAccmAll();
+		PageInfo pageInfo = new PageInfo(page, 10, accmCount, 10); // 게시글이 보여지는 갯수 = 10
+		
+		
 		model.addAttribute("accmList",accmList);
+		model.addAttribute("param", param);
+		model.addAttribute("pageInfo", pageInfo);
 		return "/accom/search";
 		
 	}

@@ -5,6 +5,12 @@
 	<select id="selectAccmAll" resultType="Accommodation">
 		SELECT * FROM accommodation
 	</select>
+	
+	<select id="selectAccmCount" parameterType="map" resultType="int">
+		SELECT
+			COUNT(*)
+		FROM accommodation
+	</select>
 
 </mapper>
 
