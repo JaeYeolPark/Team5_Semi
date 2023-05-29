@@ -27,13 +27,13 @@
           </div>
         </div>
         <div class="swiper-slide bg-cover dark-overlay"
-          style="background-image: url('${path}/resources/img/3820151202200004k_Uiamho_Lake.jpg');">
+          style="background-image: url('${path}/resources/img/3820151202200004k_Uiamho__Lake.jpg');">
           <div class="container h-100" style="display:flex; justify-content:center; align-items:center;">
             <h2 class="d-flex h-100 text-white overlay-content align-items-center display-1 mb-3 title">CHUNCHEON</h2>
           </div>
         </div>
         <div class="swiper-slide bg-cover dark-overlay bg-cover-right"
-          style="background-image: url('${path}/resources/img/3820151202200007k_Wiyangji Reservoir.jpg');">
+          style="background-image: url('${path}/resources/img/3820151202200007k_Wiyangji_Reservoir.jpg');">
           <div class="container h-100" style="display:flex; justify-content:center; align-items:center;">
             <h2 class="d-flex h-100 text-white overlay-content align-items-center display-1 mb-3 title">MIRYANG</h2>
           </div>
@@ -77,99 +77,88 @@
         <div class="row">
           <div class="col-6 col-lg-4 col-xl-3 px-0">
             <div class="d-flex align-items-center dark-overlay hover-scale-bg-image" style="min-height: 400px;"><img
-                class="bg-image" src="${path}/resources/img/photo/kathmandu.jpg" alt="">
+                class="bg-image" src="${path}/resources/img/3820146201800030k_Journey of Mysterious Island.jpg" alt="">
               <div class="p-3 p-sm-5 text-white z-index-20">
-                <h4 class="h2">Kathmandu</h4>
-                <p class="mb-4">Spirituality &amp; mountains</p><a
-                  class="btn btn-link text-reset ps-0 stretched-link text-decoration-none" href="#">Take me there<i
+                <h4 class="h2">강원도</h4>
+                <p class="mb-4">새로운 강원도! 특별 자치시대!</p><a
+                  class="btn btn-link text-reset ps-0 stretched-link text-decoration-none" href="#">자세히 보기<i
                     class="fa fa-chevron-right ms-2"></i></a>
               </div>
             </div>
           </div>
           <div class="col-6 col-lg-4 col-xl-3 px-0">
             <div class="d-flex align-items-center dark-overlay hover-scale-bg-image" style="min-height: 400px;"><img
-                class="bg-image" src="${path}/resources/img/photo/medellin.jpg" alt="">
+                class="bg-image" src="${path}/resources/img/3820143201500066k_남한산성+일출.jpg" alt="">
               <div class="p-3 p-sm-5 text-white z-index-20">
-                <h4 class="h2">Medellín</h4>
-                <p class="mb-4">Tropical paradise</p><a
-                  class="btn btn-link text-reset ps-0 stretched-link text-decoration-none" href="#">Take me there<i
+                <h4 class="h2">경기도</h4>
+                <p class="mb-4">변화의 중심 기회의 경기</p><a
+                  class="btn btn-link text-reset ps-0 stretched-link text-decoration-none" href="#">자세히 보기<i
                     class="fa fa-chevron-right ms-2"></i></a>
               </div>
             </div>
           </div>
           <div class="col-6 col-lg-4 col-xl-3 px-0">
             <div class="d-flex align-items-center dark-overlay hover-scale-bg-image" style="min-height: 400px;"><img
-                class="bg-image" src="${path}/resources/img/photo/bangkok.jpg" alt="">
+                class="bg-image" src="${path}/resources/img/3820150202100016k_Morning_in_Wiyangmot_Reservoir.jpg" alt="">
               <div class="p-3 p-sm-5 text-white z-index-20">
-                <h4 class="h2">Bangkok</h4>
-                <p class="mb-4">Temples and street food</p><a
-                  class="btn btn-link text-reset ps-0 stretched-link text-decoration-none" href="#">Take me there<i
+                <h4 class="h2">경상남도</h4>
+                <p class="mb-4">Bravo Gyeongnam</p><a
+                  class="btn btn-link text-reset ps-0 stretched-link text-decoration-none" href="#">자세히 보기<i
                     class="fa fa-chevron-right ms-2"></i></a>
               </div>
             </div>
           </div>
           <div class="col-6 col-lg-4 col-xl-3 px-0">
             <div class="d-flex align-items-center dark-overlay hover-scale-bg-image" style="min-height: 400px;"><img
-                class="bg-image" src="${path}/resources/img/photo/kyoto.jpg" alt="">
+                class="bg-image" src="${path}/resources/img/3820151202200043m_HwangNyongWon.jpg" alt="">
               <div class="p-3 p-sm-5 text-white z-index-20">
-                <h4 class="h2">Kyoto</h4>
-                <p class="mb-4">Imperial capital</p><a
-                  class="btn btn-link text-reset ps-0 stretched-link text-decoration-none" href="#">Take me there<i
+                <h4 class="h2">경상북도</h4>
+                <p class="mb-4">경북의 힘으로 새로운 대한민국</p><a
+                  class="btn btn-link text-reset ps-0 stretched-link text-decoration-none" href="#">자세히 보기<i
                     class="fa fa-chevron-right ms-2"></i></a>
               </div>
             </div>
           </div>
           <div class="col-6 col-lg-4 col-xl-3 px-0">
             <div class="d-flex align-items-center dark-overlay hover-scale-bg-image" style="min-height: 400px;"><img
-                class="bg-image" src="${path}/resources/img/photo/los-angeles.jpg" alt="">
+                class="bg-image" src="${path}/resources/img/3820146201800024k_The Verdant Cheongwansan Mountain.jpg" alt="">
               <div class="p-3 p-sm-5 text-white z-index-20">
-                <h4 class="h2">Los Angeles</h4>
-                <p class="mb-4">City of angeles</p><a
-                  class="btn btn-link text-reset ps-0 stretched-link text-decoration-none" href="#">Take me there<i
+                <h4 class="h2">전라남도</h4>
+                <p class="mb-4">생명의 땅 으뜸 전남</p><a
+                  class="btn btn-link text-reset ps-0 stretched-link text-decoration-none" href="#">자세히 보기<i
                     class="fa fa-chevron-right ms-2"></i></a>
               </div>
             </div>
           </div>
           <div class="col-6 col-lg-4 col-xl-3 px-0">
             <div class="d-flex align-items-center dark-overlay hover-scale-bg-image" style="min-height: 400px;"><img
-                class="bg-image" src="${path}/resources/img/photo/london.jpg" alt="">
+                class="bg-image" src="${path}/resources/img/3820146201800016k_The Beginning of Gyehwado Island.jpg" alt="">
               <div class="p-3 p-sm-5 text-white z-index-20">
-                <h4 class="h2">London</h4>
-                <p class="mb-4">Galleries and shopping</p><a
-                  class="btn btn-link text-reset ps-0 stretched-link text-decoration-none" href="#">Take me there<i
+                <h4 class="h2">전라북도</h4>
+                <p class="mb-4">함께 혁신, 함께 성공, 새로운 전북</p><a
+                  class="btn btn-link text-reset ps-0 stretched-link text-decoration-none" href="#">자세히 보기<i
                     class="fa fa-chevron-right ms-2"></i></a>
               </div>
             </div>
           </div>
           <div class="col-6 col-lg-4 col-xl-3 px-0">
             <div class="d-flex align-items-center dark-overlay hover-scale-bg-image" style="min-height: 400px;"><img
-                class="bg-image" src="${path}/resources/img/photo/madrid.jpg" alt="">
+                class="bg-image" src="${path}/resources/img/3820146201800007k_Fallen Blossoms.jpg" alt="">
               <div class="p-3 p-sm-5 text-white z-index-20">
-                <h4 class="h2">Madrid</h4>
-                <p class="mb-4">Aquí no hay playa</p><a
-                  class="btn btn-link text-reset ps-0 stretched-link text-decoration-none" href="#">Take me there<i
+                <h4 class="h2">충청남도</h4>
+                <p class="mb-4">힘쎈 충남, 대한민국의 힘</p><a
+                  class="btn btn-link text-reset ps-0 stretched-link text-decoration-none" href="#">자세히 보기<i
                     class="fa fa-chevron-right ms-2"></i></a>
               </div>
             </div>
           </div>
           <div class="col-6 col-lg-4 col-xl-3 px-0">
             <div class="d-flex align-items-center dark-overlay hover-scale-bg-image" style="min-height: 400px;"><img
-                class="bg-image" src="${path}/resources/img/photo/havana.jpg" alt="">
+                class="bg-image" src="${path}/resources/img/3820146201800100k_Autumn on Oksunbong Peak.jpg" alt="">
               <div class="p-3 p-sm-5 text-white z-index-20">
-                <h4 class="h2">Havana</h4>
-                <p class="mb-4">La Havana</p><a class="btn btn-link text-reset ps-0 stretched-link text-decoration-none"
-                  href="#">Take me there<i class="fa fa-chevron-right ms-2"></i></a>
-              </div>
-            </div>
-          </div>
-          <div class="col-6 col-lg-4 col-xl-3 px-0 d-none d-lg-block d-xl-none">
-            <div class="d-flex align-items-center dark-overlay hover-scale-bg-image" style="min-height: 400px;"><img
-                class="bg-image" src="${path}/resources/img/photo/barcelona.jpg" alt="">
-              <div class="p-3 p-sm-5 text-white z-index-20">
-                <h4 class="h2">Barcelona</h4>
-                <p class="mb-4">Dalí, Gaudí, Barrio Gotico</p><a
-                  class="btn btn-link text-reset ps-0 stretched-link text-decoration-none" href="#">Take me there<i
-                    class="fa fa-chevron-right ms-2"></i></a>
+                <h4 class="h2">충청북도</h4>
+                <p class="mb-4">생명과 태양의 땅 충북</p><a class="btn btn-link text-reset ps-0 stretched-link text-decoration-none"
+                  href="#">자세히 보기<i class="fa fa-chevron-right ms-2"></i></a>
               </div>
             </div>
           </div>

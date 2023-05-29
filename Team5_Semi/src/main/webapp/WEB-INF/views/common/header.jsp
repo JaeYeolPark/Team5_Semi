@@ -65,6 +65,10 @@
     body {
       font-family: SUITE;
     }
+    
+    h1{
+    	font-family: SUITE;
+    }
 
     /* css파일에서 직접 바꿔야 적용됨 */
     /* .navbar .nav-link {
