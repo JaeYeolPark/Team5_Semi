@@ -27,7 +27,7 @@
           </div>
         </div>
         <div class="swiper-slide bg-cover dark-overlay"
-          style="background-image: url('${path}/resources/img/3820151202200004k_Uiamho__Lake.jpg');">
+          style="background-image: url('${path}/resources/img/3820151202200004k_Uiamho Lake.jpg');">
           <div class="container h-100" style="display:flex; justify-content:center; align-items:center;">
             <h2 class="d-flex h-100 text-white overlay-content align-items-center display-1 mb-3 title">CHUNCHEON</h2>
           </div>
