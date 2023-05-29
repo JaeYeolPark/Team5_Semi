@@ -27,6 +27,7 @@ public class HomeController {
 	public String home(Locale locale, Model model) {
 //		log.info("@@@@@@@@@@@ selectAll : " + memberService.findAll());
 		
+		System.out.println("git test");
 		model.addAttribute("list", service.selectAccmAll());
 		
 		return "main";
