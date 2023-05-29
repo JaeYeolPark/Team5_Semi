@@ -144,255 +144,54 @@
 						<!-- 숙소 검색 결과 시작 -->
 						<div class="col-xl-8 col-xxl-9">
 							<div class="vstack gap-4">
-
-								<!-- 검색 결과 카드 시작 -->
-									<div class="card shadow p-2">
-										<div class="row g-0">
-											<!-- 카드 이미지 -->
-											<div class="col-md-4" style="width: 300px;">
-												<img
-													src="http://tong.visitkorea.or.kr/cms/resource_photo/71/2618171_image3_1.jpg"
-													class="card-img rounded-2" alt="Card image">
-											</div>
-											<!-- 카드 오른쪽 글 -->
-											<div class="col-md-8" style="padding-left: 20px;">
-												<div class="card-body py-md-2 d-flex flex-column h-100">
-													<!-- 각 숙소 이름 주소 -->
-													<h4 class="card-title mt-2 mb-3" style="color: #3f8ace;">
-														<a href="hotel-detail.html">한화리조트 설악 쏘라노</a>
-													</h4>
-													<div>강원 속초시 미시령로2983번길 111</div>
-													<!-- Amenities -->
-													<ul class="nav nav-divider mt-2">
-														<li class="nav-item">Air Conditioning</li>
-														<li class="nav-item">Wifi</li>
-														<li class="nav-item">Kitchen</li>
-														<li class="nav-item">Pool</li>
-													</ul>
-													<!-- 가격정보 -->
-													<div
-														class="d-sm-flex justify-content-sm-between align-items-center mt-3 mt-md-auto">
-														<!-- Button -->
-														<div class="d-flex align-items-center">
-															<h3 class="fw-bold mb-2 me-1">200,000원</h3>
-															<span class="mb-0 me-2"> / 1박</span>
+								<c:if test="${!empty accmList}">
+									<c:forEach var="item" items="${accmList }">
+										<!-- 검색 결과 카드 시작 -->
+										<div class="card shadow p-2">
+											<div class="row g-0">
+												<!-- 카드 이미지 -->
+												<div class="col-md-4" style="width: 300px;">
+													<img
+														src="${item.firstimage }"
+														class="card-img rounded-2" alt="Card image">
+												</div>
+												<!-- 카드 오른쪽 글 -->
+												<div class="col-md-8" style="padding-left: 20px;">
+													<div class="card-body py-md-2 d-flex flex-column h-100">
+														<!-- 각 숙소 이름 주소 -->
+														<h4 class="card-title mt-2 mb-3" style="color: #3f8ace;">
+															<a href="hotel-detail.html">
+																<c:out value="${item.title }"/>
+															</a>
+														</h4>
+														<div><c:out value="${item.addr1 }"/></div>
+														<!-- Amenities -->
+														<ul class="nav nav-divider mt-2">
+															<li class="nav-item">Air Conditioning</li>
+															<li class="nav-item">Wifi</li>
+															<li class="nav-item">Kitchen</li>
+															<li class="nav-item">Pool</li>
+														</ul>
+														<!-- 가격정보 -->
+														<div
+															class="d-sm-flex justify-content-sm-between align-items-center mt-3 mt-md-auto">
+															<!-- Button -->
+															<div class="d-flex align-items-center">
+																<h3 class="fw-bold mb-2 me-1">200,000원</h3>
+																<span class="mb-0 me-2"> / 1박</span>
+															</div>
+															<!-- 숙소보기 버튼 -->
+															<div class="mt-3">
+																<a href="hotel-detail.html"
+																	class="btn btn-primary h-100" type="submit">숙소보기</a>
+															</div>
 														</div>
-														<!-- 숙소보기 버튼 -->
-														<div class="mt-3">
-															<a href="hotel-detail.html" class="btn btn-primary h-100"
-																type="submit">숙소보기</a>
-														</div>
 													</div>
 												</div>
 											</div>
 										</div>
-									</div>
-									
-								<div class="card shadow p-2">
-									<div class="row g-0">
-										<!-- 카드 이미지 -->
-										<div class="col-md-4" style="width: 300px;">
-											<img
-												src="http://tong.visitkorea.or.kr/cms/resource_photo/71/2618171_image3_1.jpg"
-												class="card-img rounded-2" alt="Card image">
-										</div>
-										<!-- 카드 오른쪽 글 -->
-										<div class="col-md-8" style="padding-left: 20px;">
-											<div class="card-body py-md-2 d-flex flex-column h-100">
-												<!-- 각 숙소 이름 주소 -->
-												<h4 class="card-title mt-2 mb-3">
-													<a href="hotel-detail.html">한화리조트 설악 쏘라노</a>
-												</h4>
-												<div>강원 속초시 미시령로2983번길 111</div>
-												<!-- Amenities -->
-												<ul class="nav nav-divider mt-2">
-													<li class="nav-item">Air Conditioning</li>
-													<li class="nav-item">Wifi</li>
-													<li class="nav-item">Kitchen</li>
-													<li class="nav-item">Pool</li>
-												</ul>
-												<!-- 가격정보 -->
-												<div
-													class="d-sm-flex justify-content-sm-between align-items-center mt-3 mt-md-auto">
-													<!-- Button -->
-													<div class="d-flex align-items-center">
-														<h3 class="fw-bold mb-2 me-1">200,000원</h3>
-														<span class="mb-0 me-2"> / 1박</span>
-													</div>
-													<!-- 숙소보기 버튼 -->
-													<div class="mt-3">
-														<a href="hotel-detail.html" class="btn btn-primary h-100"
-															type="submit">숙소보기</a>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="card shadow p-2">
-									<div class="row g-0">
-										<!-- 카드 이미지 -->
-										<div class="col-md-4" style="width: 300px;">
-											<img
-												src="http://tong.visitkorea.or.kr/cms/resource_photo/71/2618171_image3_1.jpg"
-												class="card-img rounded-2" alt="Card image">
-										</div>
-										<!-- 카드 오른쪽 글 -->
-										<div class="col-md-8" style="padding-left: 20px;">
-											<div class="card-body py-md-2 d-flex flex-column h-100">
-												<!-- 각 숙소 이름 주소 -->
-												<h4 class="card-title mt-2 mb-3">
-													<a href="hotel-detail.html">한화리조트 설악 쏘라노</a>
-												</h4>
-												<div>강원 속초시 미시령로2983번길 111</div>
-												<!-- Amenities -->
-												<ul class="nav nav-divider mt-2">
-													<li class="nav-item">Air Conditioning</li>
-													<li class="nav-item">Wifi</li>
-													<li class="nav-item">Kitchen</li>
-													<li class="nav-item">Pool</li>
-												</ul>
-												<!-- 가격정보 -->
-												<div
-													class="d-sm-flex justify-content-sm-between align-items-center mt-3 mt-md-auto">
-													<!-- Button -->
-													<div class="d-flex align-items-center">
-														<h3 class="fw-bold mb-2 me-1">200,000원</h3>
-														<span class="mb-0 me-2"> / 1박</span>
-													</div>
-													<!-- 숙소보기 버튼 -->
-													<div class="mt-3">
-														<a href="hotel-detail.html" class="btn btn-primary h-100"
-															type="submit">숙소보기</a>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="card shadow p-2">
-									<div class="row g-0">
-										<!-- 카드 이미지 -->
-										<div class="col-md-4" style="width: 300px;">
-											<img
-												src="http://tong.visitkorea.or.kr/cms/resource_photo/71/2618171_image3_1.jpg"
-												class="card-img rounded-2" alt="Card image">
-										</div>
-										<!-- 카드 오른쪽 글 -->
-										<div class="col-md-8" style="padding-left: 20px;">
-											<div class="card-body py-md-2 d-flex flex-column h-100">
-												<!-- 각 숙소 이름 주소 -->
-												<h4 class="card-title mt-2 mb-3">
-													<a href="hotel-detail.html">한화리조트 설악 쏘라노</a>
-												</h4>
-												<div>강원 속초시 미시령로2983번길 111</div>
-												<!-- Amenities -->
-												<ul class="nav nav-divider mt-2">
-													<li class="nav-item">Air Conditioning</li>
-													<li class="nav-item">Wifi</li>
-													<li class="nav-item">Kitchen</li>
-													<li class="nav-item">Pool</li>
-												</ul>
-												<!-- 가격정보 -->
-												<div
-													class="d-sm-flex justify-content-sm-between align-items-center mt-3 mt-md-auto">
-													<!-- Button -->
-													<div class="d-flex align-items-center">
-														<h3 class="fw-bold mb-2 me-1">200,000원</h3>
-														<span class="mb-0 me-2"> / 1박</span>
-													</div>
-													<!-- 숙소보기 버튼 -->
-													<div class="mt-3">
-														<a href="hotel-detail.html" class="btn btn-primary h-100"
-															type="submit">숙소보기</a>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="card shadow p-2">
-									<div class="row g-0">
-										<!-- 카드 이미지 -->
-										<div class="col-md-4" style="width: 300px;">
-											<img
-												src="http://tong.visitkorea.or.kr/cms/resource_photo/71/2618171_image3_1.jpg"
-												class="card-img rounded-2" alt="Card image">
-										</div>
-										<!-- 카드 오른쪽 글 -->
-										<div class="col-md-8" style="padding-left: 20px;">
-											<div class="card-body py-md-2 d-flex flex-column h-100">
-												<!-- 각 숙소 이름 주소 -->
-												<h4 class="card-title mt-2 mb-3">
-													<a href="hotel-detail.html">한화리조트 설악 쏘라노</a>
-												</h4>
-												<div>강원 속초시 미시령로2983번길 111</div>
-												<!-- Amenities -->
-												<ul class="nav nav-divider mt-2">
-													<li class="nav-item">Air Conditioning</li>
-													<li class="nav-item">Wifi</li>
-													<li class="nav-item">Kitchen</li>
-													<li class="nav-item">Pool</li>
-												</ul>
-												<!-- 가격정보 -->
-												<div
-													class="d-sm-flex justify-content-sm-between align-items-center mt-3 mt-md-auto">
-													<!-- Button -->
-													<div class="d-flex align-items-center">
-														<h3 class="fw-bold mb-2 me-1">200,000원</h3>
-														<span class="mb-0 me-2"> / 1박</span>
-													</div>
-													<!-- 숙소보기 버튼 -->
-													<div class="mt-3">
-														<a href="hotel-detail.html" class="btn btn-primary h-100"
-															type="submit">숙소보기</a>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="card shadow p-2">
-									<div class="row g-0">
-										<!-- 카드 이미지 -->
-										<div class="col-md-4" style="width: 300px;">
-											<img
-												src="http://tong.visitkorea.or.kr/cms/resource_photo/71/2618171_image3_1.jpg"
-												class="card-img rounded-2" alt="Card image">
-										</div>
-										<!-- 카드 오른쪽 글 -->
-										<div class="col-md-8" style="padding-left: 20px;">
-											<div class="card-body py-md-2 d-flex flex-column h-100">
-												<!-- 각 숙소 이름 주소 -->
-												<h4 class="card-title mt-2 mb-3">
-													<a href="hotel-detail.html">한화리조트 설악 쏘라노</a>
-												</h4>
-												<div>강원 속초시 미시령로2983번길 111</div>
-												<!-- Amenities -->
-												<ul class="nav nav-divider mt-2">
-													<li class="nav-item">Air Conditioning</li>
-													<li class="nav-item">Wifi</li>
-													<li class="nav-item">Kitchen</li>
-													<li class="nav-item">Pool</li>
-												</ul>
-												<!-- 가격정보 -->
-												<div
-													class="d-sm-flex justify-content-sm-between align-items-center mt-3 mt-md-auto">
-													<!-- Button -->
-													<div class="d-flex align-items-center">
-														<h3 class="fw-bold mb-2 me-1">200,000원</h3>
-														<span class="mb-0 me-2"> / 1박</span>
-													</div>
-													<!-- 숙소보기 버튼 -->
-													<div class="mt-3">
-														<a href="hotel-detail.html" class="btn btn-primary h-100"
-															type="submit">숙소보기</a>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
+									</c:forEach>
+								</c:if>
 								<!-- Card item END -->
 							</div>
 							<br> <br>
