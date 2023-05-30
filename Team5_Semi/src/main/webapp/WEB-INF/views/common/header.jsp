@@ -106,7 +106,7 @@
           '    <nav class="navbar navbar-expand-lg fixed-top shadow navbar-dark"' +
           '      style="background-color: #9dc3e6; padding: 5px 5px;">' +
           '      <div class="container-fluid">' +
-          '        <div class="d-flex align-items-center"><a class="navbar-brand py-1" href="#"><img src="${path}/resources/img/logo.png" alt="logo"' +
+          '        <div class="d-flex align-items-center"><a class="navbar-brand py-1" href="${path}"><img src="${path}/resources/img/logo.png" alt="logo"' +
           '              width="130px" height="55px"></a>' +
           '        </div>' +
           '        <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse"' +
@@ -139,7 +139,7 @@
           '    <nav class="navbar navbar-expand-lg fixed-top shadow navbar-dark"' +
           '      style="background-color: #9dc3e6; padding: 5px 5px;">' +
           '      <div class="container-fluid">' +
-          '        <div class="d-flex align-items-center"><a class="navbar-brand py-1" href="#"><img src="${path}/resources/img/logo.png" alt="logo"' +
+          '        <div class="d-flex align-items-center"><a class="navbar-brand py-1" href="${path}"><img src="${path}/resources/img/logo.png" alt="logo"' +
           '              width="130px" height="55px"></a>' +
           '        </div>' +
           '        <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse"' +
