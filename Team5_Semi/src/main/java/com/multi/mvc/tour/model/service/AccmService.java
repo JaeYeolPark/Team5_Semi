@@ -25,10 +25,15 @@ public class AccmService {
 		return mapper.selectAccmCount(param);
 	}
 	
-	public List<Accommodation> getBoardList(PageInfo pageInfo, Map<String, Object> param) {
+	public List<Accommodation> getAccmList(PageInfo pageInfo, Map<String, Object> param) {
 		param.put("limit", pageInfo.getListLimit());
 		param.put("offset", (pageInfo.getStartList() - 1));
-		return mapper.selectAccmAll();
+		return mapper.selectAccmList(param);
+	}
+
+	public Accommodation findByContentId(int id) {
+		Accommodation accm = mapper.findByContentId(id);
+		return accm;
 	}
 	
 }

@@ -117,7 +117,7 @@
           '           <ul class="navbar-nav" style="margin: auto;>' +
           '            <div style="display: flex; >' +
           '              <li class="nav-item"><a class="nav-link" href="#">여행정보</a></li>' +
-          '              <li class="nav-item"><a class="nav-link" href="${path}/accom/search">숙박</a></li>' +
+          '              <li class="nav-item"><a class="nav-link" href="${path}/accm/search">숙박</a></li>' +
           '              <li class="nav-item"><a class="nav-link" href="#">음식점</a></li>' +
           '              <li class="nav-item"><a class="nav-link" href="#">관광지</a></li>' +
           '              <li class="nav-item dropdown"><a class="nav-link dropdown-toggle " id="docsDropdownMenuLink" href="#"' +
@@ -150,7 +150,7 @@
           '          <ul class="navbar-nav" style="margin: auto; >' +
           '            <div style="display: flex;" >' +
           '              <li class="nav-item"><a class="nav-link" href="#">여행정보</a></li>' +
-          '              <li class="nav-item"><a class="nav-link" href="#">숙박</a></li>' +
+          '              <li class="nav-item"><a class="nav-link" href="${path}/accm/search">숙박</a></li>' +
           '              <li class="nav-item"><a class="nav-link" href="#">음식점</a></li>' +
           '              <li class="nav-item"><a class="nav-link" href="#">관광지</a></li>' +
           '              <li class="nav-item dropdown"><a class="nav-link dropdown-toggle " id="docsDropdownMenuLink" href="#"' +

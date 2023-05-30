@@ -5,12 +5,13 @@ import java.util.Map;
 
 import org.apache.ibatis.annotations.Mapper;
 
+import com.multi.mvc.board.model.vo.Board;
 import com.multi.mvc.tour.model.vo.Accommodation;
 
 @Mapper
 public interface AccmMapper {
 	List<Accommodation> selectAccmAll();
 	int selectAccmCount(Map<String, Object> map);
-	
-
+	List<Accommodation> selectAccmList(Map<String, Object> map);
+	Accommodation findByContentId(int id);
 }
