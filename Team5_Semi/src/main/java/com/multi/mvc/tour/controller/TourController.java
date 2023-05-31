@@ -29,16 +29,12 @@ public class TourController {
 		
 		// TODO - 검색창연결할것!
 		try {
-//			if(param.get("searchType") != null) {
-//				param.put((String) param.get("searchType"), param.get("searchValue"));
-//				// title - 아이폰
-//				// content - 삽니다
-//			}
-			
+			if(param.get("searchValue") != null) {
+				param.put((String) param.get("selectAreaCode"), param.get("searchValue"));
+			}
 			// page 파라메터를 숫자로 바꿔주는 코드, 항상 try 끝에 존재해야한다.
 			page = Integer.parseInt((String) param.get("page")); 
 		} catch (Exception e) {}
-		
 		
 		
 		int accmCount = service.getAccmCount(param);
@@ -49,7 +45,6 @@ public class TourController {
 		model.addAttribute("param", param);
 		model.addAttribute("pageInfo", pageInfo);
 		return "/accm/search";
-		
 	}
 	
 	

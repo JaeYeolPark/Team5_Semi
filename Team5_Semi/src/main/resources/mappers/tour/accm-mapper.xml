@@ -58,19 +58,36 @@
 		SELECT * FROM accommodation
 	</select>
 	
+	<!-- 숙소 갯수 -->
 	<select id="selectAccmCount" parameterType="map" resultType="int">
 		SELECT
 			COUNT(*)
-		FROM accommodation
+		FROM accommodation as A
+		WHERE 1 = 1
+		<if test="selectAreaCode != null and selectAreaCode != ''">
+			AND A.AREACODE LIKE ${selectAreaCode}
+		</if>
+		<if test="searchValue != null">
+			AND A.TITLE LIKE '%${searchValue}%'
+		</if>
 	</select>
 	
+	<!-- 숙소 검색 -->
 	<select id="selectAccmList" parameterType="map" resultMap="accmResultMap">
 		SELECT 
 			*
 		FROM accommodation as A
+		WHERE 1 = 1
+		<if test="searchValue != null">
+			AND A.TITLE LIKE '%${searchValue}%'
+		</if>
+		<if test="selectAreaCode != null and selectAreaCode != ''">
+			AND A.AREACODE LIKE ${selectAreaCode}
+		</if>
 		ORDER BY A.contentid DESC LIMIT ${limit} OFFSET ${offset}
 	</select>
 	
+	<!-- 숙소 contentId로 찾아오기 -->
 	<select id="findByContentId" parameterType="int" resultMap="accmResultMap">
 		SELECT
 			*

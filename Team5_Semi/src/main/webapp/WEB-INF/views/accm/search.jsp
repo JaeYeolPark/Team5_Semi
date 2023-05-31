@@ -13,6 +13,7 @@
 </style>
 
 <jsp:include page="/WEB-INF/views/common/header.jsp" />
+<c:set var="selectAreaCode" value="${param.selectAreaCode}"/>
 
 <div>
 	<section class="d-flex align-items-center dark-overlay bg-cover"
@@ -27,31 +28,28 @@
 			</div>
 		</div>
 	</section>
+	
+	<!-- 검색창 -->
 	<div class="container">
-		<div
-			class="search-bar rounded p-3 p-lg-4 position-relative mt-n5 z-index-20">
+		<div class="search-bar rounded p-3 p-lg-4 position-relative mt-n5 z-index-20">
 			<form name="searchForm" action="${path }/accm/search" method="get">
 				<input type="hidden" name="page" value="1">
 				<div class="row">
-					<div class="col-lg-4 d-flex align-items-center form-group"
-						style="width: 840px;">
-						<input class="form-control border-0 shadow-0" type="text"
-							name="searchValue" placeholder="검색어를 입력하세요"
-							value="${param.searchValue}" />
+					<div class="col-lg-4 d-flex align-items-center form-group" style="width: 840px;">
+						<input class="form-control border-0 shadow-0" type="text" 
+						name="searchValue" placeholder="검색어를 입력하세요" value="${param.searchValue}" />
 					</div>
-					<div
-						class="col-md-6 col-lg-3 d-flex align-items-center form-group no-divider"
-						style="width: 200px;">
-						<select class="selectpicker" title="지역"
-							data-style="btn-form-control">
-							<option value="small">강원도</option>
-							<option value="medium">경기도</option>
-							<option value="large">경상남도</option>
-							<option value="large">경상북도</option>
-							<option value="large">전라남도</option>
-							<option value="large">전라북도</option>
-							<option value="large">충청남도</option>
-							<option value="large">충청북도</option>
+					<div class="col-md-6 col-lg-3 d-flex align-items-center form-group no-divider" style="width: 200px;">
+						<select class="selectpicker" id="selectAreaCode" name="selectAreaCode" data-style="btn-form-control" title="지역 선택">
+							<option value="" ${selectAreaCode == '' ? 'selected' : '' }>전체</option>
+							<option value="32" ${selectAreaCode == '32' ? 'selected' : '' }>강원도</option>
+							<option value="31" ${selectAreaCode == '31' ? 'selected' : '' }>경기도</option>
+							<option value="36" ${selectAreaCode == '36' ? 'selected' : '' }>경상남도</option>
+							<option value="35" ${selectAreaCode == '35' ? 'selected' : '' }>경상북도</option>
+							<option value="38" ${selectAreaCode == '38' ? 'selected' : '' }>전라남도</option>
+							<option value="37" ${selectAreaCode == '37' ? 'selected' : '' }>전라북도</option>
+							<option value="33" ${selectAreaCode == '33' ? 'selected' : '' }>충청남도</option>
+							<option value="34" ${selectAreaCode == '34' ? 'selected' : '' }>충청북도</option>
 						</select>
 					</div>
 					<div class="col-lg-2 form-group d-grid mb-0">
@@ -61,6 +59,7 @@
 			</form>
 		</div>
 	</div>
+	
 	<div class="swiper-pagination swiper-pagination-white"></div>
 	<div class="swiper-nav d-none d-lg-block">
 		<div class="swiper-button-prev" id="homePrev"></div>
@@ -153,7 +152,12 @@
 						<!-- 숙소 검색 결과 시작 -->
 						<div class="col-xl-8 col-xxl-9">
 							<div class="vstack gap-4">
-								<c:if test="${!empty accmList}">
+								<c:if test="${empty accmList}">
+									<tr>
+										<td colspan="6">조회된 글이 없습니다.</td>
+									</tr>
+								</c:if>
+								<c:if test="${not empty accmList}">
 									<c:forEach var="item" items="${accmList }">
 										<!-- 검색 결과 카드 시작 -->
 										<div class="card shadow p-2">
@@ -201,6 +205,7 @@
 										</div>
 									</c:forEach>
 								</c:if>
+								
 								<!-- Card item END -->
 							</div>
 							<br> <br>
@@ -266,3 +271,4 @@
 		searchForm.submit();
 	}
 </script>
+ 
