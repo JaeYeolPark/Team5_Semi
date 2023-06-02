@@ -8,12 +8,14 @@ import java.util.Map;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.vote.AbstractAccessDecisionManager;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.server.i18n.AcceptHeaderLocaleContextResolver;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -22,30 +24,25 @@ import lombok.extern.slf4j.Slf4j;
 @Controller
 public class KaKaoController {
 
-	@RequestMapping("/kakaoMap1")
-	String kakaoMap1(Model model) {
-		List<MapInfo> mapList = new ArrayList<>();
-		mapList.add(new MapInfo("카카오","제주시 어쩌구",33.450705,126.570677));
-		mapList.add(new MapInfo("생태연못","제주시 어쩌구",33.450936,126.569477));
-		mapList.add(new MapInfo("텃밭","제주시 어쩌구",33.450879,126.569940));
-		mapList.add(new MapInfo("근린공원","제주시 어쩌구",33.451393,126.570738));
-
-		double x = 0.0;
-		double y = 0.0;
-		for(MapInfo map : mapList ) {
-			x += map.getX();
-			y += map.getY();
-		}
+	@RequestMapping("/kakaoMap")
+	String kakaoMap1(Model model, @RequestParam Map<String, Object> param) {
+		String title = (String) param.get("title");
+		String addr = (String) param.get("addr1");
+		addr += (String) param.get("addr2");
 		
-		x = x / mapList.size();
-		y = y / mapList.size();
+		double x = Double.parseDouble((String) param.get("mapx"));
+		double y = Double.parseDouble((String) param.get("mapy"));
 		
-		model.addAttribute("mapList",mapList);
+		MapInfo mapMarker = new MapInfo(title, addr, x, y);
+		System.out.println(mapMarker);
+		
+		model.addAttribute("mapMarker",mapMarker);
 		model.addAttribute("x", x);
 		model.addAttribute("y", y);
 		return "/kakao/kakaoMap1"; 
 	}
 	
+
 	@RequestMapping("/kakaoMap2")
 	String kakaoMap2(Model model) {
 		List<MapInfo> mapList = new ArrayList<>();

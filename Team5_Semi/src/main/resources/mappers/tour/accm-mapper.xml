@@ -67,6 +67,13 @@
 		<if test="selectAreaCode != null and selectAreaCode != ''">
 			AND A.AREACODE LIKE ${selectAreaCode}
 		</if>
+		<if test="hotelType != null">
+			AND (
+				<foreach collection="hotelType" item="item" separator="or">
+					A.cat3 LIKE '%${item}%'
+				</foreach>
+			)
+		</if>
 		<if test="searchValue != null">
 			AND A.TITLE LIKE '%${searchValue}%'
 		</if>
@@ -80,6 +87,13 @@
 		WHERE 1 = 1
 		<if test="searchValue != null">
 			AND A.TITLE LIKE '%${searchValue}%'
+		</if>
+		<if test="hotelType != null">
+			AND (
+				<foreach collection="hotelType" item="item" separator="or">
+					A.cat3 LIKE '%${item}%'
+				</foreach>
+			)
 		</if>
 		<if test="selectAreaCode != null and selectAreaCode != ''">
 			AND A.AREACODE LIKE ${selectAreaCode}

@@ -11,36 +11,45 @@
 	cursor: default;
 }
 </style>
+<form name="searchForm" action="${path }/accm/search" method="get">
 
-<jsp:include page="/WEB-INF/views/common/header.jsp" />
-<c:set var="selectAreaCode" value="${param.selectAreaCode}"/>
-
-<div>
-	<section class="d-flex align-items-center dark-overlay bg-cover"
-		style="background-image: url(${path}/resources/imgPick/roomSearch.jpg);">
-		<div
-			class="container my-7 py-7 py-lg-7 text-white overlay-content text-center">
-			<div class="row">
-				<div class="col-xl-10 mx-auto">
-					<h1 class="display-3 fw-bold text-shadow"></h1>
-					<p class="text-lg text-shadow"></p>
+	<jsp:include page="/WEB-INF/views/common/header.jsp" />
+	
+	
+	<c:set var="selectAreaCode" value="${param.selectAreaCode}" />
+	
+	<div>
+		<section class="d-flex align-items-center dark-overlay bg-cover"
+			style="background-image: url(${path}/resources/imgPick/roomSearch.jpg);">
+			<div
+				class="container my-7 py-7 py-lg-7 text-white overlay-content text-center">
+				<div class="row">
+					<div class="col-xl-10 mx-auto">
+						<h1 class="display-3 fw-bold text-shadow"></h1>
+						<p class="text-lg text-shadow"></p>
+					</div>
 				</div>
 			</div>
-		</div>
-	</section>
-	
-	<!-- 검색창 -->
-	<div class="container">
-		<div class="search-bar rounded p-3 p-lg-4 position-relative mt-n5 z-index-20">
-			<form name="searchForm" action="${path }/accm/search" method="get">
+		</section>
+
+		<!-- 검색창 -->
+		<div class="container">
+			<div
+				class="search-bar rounded p-3 p-lg-4 position-relative mt-n5 z-index-20">
+
 				<input type="hidden" name="page" value="1">
 				<div class="row">
-					<div class="col-lg-4 d-flex align-items-center form-group" style="width: 840px;">
-						<input class="form-control border-0 shadow-0" type="text" 
-						name="searchValue" placeholder="검색어를 입력하세요" value="${param.searchValue}" />
+					<div class="col-lg-4 d-flex align-items-center form-group"
+						style="width: 840px;">
+						<input class="form-control border-0 shadow-0" type="text"
+							name="searchValue" placeholder="검색어를 입력하세요"
+							value="${param.searchValue}" />
 					</div>
-					<div class="col-md-6 col-lg-3 d-flex align-items-center form-group no-divider" style="width: 200px;">
-						<select class="selectpicker" id="selectAreaCode" name="selectAreaCode" data-style="btn-form-control" title="지역 선택">
+					<div
+						class="col-md-6 col-lg-3 d-flex align-items-center form-group no-divider"
+						style="width: 200px;">
+						<select class="selectpicker" id="selectAreaCode"
+							name="selectAreaCode" data-style="btn-form-control" title="지역 선택">
 							<option value="" ${selectAreaCode == '' ? 'selected' : '' }>전체</option>
 							<option value="32" ${selectAreaCode == '32' ? 'selected' : '' }>강원도</option>
 							<option value="31" ${selectAreaCode == '31' ? 'selected' : '' }>경기도</option>
@@ -56,214 +65,269 @@
 						<button class="btn btn-primary h-100" type="submit">Search</button>
 					</div>
 				</div>
-			</form>
+
+			</div>
 		</div>
-	</div>
-	
-	<div class="swiper-pagination swiper-pagination-white"></div>
-	<div class="swiper-nav d-none d-lg-block">
-		<div class="swiper-button-prev" id="homePrev"></div>
-		<div class="swiper-button-next" id="homeNext"></div>
-	</div>
+		<div class="swiper-pagination swiper-pagination-white"></div>
+		<div class="swiper-nav d-none d-lg-block">
+			<div class="swiper-button-prev" id="homePrev"></div>
+			<div class="swiper-button-next" id="homeNext"></div>
+		</div>
 
-	<!-- 중간 부분 시작 -->
-	<section class="py-5">
-		<div class="container">
-			<section class="pt-0">
-				<div class="container">
-					<div class="row">
-						<!-- 체크박스 시작 -->
-						<aside class="col-xl-4 col-xxl-3">
-							<!-- Responsive offcanvas body START -->
-							<div class="offcanvas-xl offcanvas-end" tabindex="-1"
-								id="offcanvasSidebar" aria-labelledby="offcanvasSidebarLabel">
-								<div class="offcanvas-header">
-									<h5 class="offcanvas-title" id="offcanvasSidebarLabel">Advance
-										Filters</h5>
-									<button type="button" class="btn-close"
-										data-bs-dismiss="offcanvas" data-bs-target="#offcanvasSidebar"
-										aria-label="Close"></button>
-								</div>
-								<div class="offcanvas-body flex-column p-3 p-xl-0"
-									style="width: 90%;">
-									<form class="rounded-3 shadow">
-
+		<!-- 중간 부분 시작 -->
+		<section class="py-5">
+			<div class="container">
+				<section class="pt-0">
+					<div class="container">
+						<div class="row">
+							<!-- 체크박스 시작 -->
+							<aside class="col-xl-4 col-xxl-3">
+								<!-- Responsive offcanvas body START -->
+								<div class="offcanvas-xl offcanvas-end" tabindex="-1"
+									id="offcanvasSidebar" aria-labelledby="offcanvasSidebarLabel">
+									<div class="offcanvas-header">
+										<h5 class="offcanvas-title" id="offcanvasSidebarLabel">Advance
+											Filters</h5>
+										<button type="button" class="btn-close"
+											data-bs-dismiss="offcanvas"
+											data-bs-target="#offcanvasSidebar" aria-label="Close"></button>
+									</div>
+									<div class="offcanvas-body flex-column p-3 p-xl-0"
+										style="width: 90%;">
 										<!-- Hotel type START -->
 										<div class="card card-body rounded-0 rounded-top p-4">
 											<!-- Title -->
 											<h6 class="mb-2">숙소 유형</h6>
 											<!-- Hotel Type group -->
 											<div class="col-12">
-												<!-- Checkbox -->
 												<div class="form-check">
-													<input class="form-check-input" type="checkbox" value=""
-														id="hotelType1"> <label class="form-check-label"
-														for="hotelType1">전체</label>
+													<label class="form-check-label"> <input
+														class="form-check-input" type="checkbox" value="B02010100"
+														name="hotelType"
+														${fn:contains(hotelType, 'B02010100') ? 'checked' : ''}>
+														관광호텔
+													</label>
 												</div>
-												<!-- Checkbox -->
 												<div class="form-check">
-													<input class="form-check-input" type="checkbox" value=""
-														id="hotelType2"> <label class="form-check-label"
-														for="hotelType2">호텔</label>
+													<label class="form-check-label"> <input
+														class="form-check-input" type="checkbox" value="B02010500"
+														name="hotelType"
+														${fn:contains(hotelType, 'B02010500') ? 'checked' : ''}>
+														콘도미니엄
+													</label>
 												</div>
-												<!-- Checkbox -->
 												<div class="form-check">
-													<input class="form-check-input" type="checkbox" value=""
-														id="hotelType3"> <label class="form-check-label"
-														for="hotelType3">펜션</label>
+													<label class="form-check-label"> <input
+														class="form-check-input" type="checkbox" value="B02010600"
+														name="hotelType"
+														${fn:contains(hotelType, 'B02010600') ? 'checked' : ''}>
+														유스호스텔
+													</label>
 												</div>
-												<!-- Checkbox -->
 												<div class="form-check">
-													<input class="form-check-input" type="checkbox" value=""
-														id="hotelType4"> <label class="form-check-label"
-														for="hotelType4">리조트</label>
+													<label class="form-check-label"> <input
+														class="form-check-input" type="checkbox" value="B02010700"
+														name="hotelType"
+														${fn:contains(hotelType, 'B02010700') ? 'checked' : ''}>
+														펜션
+													</label>
 												</div>
-												<!-- Checkbox -->
 												<div class="form-check">
-													<input class="form-check-input" type="checkbox" value=""
-														id="hotelType5"> <label class="form-check-label"
-														for="hotelType5">게스트하우스</label>
+													<label class="form-check-label"> <input
+														class="form-check-input" type="checkbox" value="B02010900"
+														name="hotelType"
+														${fn:contains(hotelType, 'B02010900') ? 'checked' : ''}>
+														모텔
+													</label>
 												</div>
-												<!-- Checkbox -->
 												<div class="form-check">
-													<input class="form-check-input" type="checkbox" value=""
-														id="hotelType6"> <label class="form-check-label"
-														for="hotelType6">캠핑 글램핑</label>
+													<label class="form-check-label"> <input
+														class="form-check-input" type="checkbox" value="B02011000"
+														name="hotelType"
+														${fn:contains(hotelType, 'B02011000') ? 'checked' : ''}>
+														민박
+													</label>
 												</div>
+												<div class="form-check">
+													<label class="form-check-label"> <input
+														class="form-check-input" type="checkbox" value="B02011100"
+														name="hotelType"
+														${fn:contains(hotelType, 'B02011100') ? 'checked' : ''}>
+														게스트하우스
+													</label>
+												</div>
+												<div class="form-check">
+													<label class="form-check-label"> <input
+														class="form-check-input" type="checkbox" value="B02011200"
+														name="hotelType"
+														${fn:contains(hotelType, 'B02011200') ? 'checked' : ''}>
+														홈스테이
+													</label>
+												</div>
+												<div class="form-check">
+													<label class="form-check-label"> <input
+														class="form-check-input" type="checkbox" value="B02011300"
+														name="hotelType"
+														${fn:contains(hotelType, 'B02011300') ? 'checked' : ''}>
+														서비스드레지던스
+													</label>
+												</div>
+												<div class="form-check">
+													<label class="form-check-label"> <input
+														class="form-check-input" type="checkbox" value="B02011600"
+														name="hotelType"
+														${fn:contains(hotelType, 'B02011600') ? 'checked' : ''}>
+														한옥
+													</label>
+												</div>
+
 
 											</div>
 										</div>
 										<!-- Hotel type END -->
 										<hr class="my-0">
 										<!-- Divider -->
-									</form>
-									<!-- Form End -->
+										<!-- Form End -->
+									</div>
+									<!-- 체크박스 검색 버튼 -->
+									<div class="d-flex justify-content-between p-2 p-xl-0 mt-xl-4">
+										<button class="btn btn-primary mb-0" style="width: 90%;">검색</button>
+									</div>
 								</div>
-								<!-- 체크박스 검색 버튼 -->
-								<div class="d-flex justify-content-between p-2 p-xl-0 mt-xl-4">
-									<button class="btn btn-primary mb-0" style="width: 90%;">검색</button>
-								</div>
-							</div>
-							<!-- Responsive offcanvas body END -->
-						</aside>
-						<!-- 체크박스 끝 -->
+								<!-- Responsive offcanvas body END -->
+							</aside>
+							<!-- 체크박스 끝 -->
 
 
-						<!-- 숙소 검색 결과 시작 -->
-						<div class="col-xl-8 col-xxl-9">
-							<div class="vstack gap-4">
-								<c:if test="${empty accmList}">
-									<tr>
-										<td colspan="6">조회된 글이 없습니다.</td>
-									</tr>
-								</c:if>
-								<c:if test="${not empty accmList}">
-									<c:forEach var="item" items="${accmList }">
-										<!-- 검색 결과 카드 시작 -->
-										<div class="card shadow p-2">
-											<div class="row g-0">
-												<!-- 카드 이미지 -->
-												<div class="col-md-4" style="width: 300px;">
-													<img src="${item.firstimage }" class="card-img rounded-2 img-thumbnail" alt="Card image">
-												</div>
-												<!-- 카드 오른쪽 글 -->
-												<div class="col-md-8" style="padding-left: 20px;">
-													<div class="card-body py-md-2 d-flex flex-column h-100">
-														<!-- 각 숙소 이름 주소 -->
-														<h4 class="card-title mt-2 mb-3" style="color: #3f8ace;">
-															<a href="${path }/accm/detail?contentid=${item.contentid}"> <c:out
-																	value="${item.title }" />
-															</a>
-														</h4>
-														<div>
-															<c:out value="${item.addr1 } ${item.addr2 }" />
-														</div>
-														<!-- Amenities -->
-														<ul class="nav nav-divider mt-2">
-															<li class="nav-item">Air Conditioning</li>
-															<li class="nav-item">Wifi</li>
-															<li class="nav-item">Kitchen</li>
-															<li class="nav-item">Pool</li>
-														</ul>
-														<!-- 가격정보 -->
-														<div
-															class="d-sm-flex justify-content-sm-between align-items-center mt-3 mt-md-auto">
-															<!-- Button -->
-															<div class="d-flex align-items-center">
-																<h3 class="fw-bold mb-2 me-1">200,000원</h3>
-																<span class="mb-0 me-2"> / 1박</span>
+							<!-- 숙소 검색 결과 시작 -->
+							<div class="col-xl-8 col-xxl-9">
+								<div class="vstack gap-4">
+									<c:if test="${empty accmList}">
+										<tr>
+											<td colspan="6">조회된 글이 없습니다.</td>
+										</tr>
+									</c:if>
+									<c:if test="${not empty accmList}">
+										<c:forEach var="item" items="${accmList }">
+											<!-- 검색 결과 카드 시작 -->
+											<div class="card shadow p-2">
+												<div class="row g-0">
+													<!-- 카드 이미지 -->
+													<div class="col-md-4" style="width: 300px;">
+														<img src="${item.firstimage }"
+															class="card-img rounded-2 img-thumbnail" alt="Card image">
+													</div>
+													<!-- 카드 오른쪽 글 -->
+													<div class="col-md-8" style="padding-left: 20px;">
+														<div class="card-body py-md-2 d-flex flex-column h-100">
+															<!-- 각 숙소 이름 주소 -->
+															<h4 class="card-title mt-2 mb-3" style="color: #3f8ace;">
+																<a
+																	href="${path }/accm/detail?contentid=${item.contentid}">
+																	<c:out value="${item.title }" />
+																</a>
+															</h4>
+															<div>
+																<c:out value="${item.addr1 } ${item.addr2 }" />
 															</div>
-															<!-- 숙소보기 버튼 -->
-															<div class="mt-3">
-																<a href="hotel-detail.html"
-																	class="btn btn-primary" type="submit">숙소보기</a>
+															<!-- Amenities -->
+															<ul class="nav nav-divider mt-2">
+																<c:if test="${not empty item.checkintime }">
+																	<li class="nav-item">
+																		<c:out value="입실시간 : ${item.checkintime }"/>
+																	</li>
+																</c:if>
+																<c:if test="${not empty item.checkintime }">
+																	<li class="nav-item">
+																		<c:out value="퇴실시간 : ${item.checkouttime }"/>
+																	</li>
+																</c:if>
+																<c:if test="${not empty item.checkintime }">
+																	<li class="nav-item">
+																		<c:out value="전화번호 : ${item.tel }"/>
+																	</li>
+																</c:if>
+																<c:if test="${not empty item.checkintime }">
+																	<li class="nav-item">
+																		<c:out value="주차장 : ${item.parkinglodging }"/>
+																	</li>
+																</c:if>
+															</ul>
+															<!-- 가격정보 -->
+															<div
+																class="d-sm-flex justify-content-sm-between align-items-center mt-3 mt-md-auto">
+																<!-- Button -->
+																<div class="d-flex align-items-center">
+																	
+																</div>
+																<!-- 숙소보기 버튼 -->
+																<div class="mt-3">
+																	<a href="${path }/accm/detail?contentid=${item.contentid}" class="btn btn-primary"
+																		type="submit">숙소보기</a>
+																</div>
 															</div>
 														</div>
 													</div>
 												</div>
 											</div>
-										</div>
-									</c:forEach>
-								</c:if>
-								
-								<!-- Card item END -->
+										</c:forEach>
+									</c:if>
+
+									<!-- Card item END -->
+								</div>
+								<br> <br>
+
+								<!-- 페이지 번호 시작 -->
+								<nav aria-label="Page navigation example">
+									<ul
+										class="pagination pagination-template d-flex justify-content-center">
+										<!-- 처음 페이지 -->
+										<li class="page-item"><a class="page-link"
+											onclick="movePage(1)">&laquo;</a></li>
+										<!-- 이전 페이지 -->
+										<li class="page-item"><a class="page-link"
+											onclick="movePage(${pageInfo.prevPage})">&lsaquo;</a></li>
+
+										<!-- 10개 페이지가 보여지는 부분 -->
+										<c:forEach begin="${pageInfo.startPage}"
+											end="${pageInfo.endPage}" varStatus="status" step="1">
+											<c:if test="${status.current == pageInfo.currentPage}">
+												<li class="page-item disabled"><a class="page-link"
+													onclick="movePage(${status.current})">${status.current}</a>
+												</li>
+											</c:if>
+											<c:if test="${status.current != pageInfo.currentPage}">
+												<li class="page-item"><a class="page-link"
+													onclick="movePage(${status.current})">${status.current}</a>
+												</li>
+											</c:if>
+										</c:forEach>
+
+										<!-- 다음 페이지 -->
+										<li class="page-item"><a class="page-link"
+											onclick="movePage(${pageInfo.nextPage})">&rsaquo;</a></li>
+										<!-- 마지막 페이지 -->
+										<li class="page-item"><a class="page-link"
+											onclick="movePage(${pageInfo.maxPage})">&raquo;</a></li>
+									</ul>
+								</nav>
+								<!-- 페이지 번호 끝 -->
+
 							</div>
-							<br> <br>
-
-							<!-- 페이지 번호 시작 -->
-							<nav aria-label="Page navigation example">
-								<ul class="pagination pagination-template d-flex justify-content-center">
-									<!-- 처음 페이지 -->
-									<li class="page-item">
-										<a class="page-link" onclick="movePage(1)">&laquo;</a>
-									</li>
-									<!-- 이전 페이지 -->
-									<li class="page-item">
-										<a class="page-link" onclick="movePage(${pageInfo.prevPage})">&lsaquo;</a>
-									</li>
-
-									<!-- 10개 페이지가 보여지는 부분 -->
-									<c:forEach begin="${pageInfo.startPage}"
-										end="${pageInfo.endPage}" varStatus="status" step="1">
-										<c:if test="${status.current == pageInfo.currentPage}">
-											<li class="page-item disabled">
-												<a class="page-link" onclick="movePage(${status.current})">${status.current}</a>
-											</li>
-										</c:if>
-										<c:if test="${status.current != pageInfo.currentPage}">
-											<li class="page-item">
-												<a class="page-link" onclick="movePage(${status.current})">${status.current}</a>
-											</li>
-										</c:if>
-									</c:forEach>
-
-									<!-- 다음 페이지 -->
-									<li class="page-item">
-										<a class="page-link" onclick="movePage(${pageInfo.nextPage})">&rsaquo;</a>
-									</li>
-									<!-- 마지막 페이지 -->
-									<li class="page-item">
-										<a class="page-link" onclick="movePage(${pageInfo.maxPage})">&raquo;</a>
-									</li>
-								</ul>
-							</nav>
-							<!-- 페이지 번호 끝 -->
-
+							<!-- Main content END -->
 						</div>
-						<!-- Main content END -->
+						<!-- Row END -->
 					</div>
-					<!-- Row END -->
-				</div>
-			</section>
-			<!-- =======================
+				</section>
+				<!-- =======================
         Hotel list END -->
-		</div>
-	</section>
-</div>
+			</div>
+		</section>
+	</div>
 
 
-
-<jsp:include page="/WEB-INF/views/common/footer.jsp" />
+	<jsp:include page="/WEB-INF/views/common/footer.jsp" />
+</form>
 
 <script type="text/javascript">
 	function movePage(page){
@@ -271,4 +335,3 @@
 		searchForm.submit();
 	}
 </script>
- 
