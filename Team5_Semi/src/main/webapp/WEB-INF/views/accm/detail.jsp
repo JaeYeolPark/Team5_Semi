@@ -7,6 +7,8 @@
 
 <jsp:include page="/WEB-INF/views/common/header.jsp" />
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker3.min.css">
+
 <body style="padding-top: 72px; overflow-x: hidden">
 
 	<section class="container">
@@ -158,27 +160,33 @@
 					</div>
 					<div class="text-block">
 						<h3 class="mb-4">위치</h3>
-						<div class="map-wrapper-300 mb-3">
+						<div class="map-wrapper-300">
 							<div class="h-100" id="detailMap"></div>
 						</div>
 					</div>
 				</div>
 				<div class="col-lg-4">
-					<div class="p-4 shadow ml-lg-4 rounded " style="top: 100px;">
-						
-						<form class="form" id="booking-form" method="get" action="#"
+					<div class="p-4 shadow ms-lg-4 rounded"
+						style="top: 100px;">
+						<p class="text-muted">
+							<span class="text-primary h2">$120</span> per night
+						</p>
+						<hr class="my-4">
+						<form class="form" id="bookingForm" method="get" action="${path }/accm/booking"
 							autocomplete="off">
-							<div class="form-group">
+							<div class="mb-4">
 								<label class="form-label" for="bookingDate">Your stay *</label>
 								<div class="datepicker-container datepicker-container-right">
-									<input class="form-control" type="text" name="bookingDate"
-										id="bookingDate" placeholder="Choose your dates"
-										required="required">
+<!-- 									<input class="form-control" type="text" name="date-picker" -->
+<!-- 										id="date-picker" placeholder="Choose your dates" -->
+<!-- 										required="required"> -->
+										<input class="form-control" name="startDate" type="date" />
+										<input class="form-control" name="endDate" type="date" />
 								</div>
 							</div>
-							<div class="form-group mb-4">
+							<div class="mb-4">
 								<label class="form-label" for="guests">Guests *</label> <select
-									class="form-control" name="guests" id="guests">
+									class="form-control" name="guests" id="headCount">
 									<option value="1">1 Guest</option>
 									<option value="2">2 Guests</option>
 									<option value="3">3 Guests</option>
@@ -186,9 +194,8 @@
 									<option value="5">5 Guests</option>
 								</select>
 							</div>
-							<div class="form-group">
-								<button class="btn btn-primary btn-block" type="submit">Book
-									your stay</button>
+							<div class="d-grid mb-4">
+								<button class="btn btn-primary" type="submit">Book your stay</button>
 							</div>
 						</form>
 						<p class="text-muted text-sm text-center">Some additional text
@@ -204,27 +211,20 @@
 							</p>
 						</div>
 					</div>
-					<div class="p-2 shadow ml-lg-4 rounded mt-4" style="top: 100px;">
-						<img src="img\photo\fez.jpg" class="img-fluid" alt="">
-					</div>
-					<div class="p-2 shadow ml-lg-4 rounded mt-4" style="top: 100px;">
-						<img src="img\photo\fez.jpg" class="img-fluid" alt="">
-					</div>
 				</div>
 				<div class="col-lg-4"></div>
 			</div>
 		</div>
 	</section>
 
-	<section class="pt-2 mt-5 container-fluid">
+	<section class="pt-1 mt-2 container-fluid">
 		<div class="container-fluid">
 			<!-- Slider main container-->
-			<div
-				class="swiper-container swiper-container-mx-negative items-slider-full px-lg-5 pt-1">
+			<div class="swiper-container swiper-container-mx-negative items-slider-full px-lg-5 pt-1">
 				<!-- Additional required wrapper-->
 				<div class="swiper-wrapper">
 					<!-- Slides-->
-					<div class="swiper-slide h-auto px-2">
+					<div class="swiper-slide h-auto px-2 mb-4">
 						<!-- venue item-->
 						<div class="w-100 h-100 hover-animate"
 							data-marker-id="59c0c8e33b1527bfe2abaf92">
@@ -239,86 +239,6 @@
 								<div class="card-body">
 									<p class="text-sm text-muted mb-3">Cupidatat excepteur non
 										dolore laborum etquisnostrud veniam dolore deserunt. Pariatur
-										dolore ut in elit id nulla. Irur...</p>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="swiper-slide h-auto px-2">
-						<!-- venue item-->
-						<div class="w-100 h-100 hover-animate"
-							data-marker-id="59c0c8e33b1527bfe2abaf92">
-							<div class="card h-100 border-0 shadow">
-								<div class="card-img-top overflow-hidden dark-overlay bg-cover"
-									style="background-image: url(img/photo/restaurant-1430931071372-38127bd472b8.jpg); min-height: 200px;">
-									<a class="tile-link" href="detail.html"></a>
-									<div class="card-img-overlay-bottom z-index-20">
-										<h4 class="text-white text-shadow">Blue Hill</h4>
-									</div>
-								</div>
-								<div class="card-body">
-									<p class="text-sm text-muted mb-3">Cupidatat excepteur non
-										dolore laborum etquisnostrud veniam dolore deserunt. Pariatur
-										dolore ut in elit id nulla. Irur...</p>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="swiper-slide h-auto px-2">
-						<!-- venue item-->
-						<div class="w-100 h-100 hover-animate"
-							data-marker-id="59c0c8e33b1527bfe2abaf92">
-							<div class="card h-100 border-0 shadow">
-								<div class="card-img-top overflow-hidden dark-overlay bg-cover"
-									style="background-image: url(img/photo/restaurant-1430931071372-38127bd472b8.jpg); min-height: 200px;">
-									<a class="tile-link" href="detail.html"></a>
-									<div class="card-img-overlay-bottom z-index-20">
-										<h4 class="text-white text-shadow">Blue Hill</h4>
-									</div>
-								</div>
-								<div class="card-body">
-									<p class="text-sm text-muted mb-3">Cupidatat excepteur non
-										dolore laborum etquisnostrud veniam dolore deserunt. Pariatur
-										dolore ut in elit id nulla. Irur...</p>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="swiper-slide h-auto px-2">
-						<!-- venue item-->
-						<div class="w-100 h-100 hover-animate"
-							data-marker-id="59c0c8e33b1527bfe2abaf92">
-							<div class="card h-100 border-0 shadow">
-								<div class="card-img-top overflow-hidden dark-overlay bg-cover"
-									style="background-image: url(img/photo/restaurant-1430931071372-38127bd472b8.jpg); min-height: 200px;">
-									<a class="tile-link" href="detail.html"></a>
-									<div class="card-img-overlay-bottom z-index-20">
-										<h4 class="text-white text-shadow">Blue Hill</h4>
-									</div>
-								</div>
-								<div class="card-body">
-									<p class="text-sm text-muted mb-3">Cupidatat excepteur non
-										dolore laborum etquisnostrud veniam dolore deserunt. Pariatur
-										dolore ut in elit id nulla. Irur...</p>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="swiper-slide h-auto px-2">
-						<!-- venue item-->
-						<div class="w-100 h-100 hover-animate"
-							data-marker-id="59c0c8e33b1527bfe2abaf92">
-							<div class="card h-100 border-0 shadow">
-								<div class="card-img-top overflow-hidden dark-overlay bg-cover"
-									style="background-image: url(img/photo/restaurant-1430931071372-38127bd472b8.jpg); min-height: 200px;">
-									<a class="tile-link" href="detail.html"></a>
-									<div class="card-img-overlay-bottom z-index-20">
-										<h4 class="text-white text-shadow">Blue Hill</h4>
-									</div>
-								</div>
-								<div class="card-body">
-									<p class="text-sm text-muted mb-3">Cupidatat excepteur non
-										dolore laborum et quisnostrud veniam dolore deserunt. Pariatur
 										dolore ut in elit id nulla. Irur...</p>
 								</div>
 							</div>
@@ -329,11 +249,6 @@
 		</div>
 	</section>
 </body>
-
-
-
-
-
 
 <script type="text/javascript"
 	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=394919af8b3f58765ba429c8f8ba8270"></script>
@@ -360,7 +275,7 @@
     marker.setMap(map);
 
     // 아래 코드는 지도 위의 마커를 제거하는 코드입니다
-    // marker.setMap(null);    
+    // marker.setMap(null);
 
     // 지도에 클릭 이벤트를 등록합니다
     // 지도를 클릭하면 마지막 파라미터로 넘어온 함수를 호출합니다
@@ -383,5 +298,16 @@
     });
 
 </script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js" ></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/locales/bootstrap-datepicker.ko.min.js"></script>
+
+
+
+
+
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-date-range-picker/0.19.0/jquery.daterangepicker.min.js"> </script> -->
+<%-- <script src="${path }/resources/js/datepicker-detail.js"></script> --%>
 
 <jsp:include page="/WEB-INF/views/common/footer.jsp" />

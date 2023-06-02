@@ -1,6 +1,9 @@
 package com.multi.mvc.tour.controller;
 
+import java.io.InputStream;
+import java.io.Writer;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -14,12 +17,13 @@ import com.multi.mvc.board.model.vo.Board;
 import com.multi.mvc.common.util.PageInfo;
 import com.multi.mvc.tour.model.service.AccmService;
 import com.multi.mvc.tour.model.vo.Accommodation;
+import com.multi.mvc.tour.model.vo.Booking;
 
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Controller
-public class TourController {
+public class AccmController {
 	@Autowired
 	private AccmService accmService;
 	
@@ -70,6 +74,16 @@ public class TourController {
 		return "/accm/detail";
 	}
 	
+	@RequestMapping("/accm/booking")
+	public String booking(Model model, 
+			@RequestParam("startDate") Date startDate, 
+			@RequestParam("endDate") Date endDate,
+			@RequestParam("headCount") int headCount) {
+		model.addAttribute("startDate", startDate);
+		model.addAttribute("endDate", endDate);
+		model.addAttribute("headCount", startDate);
+		return "/accm/booking";
+	}
 	
 	
 	

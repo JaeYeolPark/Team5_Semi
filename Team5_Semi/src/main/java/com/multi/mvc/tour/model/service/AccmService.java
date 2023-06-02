@@ -1,5 +1,6 @@
 package com.multi.mvc.tour.model.service;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -10,6 +11,7 @@ import com.multi.mvc.board.model.vo.Board;
 import com.multi.mvc.common.util.PageInfo;
 import com.multi.mvc.tour.model.mapper.AccmMapper;
 import com.multi.mvc.tour.model.vo.Accommodation;
+import com.multi.mvc.tour.model.vo.Booking;
 
 @Service
 public class AccmService {
@@ -34,6 +36,11 @@ public class AccmService {
 	public Accommodation findByContentId(int id) {
 		Accommodation accm = mapper.findByContentId(id);
 		return accm;
+	}
+
+	public Booking setBooking(Date startDate, Date endDate) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 }
