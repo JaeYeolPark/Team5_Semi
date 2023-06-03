@@ -6,7 +6,6 @@
 <c:set var="path" value="${pageContext.request.contextPath}" />
 
 <jsp:include page="/WEB-INF/views/common/header.jsp" />
-
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker3.min.css">
 
 <body style="padding-top: 72px; overflow-x: hidden">
@@ -64,11 +63,13 @@
 											<span class="text-sm ms-4"> <c:out
 													value="체크인 시간 : ${accm.checkintime }" />
 											</span>
-										</c:if> <c:if test="${empty accm.checkintime }">
+										</c:if> 
+										<c:if test="${empty accm.checkintime }">
 											<span class="text-sm ms-4"> <c:out
 													value="체크인 시간 : 정보가 없습니다" />
 											</span>
-										</c:if></li>
+										</c:if>
+									</li>
 									<li class="mb-2"><i
 										class="fa  fa-clock text-secondary w-1rem mr-3 text-center"></i>
 										<c:if test="${not empty accm.checkouttime }">
@@ -80,7 +81,6 @@
 													value="체크아웃 시간 : 정보가 없습니다" />
 											</span>
 										</c:if></li>
-
 								</ul>
 							</div>
 						</div>
@@ -169,10 +169,10 @@
 					<div class="p-4 shadow ms-lg-4 rounded"
 						style="top: 100px;">
 						<p class="text-muted">
-							<span class="text-primary h2">$120</span> per night
+							<span class="text-primary h2">68,000 원</span> * 1박
 						</p>
 						<hr class="my-4">
-						<form class="form" id="bookingForm" method="get" action="${path }/accm/booking"
+						<form class="form" id="bookingForm" method="post" action="${path }/accm/booking"
 							autocomplete="off">
 							<div class="mb-4">
 								<label class="form-label" for="bookingDate">Your stay *</label>
@@ -180,13 +180,21 @@
 <!-- 									<input class="form-control" type="text" name="date-picker" -->
 <!-- 										id="date-picker" placeholder="Choose your dates" -->
 <!-- 										required="required"> -->
-										<input class="form-control" name="startDate" type="date" />
-										<input class="form-control" name="endDate" type="date" />
+<!-- 										<input class="form-control" id="startDate" name="startDate" type="date" /> -->
+<!-- 										<input class="form-control" id="endDate" name="endDate" type="date" /> -->
+										<input type="text" id="datePicker">
+										<input type="hidden" name="checkin" value="${accm.checkintime}">
+										<input type="hidden" name="checkout" value="${accm.checkouttime}">
+										<input type="hidden" name="bkAddr" value="${accm.addr1 } ${accm.addr2}">
+										<input type="hidden" name="bkImg" value="${accm.firstimage }">
+										<input type="hidden" name="bkContentId" value="${accm.contentid }">
+										<input type="hidden" name="bkTitle" value="${accm.title }">
+										<input type="hidden" name="refund" value="${accm.refundregulation }">
 								</div>
 							</div>
 							<div class="mb-4">
 								<label class="form-label" for="guests">Guests *</label> <select
-									class="form-control" name="guests" id="headCount">
+									class="form-control" name="headCount" id="headCount">
 									<option value="1">1 Guest</option>
 									<option value="2">2 Guests</option>
 									<option value="3">3 Guests</option>
@@ -195,21 +203,12 @@
 								</select>
 							</div>
 							<div class="d-grid mb-4">
-								<button class="btn btn-primary" type="submit">Book your stay</button>
+								<button class="btn btn-primary" type="submit" >Book your stay</button>
 							</div>
 						</form>
 						<p class="text-muted text-sm text-center">Some additional text
 							can be also placed here.</p>
-						<hr class="my-4">
-						<div class="text-center">
-							<p>
-								<a class="text-secondary text-sm" href="#"> <i
-									class="fa fa-heart"></i> Bookmark This Listing
-								</a>
-							</p>
-							<p class="text-muted text-sm">79 people bookmarked this place
-							</p>
-						</div>
+						
 					</div>
 				</div>
 				<div class="col-lg-4"></div>
@@ -217,33 +216,35 @@
 		</div>
 	</section>
 
+
 	<section class="pt-1 mt-2 container-fluid">
 		<div class="container-fluid">
 			<!-- Slider main container-->
 			<div class="swiper-container swiper-container-mx-negative items-slider-full px-lg-5 pt-1">
 				<!-- Additional required wrapper-->
 				<div class="swiper-wrapper">
-					<!-- Slides-->
-					<div class="swiper-slide h-auto px-2 mb-4">
-						<!-- venue item-->
-						<div class="w-100 h-100 hover-animate"
-							data-marker-id="59c0c8e33b1527bfe2abaf92">
-							<div class="card h-100 border-0 shadow">
-								<div class="card-img-top overflow-hidden dark-overlay bg-cover"
-									style="background-image: url(img/photo/restaurant-1430931071372-38127bd472b8.jpg); min-height: 200px;">
-									<a class="tile-link" href="detail.html"></a>
-									<div class="card-img-overlay-bottom z-index-20">
-										<h4 class="text-white text-shadow">Blue Hill</h4>
+					<c:forEach var="item" items="${dAccmList }">
+						<!-- Slides-->
+						<div class="swiper-slide h-auto px-2 mb-4">
+							<!-- venue item-->
+							<div class="w-100 h-100 hover-animate"
+								data-marker-id="59c0c8e33b1527bfe2abaf92">
+								<div class="card h-100 border-0 shadow">
+									<div class="card-img-top overflow-hidden dark-overlay bg-cover"
+										style="background-image: url(${item.firstimage}); min-height: 200px;">
+										<a class="tile-link" href="${path }/accm/detail?contentid=${item.contentid}"></a>
+										<div class="card-img-overlay-bottom z-index-20">
+											<h4 class="text-white text-shadow">${item.title }</h4>
+										</div>
 									</div>
-								</div>
-								<div class="card-body">
-									<p class="text-sm text-muted mb-3">Cupidatat excepteur non
-										dolore laborum etquisnostrud veniam dolore deserunt. Pariatur
-										dolore ut in elit id nulla. Irur...</p>
+									<div class="card-body" >
+										<p class="text-sm text-muted mb-3">${fn:substring(item.overview,0,99) }
+										<c:if test="${item.overview.length() > 100 }">...</c:if></p>
+									</div>
 								</div>
 							</div>
 						</div>
-					</div>
+					</c:forEach>
 				</div>
 			</div>
 		</div>
@@ -299,15 +300,27 @@
 
 </script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js" ></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css"/>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/locales/bootstrap-datepicker.ko.min.js"></script>
+<script>
+	var now_utc = Date.now() // 지금 날짜를 밀리초로
+	//getTimezoneOffset()은 현재 시간과의 차이를 분 단위로 반환
+	var timeOff = new Date().getTimezoneOffset()*60000; // 분단위를 밀리초로 변환
+	//new Date(now_utc-timeOff).toISOString()은 '2022-05-11T18:09:38.134Z'를 반환
+	var today = new Date(now_utc-timeOff).toISOString().split("T")[0];
+	document.getElementById("startDate").setAttribute("min", today);
+	document.getElementById("endDate").setAttribute("min", today);
+</script>
+
+<script type="text/javascript">
+	$('#datePicker').datepicker({
+		format : "yyyy-mm-dd", // 달력에서 클릭시 표시할 값 형식
+	});
+</script>
 
 
 
 
-
-<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-date-range-picker/0.19.0/jquery.daterangepicker.min.js"> </script> -->
-<%-- <script src="${path }/resources/js/datepicker-detail.js"></script> --%>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
 
 <jsp:include page="/WEB-INF/views/common/footer.jsp" />
