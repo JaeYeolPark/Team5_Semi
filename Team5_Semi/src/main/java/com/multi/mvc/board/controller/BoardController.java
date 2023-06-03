@@ -48,33 +48,34 @@ public class BoardController {
 //	 param : {page=1, searchType=title, searchValue=아이폰}
 	// /board/list
 //	@GetMapping("list") // /board/list
-	@GetMapping("/board/list")
+	@GetMapping({"/community/courseList", "/community/travelReviewList"})
 	public String list(Model model, @RequestParam Map<String, Object> param) {
 		log.info("board list 요청, param : " + param);
+		
+		param.put("type", "B1");
 		
 		int page = 1;
 		try {
 			if(param.get("searchType") != null) {
 				param.put((String) param.get("searchType"), param.get("searchValue"));
-				// title - 아이폰
-				// content - 삽니다
 			}
 			
-			// page 파라메터를 숫자로 바꿔주는 코드, 항상 try 끝에 존재해야한다.
 			page = Integer.parseInt((String) param.get("page"));
 		} catch (Exception e) {}
 		
 		int boardCount = service.getBoardCount(param);
-//		PageInfo pageInfo = new PageInfo(page, 10, boardCount, 15); // 게시글이 보여지는 갯수 = 15
 		PageInfo pageInfo = new PageInfo(page, 10, boardCount, 10); // 게시글이 보여지는 갯수 = 10
 		List<Board> list = service.getBoardList(pageInfo, param);
-//		System.out.println("list : " + list);
 		
 		model.addAttribute("list", list);
 		model.addAttribute("param", param);
 		model.addAttribute("pageInfo", pageInfo);
 		
-		return "/board/list";
+		if(param.get("type").equals("B1")) {
+			return "/community/myTravelCourseList";
+		}else {
+			return "/community/myTravelCourseList";
+		}
 	}
 	
 	@RequestMapping("/board/view")
