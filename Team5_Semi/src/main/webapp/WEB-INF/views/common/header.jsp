@@ -150,7 +150,7 @@ h1 {
 						+ '              </li>'
 						+ '            </div>'
 						+ '            <div style="display: flex; list-style:none ">'
-						+ '              <li><a class="nav-link nav-color" href="#">로그인</a></li>'
+						+ '              <li><a class="nav-link nav-color" href="${path}/login">로그인</a></li>'
 						+ '          </div>'
 						+ '          </ul>'
 						+ '        </div>' + '      </div>' + '    </nav>';
