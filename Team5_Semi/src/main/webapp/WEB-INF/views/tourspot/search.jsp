@@ -65,24 +65,24 @@
         <div class="swiper-button-next" id="homeNext"></div>
       </div>
 
-    
-
 
     <!-- 검색 결과 사진 영역 시작 -->
     <section class="pt-4">
       <div class="container">
-        <div class="swiper-container guides-slider mx-n2 pt-3">
-          <div class="swiper-wrapper pb-0">
             
             <c:if test="${empty tourspotList}">
 				<tr>
 					<td colspan="6">조회된 글이 없습니다.</td>
 				</tr>
 			</c:if>
-			
 			<c:if test="${not empty tourspotList}">
-				<c:forEach var="item" items="${tourspotList}">
-					<div class="card card-poster gradient-overlay hover-animate mx-4 mb-4 mb-lg-0" style="width: 17%;">
+				<c:forEach var="item" items="${tourspotList}" varStatus="status">
+				
+					<c:if test="${status.index % 5 == 0 }">
+						<div class="hstack gap-4">
+					</c:if>
+					<!-- 검색 결과 카드 시작 -->
+					<div class="card card-poster gradient-overlay hover-animate mx-4 mb-6 mb-lg-0" style="width: 200px;">
               			<a class="tile-link" href="${path }/tourspot/detail?contentid=${item.contentid}"></a>
               			<img class="bg-image" src="${item.firstimage }" alt="Card image">
               			<div class="card-body overlay-content">
@@ -94,10 +94,11 @@
 							</p>
               			</div>
             		</div>
+            		<c:if test="${status.index % 5 == 4 }">
+						</div>
+					</c:if>
             	</c:forEach>
 			</c:if>			
-          </div>
-        </div>
       </div>
     </section>
     <!-- 검색 결과 사진 영역 끝 -->
@@ -106,38 +107,38 @@
 
     <!-- 페이지 번호 시작 -->
     <nav aria-label="Page navigation example">
-		<ul
-			class="pagination pagination-template d-flex justify-content-center">
-			<!-- 처음 페이지 -->
-			<li class="page-item"><a class="page-link"
-				onclick="movePage(1)">&laquo;</a></li>
-			<!-- 이전 페이지 -->
-			<li class="page-item"><a class="page-link"
-				onclick="movePage(${pageInfo.prevPage})">&lsaquo;</a></li>
-
-			<!-- 10개 페이지가 보여지는 부분 -->
-			<c:forEach begin="${pageInfo.startPage}"
-				end="${pageInfo.endPage}" varStatus="status" step="1">
-				<c:if test="${status.current == pageInfo.currentPage}">
-					<li class="page-item disabled"><a class="page-link"
-						onclick="movePage(${status.current})">${status.current}</a>
-					</li>
-				</c:if>
-				<c:if test="${status.current != pageInfo.currentPage}">
+				<ul
+					class="pagination pagination-template d-flex justify-content-center">
+					<!-- 처음 페이지 -->
 					<li class="page-item"><a class="page-link"
-						onclick="movePage(${status.current})">${status.current}</a>
-					</li>
-				</c:if>
-			</c:forEach>
+						onclick="movePage(1)">&laquo;</a></li>
+					<!-- 이전 페이지 -->
+					<li class="page-item"><a class="page-link"
+						onclick="movePage(${pageInfo.prevPage})">&lsaquo;</a></li>
 
-			<!-- 다음 페이지 -->
-			<li class="page-item"><a class="page-link"
-				onclick="movePage(${pageInfo.nextPage})">&rsaquo;</a></li>
-			<!-- 마지막 페이지 -->
-			<li class="page-item"><a class="page-link"
-				onclick="movePage(${pageInfo.maxPage})">&raquo;</a></li>
-		</ul>
-	</nav>
+					<!-- 10개 페이지가 보여지는 부분 -->
+					<c:forEach begin="${pageInfo.startPage}"
+						end="${pageInfo.endPage}" varStatus="status" step="1">
+						<c:if test="${status.current == pageInfo.currentPage}">
+							<li class="page-item disabled"><a class="page-link"
+								onclick="movePage(${status.current})">${status.current}</a>
+							</li>
+						</c:if>
+						<c:if test="${status.current != pageInfo.currentPage}">
+							<li class="page-item"><a class="page-link"
+								onclick="movePage(${status.current})">${status.current}</a>
+							</li>
+						</c:if>
+					</c:forEach>
+
+					<!-- 다음 페이지 -->
+					<li class="page-item"><a class="page-link"
+						onclick="movePage(${pageInfo.nextPage})">&rsaquo;</a></li>
+					<!-- 마지막 페이지 -->
+					<li class="page-item"><a class="page-link"
+						onclick="movePage(${pageInfo.maxPage})">&raquo;</a></li>
+				</ul>
+			</nav>
     <!-- 페이지 번호 끝 -->
     
 	<jsp:include page="/WEB-INF/views/common/footer.jsp" />

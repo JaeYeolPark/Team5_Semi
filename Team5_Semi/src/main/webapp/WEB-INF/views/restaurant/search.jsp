@@ -127,16 +127,29 @@
               <!-- 체크박스 끝 -->
 
 
+
+			<style>
+				 .txt_line {
+				      width:100%px;
+				      padding:0 5px;
+				      overflow:hidden;
+				      text-overflow:ellipsis;
+				      white-space:nowrap;
+				  }
+			</style>
               <!-- 음식점 검색 결과 시작 -->
               <div class="col-xl-8 col-xxl-9">
-                <div class="hstack gap-4">
                 	<c:if test="${empty restaurantList}">
 						<tr>
 							<td colspan="6">조회된 글이 없습니다.</td>
 						</tr>
 					</c:if>
 					<c:if test="${not empty restaurantList}">
-						<c:forEach var="item" items="${restaurantList }">
+						<c:forEach var="item" items="${restaurantList }" varStatus="status">
+						
+							<c:if test="${status.index % 3 == 0 }">
+								<div class="hstack gap-4">
+							</c:if>
 							<!-- 검색 결과 카드 시작 -->
                   			<div class="col-sm-6 col-lg-4 mb-5 hover-animate" data-marker-id="59c0c8e3a31e62979bf147c9" style="width: 300px;">
                     			<div class="card h-100 border-0 shadow">
@@ -146,14 +159,17 @@
                         				</div>
                      		 		</div>
                       				<div class="card-body">
-                        				<p class="text-muted mb-3"><c:out value="${item.overview }" /></p>
+                        				<p class="text-muted mb-3 txt_line"><c:out value="${item.overview }" /></p>
                         				<p class="mb-0"><c:out value="${item.addr1 }" /></p>
                       				</div>
                     			</div>
                   			</div>
+                  			<c:if test="${status.index % 3 == 2 }">
+								</div>
+							</c:if>
+                  			
               			</c:forEach>
 				   </c:if>
-                  </div>
                 </div>
                 
                 <!-- 페이지 번호 시작 -->
