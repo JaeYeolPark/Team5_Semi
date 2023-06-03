@@ -127,14 +127,16 @@
               <!-- 체크박스 끝 -->
 
 
-
 			<style>
 				 .txt_line {
-				      width:100%px;
+				      width:100%;
 				      padding:0 5px;
 				      overflow:hidden;
 				      text-overflow:ellipsis;
-				      white-space:nowrap;
+				      white-space:normal;
+				      display: -webkit-box;
+				      -webkit-line-clamp: 3;
+				      -webkit-box-orient:vertical;
 				  }
 			</style>
               <!-- 음식점 검색 결과 시작 -->
@@ -155,11 +157,11 @@
                     			<div class="card h-100 border-0 shadow">
                       				<div class="card-img-top overflow-hidden dark-overlay bg-cover" style="background-image: url(${item.firstimage }); min-height: 200px;"><a class="tile-link" href="detail.html"></a>
                         				<div class="card-img-overlay-bottom z-index-20">
-                          				<h2 class="text-white text-shadow"><c:out value="${item.title }" /></h2>
+                          				<h5 class="text-white text-shadow"><c:out value="${item.title }" /></h5>
                         				</div>
                      		 		</div>
                       				<div class="card-body">
-                        				<p class="text-muted mb-3 txt_line"><c:out value="${item.overview }" /></p>
+                        				<p class="text-muted mb-3 text-sm txt_line"><c:out value="${item.overview }" /></p>
                         				<p class="mb-0"><c:out value="${item.addr1 }" /></p>
                       				</div>
                     			</div>

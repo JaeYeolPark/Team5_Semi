@@ -67,8 +67,7 @@
 
 
     <!-- 검색 결과 사진 영역 시작 -->
-    <section class="pt-4">
-      <div class="container">
+      <div class="container pt-5">
             
             <c:if test="${empty tourspotList}">
 				<tr>
@@ -82,7 +81,7 @@
 						<div class="hstack gap-4">
 					</c:if>
 					<!-- 검색 결과 카드 시작 -->
-					<div class="card card-poster gradient-overlay hover-animate mx-4 mb-6 mb-lg-0" style="width: 200px;">
+					<div class="card card-poster gradient-overlay hover-animate mx-4 mb-6 mb-lg-5" style="width: 200px;">
               			<a class="tile-link" href="${path }/tourspot/detail?contentid=${item.contentid}"></a>
               			<img class="bg-image" src="${item.firstimage }" alt="Card image">
               			<div class="card-body overlay-content">
@@ -100,7 +99,6 @@
             	</c:forEach>
 			</c:if>			
       </div>
-    </section>
     <!-- 검색 결과 사진 영역 끝 -->
 
 
