@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.multi.mvc.tour.model.mapper.RestaurantMapper">
+	
+	<resultMap type="Restaurant" id="restaurantResultMap">
+		<result property="contentid" column="contentid" />
+		<result property="contenttypeid" column="contenttypeid" />
+		<result property="homepage" column="homepage" />
+		<result property="tel" column="tel" />
+		<result property="title" column="title" />
+		<result property="firstimage" column="firstimage" />
+		<result property="firstimage2" column="firstimage2" />
+		<result property="areacode" column="areacode" />
+		<result property="sigungucode" column="sigungucode" />
+		<result property="cat1" column="cat1" />
+		<result property="cat2" column="cat2" />
+		<result property="cat3" column="cat3" />
+		<result property="addr1" column="addr1" />
+		<result property="addr2" column="addr2" />
+		<result property="zipcode" column="zipcode" />
+		<result property="mapx" column="mapx" />
+		<result property="mapy" column="mapy" />
+		<result property="overview" column="overview" />
+		
+		<result property="chkcreditcardfood" column="chkcreditcardfood" />
+		<result property="discountinfofood" column="discountinfofood" />
+		<result property="firstmenu" column="firstmenu" />
+		<result property="infocenterfood" column="infocenterfood" />
+		<result property="kidsfacility" column="kidsfacility" />
+		<result property="opendatefood" column="opendatefood" />
+		<result property="opentimefood" column="opentimefood" />
+		<result property="packing" column="packing" />
+		<result property="parkingfood" column="parkingfood" />
+		<result property="reservationfood" column="reservationfood" />
+		<result property="restdatefood" column="restdatefood" />
+		<result property="scalefood" column="scalefood" />
+		<result property="seat" column="seat" />
+		<result property="smoking" column="smoking" />
+		<result property="treatmenu" column="treatmenu" />
+		<result property="lcnsno" column="lcnsno" />
+	</resultMap>
+
+	<select id="selectRestaurantAll" resultType="Restaurant">
+		SELECT * FROM restaurant
+	</select>
+	
+	<!-- 숙소 갯수 -->
+	<select id="selectRestaurantCount" parameterType="map" resultType="int">
+		SELECT
+			COUNT(*)
+		FROM restaurant as A
+		WHERE 1 = 1
+		<if test="selectAreaCode != null and selectAreaCode != ''">
+			AND A.AREACODE LIKE ${selectAreaCode}
+		</if>
+		<if test="restaurantType != null">
+			AND (
+				<foreach collection="restaurantType" item="item" separator="or">
+					A.cat3 LIKE '%${item}%'
+				</foreach>
+			)
+		</if>
+		<if test="searchValue != null">
+			AND A.TITLE LIKE '%${searchValue}%'
+		</if>
+	</select>
+	
+	<!-- 숙소 검색 -->
+	<select id="selectRestaurantList" parameterType="map" resultMap="restaurantResultMap">
+		SELECT 
+			*
+		FROM restaurant as A
+		WHERE 1 = 1
+		<if test="searchValue != null">
+			AND A.TITLE LIKE '%${searchValue}%'
+		</if>
+		<if test="hotelType != null">
+			AND (
+				<foreach collection="restaurantType" item="item" separator="or">
+					A.cat3 LIKE '%${item}%'
+				</foreach>
+			)
+		</if>
+		<if test="selectAreaCode != null and selectAreaCode != ''">
+			AND A.AREACODE LIKE ${selectAreaCode}
+		</if>
+		ORDER BY A.contentid DESC LIMIT ${limit} OFFSET ${offset}
+	</select>
+	
+	<!-- 숙소 contentId로 찾아오기 -->
+	<select id="findByContentId" parameterType="int" resultMap="restaurantResultMap">
+		SELECT
+			*
+		FROM restaurant
+		WHERE CONTENTID = #{contentid}
+	</select>
+
+</mapper>
