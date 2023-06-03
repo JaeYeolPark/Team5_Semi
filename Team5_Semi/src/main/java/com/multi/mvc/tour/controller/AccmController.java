@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -47,7 +48,6 @@ public class AccmController {
 			param.remove("hotelType");
 		}
 		
-//		System.out.println(param);
 		int accmCount = accmService.getAccmCount(param);
 		PageInfo pageInfo = new PageInfo(page, 10, accmCount, 7); // 게시글이 보여지는 갯수 = 10
 		List<Accommodation> list = accmService.getAccmList(pageInfo, param);
@@ -64,24 +64,32 @@ public class AccmController {
 	
 	
 	@RequestMapping("/accm/detail")
-	public String detail(Model model, @RequestParam("contentid") int id) {
+	public String detail(Model model, @RequestParam Map<String, Object> param, @RequestParam("contentid") int id) {
 		Accommodation accm = accmService.findByContentId(id);
+		int page = 1;
+		
 		if(accm == null) {
 			return "redirect:error";
 		}
-		model.addAttribute("accm", accm);
 		
+		if(param.get("page") != null) {
+			try {
+				page = Integer.parseInt((String) param.get("page"));
+			} catch (Exception e) {}
+		}
+		
+		int accmCount = accmService.getAccmCount(param);
+		PageInfo pageInfo = new PageInfo(page, 10, accmCount, 7); // 게시글이 보여지는 갯수 = 10
+		List<Accommodation> list = accmService.getAccmList(pageInfo, param);
+		
+		model.addAttribute("dAccmList",list);
+		model.addAttribute("accm", accm);
 		return "/accm/detail";
 	}
 	
 	@RequestMapping("/accm/booking")
-	public String booking(Model model, 
-			@RequestParam("startDate") Date startDate, 
-			@RequestParam("endDate") Date endDate,
-			@RequestParam("headCount") int headCount) {
-		model.addAttribute("startDate", startDate);
-		model.addAttribute("endDate", endDate);
-		model.addAttribute("headCount", startDate);
+	public String booking(Model model, @RequestParam Map<String, Object> param) {
+		model.addAttribute("bkParam", param);
 		return "/accm/booking";
 	}
 	

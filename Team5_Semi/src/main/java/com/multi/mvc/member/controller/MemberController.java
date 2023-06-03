@@ -35,9 +35,12 @@ public class MemberController {
 	@Autowired
 	private KaKaoService kakaoService;
 	
-	// action : /mvc/login
-	// 파라메터 : memberId, memberPwd
-//	@RequestMapping(name="/login", method = RequestMethod.POST)
+	
+	@GetMapping("/login")
+	public String loginPage() { 
+		return "member/login";
+	}
+	
 	@PostMapping("/login")
 	String login(Model model, String memberId, String memberPwd) {
 		log.info("@@@Login : " + memberId +", "+ memberPwd);

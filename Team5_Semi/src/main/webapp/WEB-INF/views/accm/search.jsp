@@ -12,9 +12,7 @@
 }
 </style>
 <form name="searchForm" action="${path }/accm/search" method="get">
-
 	<jsp:include page="/WEB-INF/views/common/header.jsp" />
-	
 	
 	<c:set var="selectAreaCode" value="${param.selectAreaCode}" />
 	
