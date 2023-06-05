@@ -36,7 +36,8 @@
 										${parsedStartDate.getDay() == '4' ? '목요일 check-in' : ''  }
 										${parsedStartDate.getDay() == '5' ? '금요일 check-in' : ''  }
 										${parsedStartDate.getDay() == '6' ? '토요일 check-in' : ''  }
-										${parsedStartDate.getDay() == '0' ? '일요일 check-in' : ''  } <br>${bkParam.checkin }
+										${parsedStartDate.getDay() == '0' ? '일요일 check-in' : ''  } 
+										<br>${bkParam.checkin }
 									</p>
 								</c:if>
 								<c:if test="${empty bkParam.checkin }">
@@ -62,7 +63,8 @@
 										${parsedEndDate.getDay() == '4' ? '목요일 check-out' : ''  }
 										${parsedEndDate.getDay() == '5' ? '금요일 check-out' : ''  }
 										${parsedEndDate.getDay() == '6' ? '토요일 check-out' : ''  }
-										${parsedEndDate.getDay() == '0' ? '일요일 check-out' : ''  } <br>${bkParam.checkout }
+										${parsedEndDate.getDay() == '0' ? '일요일 check-out' : ''  } 
+										<br>${bkParam.checkout }
 									</p>
 								</c:if>
 								<c:if test="${empty bkParam.checkout }">
@@ -98,7 +100,7 @@
 							<div class="text-block pb-3">
 								<div class="d-flex align-items-center">
 									<div>
-										<h6 id="title" name="title">
+										<h6 id="title">
 											<a class="text-reset"
 												href="${path }/accm/detail?contentid=${bkParam.bkContentId}">${bkParam.bkTitle }</a>
 										</h6>
@@ -121,6 +123,23 @@
 									</li>
 								</ul>
 							</div>
+							<div class="text-block pt-3 pb-0">
+								<table class="w-100">
+									<tbody>
+										<tr>
+											<fmt:parseNumber var="startDate_N" value="${parsedEndDate.time / (1000*60*60*24)}" integerOnly="true" />
+											<fmt:parseNumber var="endDate_N" value="${parsedStartDate.time / (1000*60*60*24)}" integerOnly="true" /> 
+											<th class="fw-normal py-2">${bkParam.price} x ${startDate_N -  endDate_N}박</th>
+										</tr>
+									</tbody>
+									<tfoot>
+										<tr class="border-top">
+											<th class="pt-3">Total</th>
+											<td class="fw-bold text-end pt-3">${bkParam.price * (startDate_N -  endDate_N)}원</td>
+										</tr>
+									</tfoot>
+								</table>
+							</div>
 						</div>
 						<div class="card-footer bg-primary-light py-4 border-0"
 							style="background-color: rgb(170, 170, 170);">
@@ -136,6 +155,13 @@
 						</div>
 					</div>
 					<div class="d-flex justify-content-between p-2 p-xl-0 mt-xl-4">
+						<input type="hidden" name="title" value="${bkParam.bkTitle}">
+						<input type="hidden" name="count" value="${bkParam.headCount }">
+						<input type="hidden" name="price" value="${bkParam.price * (startDate_N -  endDate_N)}">
+						
+						
+						
+						<input type="hidden" name="days" value="${startDate_N - endDate_N}">
 						<button class="btn btn-lg btn-primary mb-0" style="width: 100%;">예약하기</button>
 					</div>
 				</div>
@@ -144,5 +170,5 @@
 	</form>
 </section>
 
-
+						
 <jsp:include page="/WEB-INF/views/common/footer.jsp" />

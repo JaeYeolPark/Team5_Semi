@@ -176,21 +176,23 @@
 							autocomplete="off">
 							<div class="mb-4">
 								<label class="form-label" for="bookingDate">Your stay *</label>
-								<div class="datepicker-container datepicker-container-right">
-<!-- 									<input class="form-control" type="text" name="date-picker" -->
-<!-- 										id="date-picker" placeholder="Choose your dates" -->
-<!-- 										required="required"> -->
-<!-- 										<input class="form-control" id="startDate" name="startDate" type="date" /> -->
-<!-- 										<input class="form-control" id="endDate" name="endDate" type="date" /> -->
-										<input type="text" id="datePicker">
-										<input type="hidden" name="checkin" value="${accm.checkintime}">
-										<input type="hidden" name="checkout" value="${accm.checkouttime}">
-										<input type="hidden" name="bkAddr" value="${accm.addr1 } ${accm.addr2}">
-										<input type="hidden" name="bkImg" value="${accm.firstimage }">
-										<input type="hidden" name="bkContentId" value="${accm.contentid }">
-										<input type="hidden" name="bkTitle" value="${accm.title }">
-										<input type="hidden" name="refund" value="${accm.refundregulation }">
-								</div>
+								<input class="form-control" id="startDate" name="startDate" type="date" />
+								<input class="form-control" id="endDate" name="endDate" type="date" />
+								
+								<fmt:parseDate var="startDate_D"  value="${startDate }" pattern="yyyy-MM-dd"/>
+								<fmt:parseDate var="endDate_D" value="${endDate }"  pattern="yyyy-MM-dd"/>
+								<fmt:parseNumber var="startDate_N" value="${startDate_D.time / (1000*60*60*24)}" integerOnly="true" />
+								<fmt:parseNumber var="endDate_N" value="${endDate_D.time / (1000*60*60*24)}" integerOnly="true" /> 
+								
+								<input type="hidden" name="price" value="68000"/>
+								<input type="hidden" name="days" value="${startDate_N - endDate_N}">
+								<input type="hidden" name="checkin" value="${accm.checkintime}">
+								<input type="hidden" name="checkout" value="${accm.checkouttime}">
+								<input type="hidden" name="bkAddr" value="${accm.addr1 } ${accm.addr2}">
+								<input type="hidden" name="bkImg" value="${accm.firstimage }">
+								<input type="hidden" name="bkContentId" value="${accm.contentid }">
+								<input type="hidden" name="bkTitle" value="${accm.title }">
+								<input type="hidden" name="refund" value="${accm.refundregulation }">
 							</div>
 							<div class="mb-4">
 								<label class="form-label" for="guests">Guests *</label> <select
