@@ -2,6 +2,9 @@ package com.multi.mvc.kakao;
 
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Map;
 
 import org.springframework.http.HttpEntity;
@@ -21,7 +24,6 @@ public class KakaoPayService {
 	private static final String HOST = "https://kapi.kakao.com";
 	// 카카오 Admin 키
 	private static final String kakaoKey = "178d082024d35bf3c3f13f2efc0d07a9";
-
 	private KakaoPayReadyVO kakaoPayReadyVO;
 	private KakaoPayApprovalVO kakaoPayApprovalVO;
 
@@ -40,9 +42,9 @@ public class KakaoPayService {
 		params.add("cid", "TC0ONETIME");
 		params.add("partner_order_id", "1001");
 		params.add("partner_user_id", "test12");
-		params.add("title", param.get("title"));
-		params.add("headCount", param.get("headCount"));
-		params.add("total_amount", param.get("total_amount"));
+		params.add("item_name", param.get("title"));
+		params.add("quantity", param.get("days"));
+		params.add("total_amount", param.get("price"));
 		params.add("tax_free_amount", "500");
 		params.add("approval_url", "http://localhost/mvc/kakaoPaySuccess");
 		params.add("cancel_url", "http://localhost/mvc/kakaoPayCancel");
