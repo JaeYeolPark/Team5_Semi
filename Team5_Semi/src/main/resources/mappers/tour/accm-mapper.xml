@@ -108,5 +108,13 @@
 		FROM accommodation
 		WHERE CONTENTID = #{contentid}
 	</select>
+	
+	<insert id="insertBooking" parameterType="Booking">
+		INSERT INTO booking(
+			bkNo, mNO, contentId, startDate, endDate, headCount
+		) VALUES (
+			default, #{mNO}, #{contentId}, #{startDate}, #{endDate}, #{headCount}
+		)
+	</insert>
 
 </mapper>

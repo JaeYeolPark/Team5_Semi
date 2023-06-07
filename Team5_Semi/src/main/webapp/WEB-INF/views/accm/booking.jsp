@@ -9,7 +9,7 @@
 
 
 <section class="py-5">
-	<form action="${path}/kakaoPay" method="post">
+	<form name="kakaoPay" id="kakaoPay" method="post">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-7">
@@ -36,8 +36,7 @@
 										${parsedStartDate.getDay() == '4' ? '목요일 check-in' : ''  }
 										${parsedStartDate.getDay() == '5' ? '금요일 check-in' : ''  }
 										${parsedStartDate.getDay() == '6' ? '토요일 check-in' : ''  }
-										${parsedStartDate.getDay() == '0' ? '일요일 check-in' : ''  } 
-										<br>${bkParam.checkin }
+										${parsedStartDate.getDay() == '0' ? '일요일 check-in' : ''  } <br>${bkParam.checkin }
 									</p>
 								</c:if>
 								<c:if test="${empty bkParam.checkin }">
@@ -63,8 +62,7 @@
 										${parsedEndDate.getDay() == '4' ? '목요일 check-out' : ''  }
 										${parsedEndDate.getDay() == '5' ? '금요일 check-out' : ''  }
 										${parsedEndDate.getDay() == '6' ? '토요일 check-out' : ''  }
-										${parsedEndDate.getDay() == '0' ? '일요일 check-out' : ''  } 
-										<br>${bkParam.checkout }
+										${parsedEndDate.getDay() == '0' ? '일요일 check-out' : ''  } <br>${bkParam.checkout }
 									</p>
 								</c:if>
 								<c:if test="${empty bkParam.checkout }">
@@ -92,6 +90,11 @@
 								</select>
 							</div>
 						</div>
+					</div>
+					<div class="d-flex justify-content-between mb-3">
+						<button class="btn btn-outline-dark" style="width: 100%;"
+							id="kakaoBtn" name="kakaoBtn"
+							onclick="openPop()">카카오페이로결제</button>
 					</div>
 				</div>
 				<div class="col-lg-5 ps-xl-5">
@@ -127,9 +130,14 @@
 								<table class="w-100">
 									<tbody>
 										<tr>
-											<fmt:parseNumber var="startDate_N" value="${parsedEndDate.time / (1000*60*60*24)}" integerOnly="true" />
-											<fmt:parseNumber var="endDate_N" value="${parsedStartDate.time / (1000*60*60*24)}" integerOnly="true" /> 
-											<th class="fw-normal py-2">${bkParam.price} x ${startDate_N -  endDate_N}박</th>
+											<fmt:parseNumber var="startDate_N"
+												value="${parsedEndDate.time / (1000*60*60*24)}"
+												integerOnly="true" />
+											<fmt:parseNumber var="endDate_N"
+												value="${parsedStartDate.time / (1000*60*60*24)}"
+												integerOnly="true" />
+											<th class="fw-normal py-2">${bkParam.price}x
+												${startDate_N -  endDate_N}박</th>
 										</tr>
 									</tbody>
 									<tfoot>
@@ -154,21 +162,40 @@
 							</div>
 						</div>
 					</div>
-					<div class="d-flex justify-content-between p-2 p-xl-0 mt-xl-4">
-						<input type="hidden" name="title" value="${bkParam.bkTitle}">
-						<input type="hidden" name="count" value="${bkParam.headCount }">
-						<input type="hidden" name="price" value="${bkParam.price * (startDate_N -  endDate_N)}">
-						
-						
-						
-						<input type="hidden" name="days" value="${startDate_N - endDate_N}">
-						<button class="btn btn-lg btn-primary mb-0" style="width: 100%;">예약하기</button>
-					</div>
 				</div>
 			</div>
 		</div>
+		<input type="hidden" name="title" value="${bkParam.bkTitle}">
+		<input type="hidden" name="price"value="${bkParam.price * (startDate_N -  endDate_N)}"> 
+		<input type="hidden" name="days" value="${startDate_N - endDate_N}">
 	</form>
+	<form id="insertBooking" name="insertBooking" method="post">
+		<div class="d-flex justify-content-between p-2 p-xl-0 mt-xl-4">
+			<input type="hidden" name="mno" value="${bkParam.mno}"> <input type="hidden" name="contentId" value="${bkParam.bkContentId}">
+			<input type="hidden" name="startDate" value="${bkParam.startDate}">
+			<input type="hidden" name="endDate" value="${bkParam.endDate}">
+			<input type="hidden" name="headCount" value="${bkParam.headCount }">
+			<button id="bookingBtn" class="btn btn-lg btn-primary mb-0" style="width: 100%;" onclick="javascript: form.action='${path}/accm/booking';" disabled>예약하기</button>
+		</div>
+	</form>
+
 </section>
 
-						
+<script type="text/javascript" language="javascript">
+	function openPop(){
+		const target = document.getElementById('bookingBtn');
+	  	target.disabled = false;
+	  	
+		var pop_title = "popupOpener" ;
+		 var options = 'top=10, left=10, width=500, height=600, status=no, menubar=no, toolbar=no, resizable=no';
+		
+		window.open("", pop_title, options) ;
+		
+		var kakaoPay = document.kakaoPay ;
+		kakaoPay.target = pop_title ;
+		kakaoPay.action='${path}/kakaoPay';
+		kakaoPay.submit() ;
+	}
+</script>
+
 <jsp:include page="/WEB-INF/views/common/footer.jsp" />

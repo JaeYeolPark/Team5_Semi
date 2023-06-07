@@ -1,13 +1,11 @@
 package com.multi.mvc.tour.model.service;
 
-import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.multi.mvc.board.model.vo.Board;
 import com.multi.mvc.common.util.PageInfo;
 import com.multi.mvc.tour.model.mapper.AccmMapper;
 import com.multi.mvc.tour.model.vo.Accommodation;
@@ -38,9 +36,8 @@ public class AccmService {
 		return accm;
 	}
 
-	public Booking setBooking(Date startDate, Date endDate) {
-		// TODO Auto-generated method stub
-		return null;
+	public int setBooking(Booking booking) { 
+		return mapper.insertBooking(booking);
 	}
 	
 }

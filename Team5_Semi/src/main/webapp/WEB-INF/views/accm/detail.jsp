@@ -15,7 +15,14 @@
 		<h1>${accm.title }</h1>
 	</section>
 	<section class="position-relative py-6 container-fluid">
-		<img class="bg-image h-100" src="${accm.firstimage }" alt="">
+		<c:choose>
+			<c:when test="${not empty accm.firstimage }">
+				<img class="bg-image h-100" src="${accm.firstimage }" alt="">
+			</c:when>
+			<c:otherwise>
+				<img class="bg-image h-100" src="${path }/resources/img/preparing2.png" alt="">
+			</c:otherwise>
+		</c:choose>
 		<div style="height: 300px;"></div>
 	</section>
 	<section>
@@ -172,12 +179,12 @@
 							<span class="text-primary h2">68,000 원</span> * 1박
 						</p>
 						<hr class="my-4">
-						<form class="form" id="bookingForm" method="post" action="${path }/accm/booking"
+						<form class="form" id="bookingForm" method="get" action="${path }/accm/booking"
 							autocomplete="off">
 							<div class="mb-4">
 								<label class="form-label" for="bookingDate">Your stay *</label>
-								<input class="form-control" id="startDate" name="startDate" type="date" />
-								<input class="form-control" id="endDate" name="endDate" type="date" />
+								<input class="form-control" id="startDate" name="startDate" type="date" required/>
+								<input class="form-control" id="endDate" name="endDate" type="date" required/>
 								
 								<fmt:parseDate var="startDate_D"  value="${startDate }" pattern="yyyy-MM-dd"/>
 								<fmt:parseDate var="endDate_D" value="${endDate }"  pattern="yyyy-MM-dd"/>
@@ -205,7 +212,13 @@
 								</select>
 							</div>
 							<div class="d-grid mb-4">
-								<button class="btn btn-primary" type="submit" >Book your stay</button>
+								<c:if test="${not empty loginMember }">
+									<button class="btn btn-primary" type="submit" >Book your stay</button>
+								</c:if>
+								<c:if test="${empty loginMember }">
+									<button class="btn" style="gray;" type="submit" disabled >로그인해주세요</button>
+								</c:if>
+								
 							</div>
 						</form>
 						<p class="text-muted text-sm text-center">Some additional text
