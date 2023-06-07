@@ -4,8 +4,8 @@
 <mapper namespace="com.multi.mvc.member.model.mapper.MemberMapper">
 	<sql id="selectMemberSql">	
 		SELECT  
-			mNO, ID, PASSWORD, ROLE, NAME,  
-		    PHONE, EMAIL, ADDRESS, HOBBY, STATUS, 
+			mNO, ID, PASSWORD, NAME,  
+		    PHONE, EMAIL, ADDRESS, STATUS, 
 		    ENROLL_DATE, MODIFY_DATE
 		FROM MEMBER
 	</sql>
@@ -14,12 +14,10 @@
 		<result property="mno" column="mNO"/>
 		<result property="id" column="ID"/>
 		<result property="password" column="PASSWORD"/>
-		<result property="role" column="ROLE"/>
 		<result property="name" column="NAME"/>
 		<result property="phone" column="PHONE"/>
 		<result property="email" column="EMAIL"/>
 		<result property="address" column="ADDRESS"/>
-		<result property="hobby" column="HOBBY"/>
 		<result property="kakaoToKen" column="kakaoToKen"/>
 		<result property="status" column="STATUS"/>
 		<result property="enrollDate" column="ENROLL_DATE"/>
@@ -36,8 +34,8 @@
 	
 	<select id="selectMemberById" parameterType="string" resultMap="memberResultMap">
 		SELECT
-			mNO, ID, PASSWORD, ROLE, NAME,  
-			PHONE, EMAIL, ADDRESS, HOBBY, STATUS, 
+			mNO, ID, PASSWORD, NAME,  
+			PHONE, EMAIL, ADDRESS, STATUS, 
 			ENROLL_DATE, MODIFY_DATE
 			FROM MEMBER 
 		WHERE ID = #{id} AND STATUS = 'Y'
@@ -50,12 +48,12 @@
 	
 	<insert id="insertMember" parameterType="Member">
 		INSERT INTO MEMBER (
-		    mNO, ID, PASSWORD, ROLE, NAME,  
-			PHONE, EMAIL, ADDRESS, HOBBY, KAKAOTOKEN, STATUS, 
+		    mNO, ID, PASSWORD, NAME,  
+			PHONE, EMAIL, ADDRESS, KAKAOTOKEN, STATUS, 
 			ENROLL_DATE, MODIFY_DATE)
 		VALUES(
-			 default, #{id}, #{password}, #{role}, #{name}, 
-			 #{phone}, #{email}, #{address}, #{hobby},  #{kakaoToken}, default, 
+			 default, #{id}, #{password}, #{name}, 
+			 #{phone}, #{email}, #{address}, #{kakaoToken}, default, 
 			 default, default)
 	</insert>
 	
@@ -66,7 +64,6 @@
 			PHONE = #{phone},
 			EMAIL = #{email},
 			ADDRESS = #{address},
-			HOBBY = #{hobby},
 			MODIFY_DATE = CURRENT_TIMESTAMP
 		WHERE mNO  = #{mno}
 	</update>
