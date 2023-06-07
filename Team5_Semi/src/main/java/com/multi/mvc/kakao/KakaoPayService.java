@@ -7,14 +7,22 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
+
+import com.multi.mvc.member.model.vo.Member;
+import com.multi.mvc.tour.model.mapper.AccmMapper;
+import com.multi.mvc.tour.model.vo.Booking;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -26,10 +34,12 @@ public class KakaoPayService {
 	private static final String kakaoKey = "178d082024d35bf3c3f13f2efc0d07a9";
 	private KakaoPayReadyVO kakaoPayReadyVO;
 	private KakaoPayApprovalVO kakaoPayApprovalVO;
+	
 
-	public String kakaoPayReady(Map<String, String> param) {
+	public String kakaoPayReady(Map<String, String> param, HttpSession session,
+			Booking booking) {
 
-		RestTemplate restTemplate = new RestTemplate();
+		RestTemplate restTemplate = new RestTemplate(); 
 
 		// 서버로 요청할 Header
 		HttpHeaders headers = new HttpHeaders();
@@ -41,7 +51,7 @@ public class KakaoPayService {
 		MultiValueMap<String, String> params = new LinkedMultiValueMap<String, String>();
 		params.add("cid", "TC0ONETIME");
 		params.add("partner_order_id", "1001");
-		params.add("partner_user_id", "test12");
+		params.add("partner_user_id", session.getId());
 		params.add("item_name", param.get("title"));
 		params.add("quantity", param.get("days"));
 		params.add("total_amount", param.get("price"));
@@ -50,8 +60,7 @@ public class KakaoPayService {
 		params.add("cancel_url", "http://localhost/mvc/kakaoPayCancel");
 		params.add("fail_url", "http://localhost/mvc/kakaoPaySuccessFail");
 		params.add("msg", "결제가 완료되었습니다.");
-
-
+		
 		HttpEntity<MultiValueMap<String, String>> body = new HttpEntity<MultiValueMap<String, String>>(params, headers);
 		System.out.println(body);
 		try {
@@ -71,7 +80,7 @@ public class KakaoPayService {
 		return "/";
 	}
 
-	public KakaoPayApprovalVO kakaoPayInfo(String pg_token, Map<String, String> param) {
+	public KakaoPayApprovalVO kakaoPayInfo(String pg_token, Map<String, String> param, HttpSession session) {
 		log.info("KakaoPayInfoVO............................................");
 		log.info("-----------------------------");
 
@@ -88,7 +97,7 @@ public class KakaoPayService {
 		params.add("cid", "TC0ONETIME");
 		params.add("tid", kakaoPayReadyVO.getTid());
 		params.add("partner_order_id", "1001");
-		params.add("partner_user_id", "test12");
+		params.add("partner_user_id", session.getId());
 		params.add("pg_token", pg_token);
 		params.add("total_amount", param.get("total_amount"));
 

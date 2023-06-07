@@ -17,6 +17,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.server.i18n.AcceptHeaderLocaleContextResolver;
 
+import com.multi.mvc.member.model.vo.Member;
+import com.multi.mvc.tour.model.vo.Booking;
+
 import lombok.extern.slf4j.Slf4j;
 
 
@@ -78,10 +81,10 @@ public class KaKaoController {
     private KakaoPayService kakaopay;
 	    
     @PostMapping("/kakaoPay")
-    public String kakaoPay(@RequestParam Map<String, String> param, HttpSession session) {
+    public String kakaoPay(@RequestParam Map<String, String> param, HttpSession session, Booking booking) {
         log.info("kakaoPay post............................................");
         session.setAttribute("param", param);
-        return "redirect:" + kakaopay.kakaoPayReady(param);
+        return "redirect:" + kakaopay.kakaoPayReady(param, session, booking);
  
     }
     
@@ -91,8 +94,15 @@ public class KaKaoController {
         log.info("kakaoPaySuccess pg_token : " + pg_token);
         @SuppressWarnings("unchecked")
 		Map<String, String> param = (Map<String, String>) session.getAttribute("param");
-        model.addAttribute("info", kakaopay.kakaoPayInfo(pg_token, param));
-        return "kakao/kakaoPaySuccess";
+        model.addAttribute("info", kakaopay.kakaoPayInfo(pg_token, param, session));
+        return "kakao/kakaoPaySuccess2";
+    }
+    
+    @GetMapping("/kakaoPayCancel")
+    public String kakaoPayCancel(Model model, HttpSession session) {
+    	model.addAttribute("msg", "결제 취소하셨습니다.");
+    	model.addAttribute("location", "/accm/search");
+        return "/common/msg";
     }
 	
 }

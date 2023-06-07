@@ -12,7 +12,7 @@
         <center>
           <div class="col-md-9">
             <div class="w-100 py-5 px-md-5 px-xxl-6 position-relative">
-              <div class="mb-5"><img class="img-fluid mb-1" src="img/logo1.png" alt="35place 로고" style="max-width: 12rem;">
+              <div class="mb-5"><img class="img-fluid mb-1" src="${path}/resources/img/logo1.png" alt="35place 로고" style="max-width: 12rem;">
               </div>
               <form class="form-validate" style="width: 70%;" action="${path}/login" method="post">
                 <div class="mb-4">

@@ -10,7 +10,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Booking {
-	private int mNo          ;
+	private int bkNo         ;
+	private int mNO          ;
 	private int contentId    ;
 	private Date startDate   ;
 	private Date endDate     ;

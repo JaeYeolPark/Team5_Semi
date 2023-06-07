@@ -212,8 +212,14 @@
 												<div class="row g-0">
 													<!-- 카드 이미지 -->
 													<div class="col-md-4" style="width: 300px;">
-														<img src="${item.firstimage }"
-															class="card-img rounded-2 img-thumbnail" alt="Card image">
+														<c:choose>
+															<c:when test="${not empty item.firstimage }">
+																<img style="height:220px" class="card-img rounded-2 img-thumbnail" src="${item.firstimage }" alt="">
+															</c:when>
+															<c:otherwise>
+																<img style="height:220px" class="card-img rounded-2 img-thumbnail" src="${path }/resources/img/preparing.jpg" alt="">
+															</c:otherwise>
+														</c:choose>
 													</div>
 													<!-- 카드 오른쪽 글 -->
 													<div class="col-md-8" style="padding-left: 20px;">

@@ -7,6 +7,7 @@ import org.apache.ibatis.annotations.Mapper;
 
 import com.multi.mvc.board.model.vo.Board;
 import com.multi.mvc.tour.model.vo.Accommodation;
+import com.multi.mvc.tour.model.vo.Booking;
 
 @Mapper
 public interface AccmMapper {
@@ -14,4 +15,5 @@ public interface AccmMapper {
 	int selectAccmCount(Map<String, Object> map);
 	List<Accommodation> selectAccmList(Map<String, Object> map);
 	Accommodation findByContentId(int id);
+	int insertBooking(Booking booking);
 }
