@@ -6,81 +6,56 @@
 <c:set var="path" value="${pageContext.request.contextPath}"/>
 
 
-<jsp:include page="/WEB-INF/views/common/header.jsp">
-	<jsp:param value="회원 가입" name="title"/>
-</jsp:include>
+<jsp:include page="/WEB-INF/views/common/header.jsp" />
 
-<style>
-	section #enroll-container {text-align: center;}
-	section #enroll-container input {margin: 3px;}
-	section #enroll-container table {margin: 0 auto;}
-	section #enroll-container table th {padding: 0 10px; text-align: right;}
-	section #enroll-container table td {padding: 0 10px;text-align: left;}
-</style>
 
-<section id="content">
-	<h3 align="center">회원가입 정보</h3>
-	<form id="enroll-container" name="memberEnrollFrm" action="${path}/member/enroll" method="post">
-		<input type="hidden" name="kakaoToken" value="${kakaoMap.id}">
-		<table>
-			<tr>
-				<th>아이디</th>
-				<td>
-					<input type="text" name="id" id="id" value="${kakaoMap.email}" placeholder="아이디 4글자 이상" required>
-					<input type="button" id="checkDuplicate" name="id" value="중복검사">
-				</td>
-			</tr>		
-			<tr>
-				<th>패스워드</th>
-				<td>
-					<input type="password" name="password" id="password1" required>
-				</td>
-			</tr>		
-			<tr>
-				<th>패스워드 확인</th>
-				<td>
-					<input type="password" id="password2" required>
-				</td>
-			</tr>		
-			<tr>
-				<th>이름</th>
-				<td>
-					<input type="text" name="name" value="${kakaoMap.nickname}" id="name" required>
-				</td>
-			</tr>		
-			<tr>
-				<th>전화번호</th>
-				<td>
-					<input type="tel" name="phone" maxlength="11" placeholder="(-없이)01012345678">
-				</td>
-			</tr>		
-			<tr>
-				<th>이메일</th>
-				<td>
-					<input type="email" name="email" id="email">
-				</td>
-			</tr>		
-			<tr>
-				<th>주소</th>
-				<td>
-					<input type="text" name="address" id="address">
-				</td>
-			</tr>		
-			<tr>
-				<th>취미</th>
-				<td>
-					<label><input type="checkbox" name="hobby" value="운동">운동</label> 
-					<label><input type="checkbox" name="hobby" value="수영">수영</label> 
-					<label><input type="checkbox" name="hobby" value="게임">게임</label> 
-					<label><input type="checkbox" name="hobby" value="독서">독서</label> 
-					<label><input type="checkbox" name="hobby" value="여행">여행</label> 
-				</td>
-			</tr>		
-		</table>
-		<input type="submit" id="enrollSubmit" value="가입">
-		<input type="reset" value="취소">
-	</form>
-</section>
+    <section class="py-5" id="content">
+      <div class="container-fluid px-xxl-7" align="center">
+        <div class="col-md-9">
+          <div class="w-100 py-5 px-md-5 px-xxl-6 position-relative">
+            <div class="mb-5 ps-xxl-7"><img class="img-fluid mb-1" src="${path}/resources/img/logo1.png" alt="35place 로고" style="max-width: 12rem;">
+            </div>
+            <form class="form-validate" style="width: 70%;" action="${path}/member/enroll" method="post" id="enroll-container">
+            <input type="hidden" name="kakaoToken" value="${kakaoMap.id}">
+              <div class="mb-4">
+                <label class="form-label" for="userRealName"> 이름</label>
+                <input class="form-control" name="userRealName" id="name" type="text" placeholder="홍길동" value="${kakaoMap.nickname}" autocomplete="off" required data-msg="이름을 입력하지 않으셨습니다!">
+              </div>
+              <div class="mb-4">
+                <label class="form-label" for="loginUsername"> 이메일 주소</label>
+                <input class="form-control" name="loginUsername" id="id" value="${kakaoMap.email}" type="email" placeholder="name@address.com" autocomplete="off" required data-msg="이메일 주소를 입력하지 않으셨습니다!">
+                <input type="button" id="checkDuplicate" value="중복 검사" class="btn btn-light">
+              </div>
+              <div class="mb-4">
+                <label class="form-label" for="loginPassword"> 비밀번호</label>
+                <input class="form-control" name="loginPassword" id="password" placeholder="Password" type="password" required data-msg="비밀번호를 입력해 주세요!">
+              </div>
+              <div class="mb-4">
+                <label class="form-label" for="loginPassword2"> 비밀번호 확인</label>
+                <input class="form-control" name="loginPassword2" id="password2" placeholder="Password" type="password" required data-msg="비밀번호를 한 번 더 입력하십시오!">
+              </div>
+              <div class="mb-4">
+                <label class="form-label" for="telNo"> 전화번호</label>
+                <input class="form-control" name="telNo" id="telNo" type="tel" placeholder="010-1234-5678" autocomplete="off" required data-msg="전화번호를 입력하지 않으셨습니다!">
+              </div>
+              <div class="mb-4">
+                <label class="form-label" for="dob"> 생년월일</label>
+                <input class="form-control text-muted" name="dob" id="dob" type="date" autocomplete="off" required data-msg="생년월일을 입력하십시오!">
+              </div>
+              <div class="d-grid gap-2">
+                <button class="btn btn-primary" type="submit" id="enrollSubmit">회원 가입</button>
+              </div>
+              <br>
+              <div class="d-grid gap-2">
+                <button class="btn btn btn-outline-muted">
+                  <span class="d-none d-sm-inline">카카오 계정으로 </span>회원 가입</button>
+              </div>
+            </form>
+          </div>
+        </div>  
+      </div>
+    </section>
+
 
 <script type="text/javascript">
 	$(()=>{
