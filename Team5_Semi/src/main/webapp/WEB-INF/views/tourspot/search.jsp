@@ -67,7 +67,8 @@
 
 
     <!-- 검색 결과 사진 영역 시작 -->
-      <div class="container pt-5">
+    <section class="py-5">
+      <div class="container pt-2">
             
             <c:if test="${empty tourspotList}">
 				<tr>
@@ -100,8 +101,6 @@
 			</c:if>			
       </div>
     <!-- 검색 결과 사진 영역 끝 -->
-
-
 
     <!-- 페이지 번호 시작 -->
     <nav aria-label="Page navigation example">
@@ -137,6 +136,7 @@
 						onclick="movePage(${pageInfo.maxPage})">&raquo;</a></li>
 				</ul>
 			</nav>
+	</section>
     <!-- 페이지 번호 끝 -->
     
 	<jsp:include page="/WEB-INF/views/common/footer.jsp" />

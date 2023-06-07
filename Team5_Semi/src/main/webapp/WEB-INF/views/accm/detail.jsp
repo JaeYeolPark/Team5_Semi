@@ -245,7 +245,7 @@
 										style="background-image: url(${item.firstimage}); min-height: 200px;">
 										<a class="tile-link" href="${path }/accm/detail?contentid=${item.contentid}"></a>
 										<div class="card-img-overlay-bottom z-index-20">
-											<h4 class="text-white text-shadow">${item.title }</h4>
+											<h5 class="text-white text-shadow">${item.title }</h5>
 										</div>
 									</div>
 									<div class="card-body" >

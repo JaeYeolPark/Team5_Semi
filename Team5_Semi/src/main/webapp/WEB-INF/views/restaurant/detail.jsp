@@ -132,7 +132,7 @@
 			<div class="swiper-container swiper-container-mx-negative items-slider-full px-lg-5 pt-1">
 				<!-- Additional required wrapper-->
 				<div class="swiper-wrapper">
-					<c:forEach var="item" items="${dAccmList }">
+					<c:forEach var="item" items="${dRestaurantList }">
 						<!-- Slides-->
 						<div class="swiper-slide h-auto px-2 mb-4">
 							<!-- venue item-->
@@ -141,9 +141,9 @@
 								<div class="card h-100 border-0 shadow">
 									<div class="card-img-top overflow-hidden dark-overlay bg-cover"
 										style="background-image: url(${item.firstimage}); min-height: 200px;">
-										<a class="tile-link" href="${path }/accm/detail?contentid=${item.contentid}"></a>
+										<a class="tile-link" href="${path }/restaurant/detail?contentid=${item.contentid}"></a>
 										<div class="card-img-overlay-bottom z-index-20">
-											<h4 class="text-white text-shadow">${item.title }</h4>
+											<h5 class="text-white text-shadow">${item.title }</h5>
 										</div>
 									</div>
 									<div class="card-body" >
@@ -158,7 +158,75 @@
 			</div>
 		</div>
 	</section>
-    </body>
+   </body>
+   
+   
+<script type="text/javascript"
+	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=394919af8b3f58765ba429c8f8ba8270"></script>
+<script>
+	var container = document.getElementById('detailMap'); //지도를 담을 영역의 DOM 레퍼런스
+	
+	var options = { //지도를 생성할 때 필요한 기본 옵션
+	    center: new kakao.maps.LatLng(${restaurant.mapy}, ${restaurant.mapx}), //지도의 중심좌표.
+	    level: 3 //지도의 레벨(확대, 축소 정도)
+	    // disableClickZoom: true // 클러스터 마커를 클릭했을 때 지도가 확대되지 않도록 설정한다
+	};
+	
+	var map = new kakao.maps.Map(container, options); //지도 생성 및 객체 리턴
+
+    // 마커가 표시될 위치입니다 
+    var markerPosition  = new kakao.maps.LatLng(${restaurant.mapy}, ${restaurant.mapx}); 
+
+    // 마커를 생성합니다
+    var marker = new kakao.maps.Marker({
+        position: markerPosition
+    });
+
+    // 마커가 지도 위에 표시되도록 설정합니다
+    marker.setMap(map);
+
+    // 아래 코드는 지도 위의 마커를 제거하는 코드입니다
+    // marker.setMap(null);
+
+    // 지도에 클릭 이벤트를 등록합니다
+    // 지도를 클릭하면 마지막 파라미터로 넘어온 함수를 호출합니다
+    kakao.maps.event.addListener(map, 'click', function(mouseEvent) {        
+        
+        // 클릭한 위도, 경도 정보를 가져옵니다 
+        var latlng = mouseEvent.latLng; 
+        
+        // 마커 위치를 클릭한 위치로 옮깁니다
+        marker.setPosition(latlng);
+        
+        // 마우스로 클릭한 위치의 위도와 경도를 표시할 메세지
+        var message = '클릭한 위치의 위도는 ' + latlng.getLat() + ' 이고, ';
+        message += '경도는 ' + latlng.getLng() + ' 입니다';
+
+        // 'clickLatlng'라는 아이디값을 가진 <div> 태그의 innerHTML 으로 위 메세지를 설정합니다.
+        var resultDiv = document.getElementById('clickLatlng'); 
+        resultDiv.innerHTML = message;
+        
+    });
+
+</script>
+
+<script>
+	var now_utc = Date.now() // 지금 날짜를 밀리초로
+	//getTimezoneOffset()은 현재 시간과의 차이를 분 단위로 반환
+	var timeOff = new Date().getTimezoneOffset()*60000; // 분단위를 밀리초로 변환
+	//new Date(now_utc-timeOff).toISOString()은 '2022-05-11T18:09:38.134Z'를 반환
+	var today = new Date(now_utc-timeOff).toISOString().split("T")[0];
+	document.getElementById("startDate").setAttribute("min", today);
+	document.getElementById("endDate").setAttribute("min", today);
+</script>
+
+<script type="text/javascript">
+	$('#datePicker').datepicker({
+		format : "yyyy-mm-dd", // 달력에서 클릭시 표시할 값 형식
+	});
+</script>
+
+
 
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>

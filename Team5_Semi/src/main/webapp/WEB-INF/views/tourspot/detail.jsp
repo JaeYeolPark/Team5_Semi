@@ -11,7 +11,7 @@
     <body style="padding-top: 72px; overflow-x: hidden">
     
         <section class="container">
-            <h3 style="color: gray; padding-top: 40px;">${tourspot.add1 }</h3>
+            <h3 style="color: gray; padding-top: 40px;">${tourspot.addr1 }</h3>
             <h1 style="padding-bottom: 20px;">${tourspot.title }</h1>
         </section>
         <section class="position-relative py-6 container-fluid">
@@ -25,36 +25,36 @@
                     <div>
                         <div class="container">
                             <div class="text-block">
-                                <p class="mb-4 " style="font-weight: bolder; font-size: 30px;">About</p>
+                                <p class="mb-4 " style="font: bolder; font-size: 30px;">관광지 설명</p>
                                 <p class="text-muted font-weight-light">
                                     ${tourspot.overview }
                                 </p>
                             </div>
                             <div class="text-block">
-                                <h4 class="mb-4">관광지 정보</h4>
+                            	<p class="mb-4 " style="font: bolder; font-size: 30px;">기본 정보</p>
                                 <div class="row">
-                                    <div class="col-md-6">
+                                    <div class="col-md-6 mb-3">
                                         <ul class="list-unstyled text-muted">
-                                            <li class="mb-2"> <i class="fas fa-baby-carriage" style="color: #9dc3e6; font-size: 3rem;"></i>
-                                                <span class="ms-4">${tourspot.chkcarriage }</span>
+                                            <li class="mb-3"> <i class="fas fa-baby-carriage" style="color: #9dc3e6; font-size: 3rem;"></i>
+                                                <span class="ms-4">${tourspot.chkbabycarriage }</span>
                                             </li>
-                                            <li class="mb-2"> <i class="fas fa-paw" style="color: #9dc3e6; font-size: 3rem;"></i>
+                                            <li class="mb-3"> <i class="fas fa-paw" style="color: #9dc3e6; font-size: 3rem;"></i>
                                                 <span class="ms-4">${tourspot.chkpet }</span>
                                             </li>
-                                            <li class="mb-2"> <i class="fa-solid fa-children" style="color: #9dc3e6; font-size: 3rem;"></i>
-                                                <span class="ms-4">체험가능연령</span>
+                                            <li class="mb-3"> <i class="fas fa-car" style="color: #9dc3e6; font-size: 3rem;"></i>
+                                                <span class="ms-4">${tourspot.parking }</span>
                                             </li>
                                         </ul>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-md-6 mb-3">
                                         <ul class="list-unstyled text-muted">
-                                            <li class="mb-2"> <i class="fa-regular fa-calendar" style="color: #9dc3e6; font-size: 3rem;"></i></i>
+                                            <li class="mb-3"> <i class="far fa-calendar-alt" style="color: #9dc3e6; font-size: 3rem;"></i></i>
                                                 <span class="ms-4">${tourspot.opendate }</span>
                                             </li>
-                                            <li class="mb-2"> <i class="fa-regular fa-calendar-xmark" style="color: #9dc3e6; font-size: 3rem;"></i></i>
-                                                <span class="ms-4">쉬는날</span>
+                                            <li class="mb-3"> <i class="far fa-calendar-times" style="color: #9dc3e6; font-size: 3rem;"></i></i>
+                                                <span class="ms-4">${tourspot.restdate }</span>
                                             </li>
-                                            <li class="mb-2"> <i class="far fa-clock" style="color: #9dc3e6; font-size: 3rem;"></i>
+                                            <li class="mb-3"> <i class="far fa-clock" style="color: #9dc3e6; font-size: 3rem;"></i>
                                                 <span class="ms-4">${tourspot.usetime }</span>
                                             </li>
                                         </ul>
@@ -62,7 +62,7 @@
                                 </div>
                             </div>
                             <div class="text-block"> <!-- 카카오 지도 들어가는 자리 -->
-                                <h5 class="mb-4">Listing location</h5>
+                            	<p class="mb-4 " style="font: bolder; font-size: 30px;">위치</p>
                                 <div class="map-wrapper-300 mb-3">
                                     <div class="h-100" id="detailMap"></div>
                                 </div>
