@@ -47,7 +47,7 @@
                 <input class="form-control border-0 shadow-0" type="search" name="search" placeholder="검색어를 입력하세요">
               </div>
               <div class="col-md-6 col-lg-3 d-flex align-items-center form-group no-divider" style="width: 200px;">
-                <select class="selectpicker" title="지역" data-style="btn-form-control">
+                <select class="selectpicker" title="지역 선택" data-style="btn-form-control">
                   <option value="small">강원도</option>
                   <option value="medium">경기도</option>
                   <option value="large">경상남도</option>

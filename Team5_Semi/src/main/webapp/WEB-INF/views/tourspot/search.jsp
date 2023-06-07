@@ -41,7 +41,7 @@
 						class="col-md-6 col-lg-3 d-flex align-items-center form-group no-divider"
 						style="width: 200px;">
 						<select class="selectpicker" id="selectAreaCode"
-							name="selectAreaCode" data-style="btn-form-control" title="지역 선택">
+							name="selectAreaCode" data-style="btn-form-control form-control-lg" title="지역 선택">
 							<option value="" ${selectAreaCode == '' ? 'selected' : '' }>전체</option>
 							<option value="32" ${selectAreaCode == '32' ? 'selected' : '' }>강원도</option>
 							<option value="31" ${selectAreaCode == '31' ? 'selected' : '' }>경기도</option>
