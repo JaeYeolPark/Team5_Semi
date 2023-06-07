@@ -11,8 +11,8 @@
     <body style="padding-top: 72px; overflow-x: hidden">
     
         <section class="container">
-            <h3 style="color: gray; padding-top: 15px;">${tourspot.add1 }</h3>
-            <h1>${tourspot.title }</h1>
+            <h3 style="color: gray; padding-top: 40px;">${tourspot.add1 }</h3>
+            <h1 style="padding-bottom: 20px;">${tourspot.title }</h1>
         </section>
         <section class="position-relative py-6 container-fluid">
             <img class="bg-image h-100" src="${tourspot.firstimage }" alt="">

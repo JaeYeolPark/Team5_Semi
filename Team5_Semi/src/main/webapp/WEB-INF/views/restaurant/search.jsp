@@ -17,7 +17,7 @@
 	<c:set var="selectAreaCode" value="${param.selectAreaCode}" />
 	
     <div>
-        <section class="d-flex align-items-center dark-overlay bg-cover" style="background-image: url(imgpick/foodSearch.jpg)";>
+        <section class="d-flex align-items-center dark-overlay bg-cover" style="background-image: url(${path}/resources/imgPick/foodSearch.jpg);">
           <div class="container my-7 py-7 py-lg-7 text-white overlay-content text-center"> 
             <div class="row">
               <div class="col-xl-10 mx-auto">
@@ -155,7 +155,7 @@
 							<!-- 검색 결과 카드 시작 -->
                   			<div class="col-sm-6 col-lg-4 mb-5 hover-animate" data-marker-id="59c0c8e3a31e62979bf147c9" style="width: 300px;">
                     			<div class="card h-100 border-0 shadow">
-                      				<div class="card-img-top overflow-hidden dark-overlay bg-cover" style="background-image: url(${item.firstimage }); min-height: 200px;"><a class="tile-link" href="detail.html"></a>
+                      				<div class="card-img-top overflow-hidden dark-overlay bg-cover" style="background-image: url(${item.firstimage }); min-height: 200px;"><a class="tile-link" href="${path }/restaurant/detail?contentid=${item.contentid}"></a>
                         				<div class="card-img-overlay-bottom z-index-20">
                           				<h5 class="text-white text-shadow"><c:out value="${item.title }" /></h5>
                         				</div>

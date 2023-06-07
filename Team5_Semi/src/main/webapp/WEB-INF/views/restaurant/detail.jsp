@@ -11,8 +11,8 @@
     <body style="padding-top: 72px; overflow-x: hidden">
     
         <section class="container">
-            <h3 style="color: gray; padding-top: 15px;">${restaurant.firstmenu }</h3>
-            <h1>${restaurant.title }</h1>
+            <h4 style="color: gray; padding-top: 40px;">${restaurant.firstmenu }</h4>
+            <h1 style="padding-bottom: 20px;">${restaurant.title }</h1>
         </section>
         <section class="position-relative py-6 container-fluid">
             <img class="bg-image h-100" src="${restaurant.firstimage }" alt="">
@@ -25,13 +25,13 @@
                     <div class="col-lg-8">
                         <div class="container">
                             <div class="text-block">
-                                <p class="mb-4 " style="font-weight: bolder; font-size: 30px;">About</p>
+                                <p class="mb-4 " style="font: bolder; font-size: 30px;">음식점 정보</p>
                                 <p class="text-muted font-weight-light">
                                     ${restaurant.overview }
                                 </p>
                             </div>
                             <div class="text-block"> <!-- 카카오 지도 들어가는 자리 -->
-                                <h5 class="mb-4">Listing location</h5>
+                            	<p class="mb-4 " style="font: bolder; font-size: 30px;">위치</p>
                                 <div class="map-wrapper-300 mb-3">
                                     <div class="h-100" id="detailMap"></div>
                                     
@@ -79,6 +79,8 @@
                                         <tr>
                                             <th class="ps-0 border-0">영업 시간</th>
                                             <td class="pe-0 text-end border-0">${restaurant.opentimefood }</td>
+                                        </tr>
+                                        <tr>
                                             <th class="ps-0 border-0">휴무일</th>
                                             <td class="pe-0 text-end border-0">${restaurant.restdatefood }</td>
                                         </tr>
@@ -112,12 +114,9 @@
                                         <li class="mb-2"> <a class=" text-sm text-decoration-none" href="#"><i
                                                     class="fab fa-instagram me-3"></i><span
                                                     class="text-muted">Instagram</span></a></li>
-                                        <li class="mb-2"> <a class=" text-sm text-decoration-none" href="#"><i
-                                                    class="fab fa-google-plus me-3"></i><span
-                                                    class="text-muted">Google+</span></a></li>
                                     </ul>
                                     <div class="d-grid text-center"><a class="btn btn-outline-primary" href="#"> <i
-                                                class="far fa-paper-plane me-2"></i>메시지 보내기</a></div>
+                                                class="far fa-paper-plane me-2"></i>문의하기</a></div>
                                 </div>
                             </div>
                             <div class="col-lg-4">
@@ -127,121 +126,38 @@
                     </div>
         </section>
 
-        <section class="pt-2 mt-5 container-fluid">
-            <div class="container-fluid">
-                <!-- Slider main container-->
-                <div class="swiper-container swiper-container-mx-negative items-slider-full px-lg-5 pt-1">
-                    <!-- Additional required wrapper-->
-                    <div class="swiper-wrapper">
-                        <!-- Slides-->
-                        <div class="swiper-slide h-auto px-2">
-                            <!-- venue item-->
-                            <div class="w-100 h-100 hover-animate" data-marker-id="59c0c8e33b1527bfe2abaf92">
-                                <div class="card h-100 border-0 shadow">
-                                    <div class="card-img-top overflow-hidden dark-overlay bg-cover"
-                                        style="background-image: url(img/photo/restaurant-1430931071372-38127bd472b8.jpg); min-height: 200px;">
-                                        <a class="tile-link" href="detail.html"></a>
-                                        <div class="card-img-overlay-bottom z-index-20">
-                                            <h4 class="text-white text-shadow">Blue Hill</h4>
-                                        </div>
-                                    </div>
-                                    <div class="card-body">
-                                        <p class="text-sm text-muted mb-3">
-                                            Cupidatat excepteur non dolore
-                                            laborum etquisnostrud veniam
-                                            dolore deserunt. Pariatur dolore
-                                            ut in elit id nulla. Irur...</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide h-auto px-2">
-                            <!-- venue item-->
-                            <div class="w-100 h-100 hover-animate" data-marker-id="59c0c8e33b1527bfe2abaf92">
-                                <div class="card h-100 border-0 shadow">
-                                    <div class="card-img-top overflow-hidden dark-overlay bg-cover"
-                                        style="background-image: url(img/photo/restaurant-1430931071372-38127bd472b8.jpg); min-height: 200px;">
-                                        <a class="tile-link" href="detail.html"></a>
-                                        <div class="card-img-overlay-bottom z-index-20">
-                                            <h4 class="text-white text-shadow">Blue Hill</h4>
-                                        </div>
-                                    </div>
-                                    <div class="card-body">
-                                        <p class="text-sm text-muted mb-3">
-                                            Cupidatat excepteur non dolore
-                                            laborum etquisnostrud veniam
-                                            dolore deserunt. Pariatur dolore
-                                            ut in elit id nulla. Irur...</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide h-auto px-2">
-                            <!-- venue item-->
-                            <div class="w-100 h-100 hover-animate" data-marker-id="59c0c8e33b1527bfe2abaf92">
-                                <div class="card h-100 border-0 shadow">
-                                    <div class="card-img-top overflow-hidden dark-overlay bg-cover"
-                                        style="background-image: url(img/photo/restaurant-1430931071372-38127bd472b8.jpg); min-height: 200px;">
-                                        <a class="tile-link" href="detail.html"></a>
-                                        <div class="card-img-overlay-bottom z-index-20">
-                                            <h4 class="text-white text-shadow">Blue Hill</h4>
-                                        </div>
-                                    </div>
-                                    <div class="card-body">
-                                        <p class="text-sm text-muted mb-3">
-                                            Cupidatat excepteur non dolore
-                                            laborum etquisnostrud veniam
-                                            dolore deserunt. Pariatur dolore
-                                            ut in elit id nulla. Irur...</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide h-auto px-2">
-                            <!-- venue item-->
-                            <div class="w-100 h-100 hover-animate" data-marker-id="59c0c8e33b1527bfe2abaf92">
-                                <div class="card h-100 border-0 shadow">
-                                    <div class="card-img-top overflow-hidden dark-overlay bg-cover"
-                                        style="background-image: url(img/photo/restaurant-1430931071372-38127bd472b8.jpg); min-height: 200px;">
-                                        <a class="tile-link" href="detail.html"></a>
-                                        <div class="card-img-overlay-bottom z-index-20">
-                                            <h4 class="text-white text-shadow">Blue Hill</h4>
-                                        </div>
-                                    </div>
-                                    <div class="card-body">
-                                        <p class="text-sm text-muted mb-3">
-                                            Cupidatat excepteur non dolore
-                                            laborum etquisnostrud veniam
-                                            dolore deserunt. Pariatur dolore
-                                            ut in elit id nulla. Irur...</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide h-auto px-2">
-                            <!-- venue item-->
-                            <div class="w-100 h-100 hover-animate" data-marker-id="59c0c8e33b1527bfe2abaf92">
-                                <div class="card h-100 border-0 shadow">
-                                    <div class="card-img-top overflow-hidden dark-overlay bg-cover"
-                                        style="background-image: url(img/photo/restaurant-1430931071372-38127bd472b8.jpg); min-height: 200px;">
-                                        <a class="tile-link" href="detail.html"></a>
-                                        <div class="card-img-overlay-bottom z-index-20">
-                                            <h4 class="text-white text-shadow">Blue Hill</h4>
-                                        </div>
-                                    </div>
-                                    <div class="card-body">
-                                        <p class="text-sm text-muted mb-3">
-                                            Cupidatat excepteur non dolore
-                                            laborum et quisnostrud veniam
-                                            dolore deserunt. Pariatur dolore
-                                            ut in elit id nulla. Irur...</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-        </section>
+        <section class="pt-1 mt-2 container-fluid mb-4">
+		<div class="container-fluid">
+			<!-- Slider main container-->
+			<div class="swiper-container swiper-container-mx-negative items-slider-full px-lg-5 pt-1">
+				<!-- Additional required wrapper-->
+				<div class="swiper-wrapper">
+					<c:forEach var="item" items="${dAccmList }">
+						<!-- Slides-->
+						<div class="swiper-slide h-auto px-2 mb-4">
+							<!-- venue item-->
+							<div class="w-100 h-100 hover-animate"
+								data-marker-id="59c0c8e33b1527bfe2abaf92">
+								<div class="card h-100 border-0 shadow">
+									<div class="card-img-top overflow-hidden dark-overlay bg-cover"
+										style="background-image: url(${item.firstimage}); min-height: 200px;">
+										<a class="tile-link" href="${path }/accm/detail?contentid=${item.contentid}"></a>
+										<div class="card-img-overlay-bottom z-index-20">
+											<h4 class="text-white text-shadow">${item.title }</h4>
+										</div>
+									</div>
+									<div class="card-body" >
+										<p class="text-sm text-muted mb-3">${fn:substring(item.overview,0,99) }
+										<c:if test="${item.overview.length() > 100 }">...</c:if></p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</c:forEach>
+				</div>
+			</div>
+		</div>
+	</section>
     </body>
 
 <script

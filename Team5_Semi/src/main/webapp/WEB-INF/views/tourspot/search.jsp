@@ -17,7 +17,7 @@
 	<c:set var="selectAreaCode" value="${param.selectAreaCode}" />
 	
   <div>
-    <section class="d-flex align-items-center dark-overlay bg-cover" style="background-image: url(imgpick/tripSearch.jpg)";>
+    <section class="d-flex align-items-center dark-overlay bg-cover" style="background-image: url(${path}/resources/imgPick/tripSearch.jpg);">
       <div class="container my-7 py-7 py-lg-7 text-white overlay-content text-center"> 
         <div class="row">
           <div class="col-xl-10 mx-auto">

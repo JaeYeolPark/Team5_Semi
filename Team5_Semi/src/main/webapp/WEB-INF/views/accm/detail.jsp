@@ -11,8 +11,8 @@
 <body style="padding-top: 72px; overflow-x: hidden">
 
 	<section class="container">
-		<h3 style="color: gray; padding-top: 15px;">강릉</h3>
-		<h1>${accm.title }</h1>
+		<h3 style="color: gray; padding-top: 40px;">강릉</h3>
+		<h1 style="padding-bottom: 20px;">${accm.title }</h1>
 	</section>
 	<section class="position-relative py-6 container-fluid">
 		<img class="bg-image h-100" src="${accm.firstimage }" alt="">
@@ -46,13 +46,13 @@
 								class="fa fa-bath mr-1 text-secondary"></i> <c:out
 									value="공용샤워실여부 : ${accm.publicbath }" /></li>
 						</ul>
-						<h6 class="mb-3">숙소설명</h6>
+						<p class="mb-4 " style="font: bolder; font-size: 30px;">숙소 설명</p>
 						<p class="text-muted font-weight-light">
 							<c:out value="${accm.overview }" />
 						</p>
 					</div>
 					<div class="text-block">
-						<h4 class="mb-4">기본 정보</h4>
+					<p class="mb-4 " style="font: bolder; font-size: 30px;">기본 정보</p>
 						<div class="row">
 							<div class="col-md-6">
 								<ul class="list-unstyled text-muted">
@@ -86,7 +86,7 @@
 						</div>
 					</div>
 					<div class="text-block">
-						<h4 class="mb-0">시설</h4>
+						<p class="mb-4 " style="font: bolder; font-size: 30px;">시설</p>
 						<p class="subtitle text-sm text-primary mb-4">시설정보</p>
 
 						<ul class="list-inline">
@@ -159,7 +159,7 @@
 						</ul>
 					</div>
 					<div class="text-block">
-						<h3 class="mb-4">위치</h3>
+						<p class="mb-4 " style="font: bolder; font-size: 30px;">위치</p>
 						<div class="map-wrapper-300">
 							<div class="h-100" id="detailMap"></div>
 						</div>
@@ -169,13 +169,13 @@
 					<div class="p-4 shadow ms-lg-4 rounded"
 						style="top: 100px;">
 						<p class="text-muted">
-							<span class="text-primary h2">68,000 원</span> * 1박
+							<span class="text-primary h2">68,000 원</span> x 1박
 						</p>
 						<hr class="my-4">
 						<form class="form" id="bookingForm" method="post" action="${path }/accm/booking"
 							autocomplete="off">
 							<div class="mb-4">
-								<label class="form-label" for="bookingDate">Your stay *</label>
+								<label class="form-label" for="bookingDate">여행 일정 *</label>
 								<input class="form-control" id="startDate" name="startDate" type="date" />
 								<input class="form-control" id="endDate" name="endDate" type="date" />
 								
@@ -195,8 +195,8 @@
 								<input type="hidden" name="refund" value="${accm.refundregulation }">
 							</div>
 							<div class="mb-4">
-								<label class="form-label" for="guests">Guests *</label> <select
-									class="form-control" name="headCount" id="headCount">
+								<label class="form-label" for="guests">인원 *</label>
+								<select class="form-control" name="headCount" id="headCount">
 									<option value="1">1 Guest</option>
 									<option value="2">2 Guests</option>
 									<option value="3">3 Guests</option>
@@ -205,12 +205,9 @@
 								</select>
 							</div>
 							<div class="d-grid mb-4">
-								<button class="btn btn-primary" type="submit" >Book your stay</button>
+								<button class="btn btn-primary" type="submit" >예약하기</button>
 							</div>
 						</form>
-						<p class="text-muted text-sm text-center">Some additional text
-							can be also placed here.</p>
-						
 					</div>
 				</div>
 				<div class="col-lg-4"></div>
@@ -219,7 +216,7 @@
 	</section>
 
 
-	<section class="pt-1 mt-2 container-fluid">
+	<section class="pt-1 mt-2 container-fluid mb-4">
 		<div class="container-fluid">
 			<!-- Slider main container-->
 			<div class="swiper-container swiper-container-mx-negative items-slider-full px-lg-5 pt-1">
