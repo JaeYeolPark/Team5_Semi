@@ -157,7 +157,7 @@ charset=UTF-8"
 								<li class="dropdown nav-color"><a class="nav-link dropdown-toggle" id="docsDropdownMenuLink"
 									href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 마이메뉴 </a>
 									<div class="dropdown-menu" aria-labelledby="homeDropdownMenuLink">
-										<a class="dropdown-item" href="${path}/member/view">마이페이지</a>
+										<a class="dropdown-item" href="${path }/member/myPage">마이페이지</a>
 										<a class="dropdown-item" href="${path}/logout">로그아웃</a>
 									</div>
 								</li>

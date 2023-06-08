@@ -19,10 +19,6 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j // log를 자동으로 생성시켜주는 어노테인션 = static 문장 생략 가능
 public class HomeController {
 	
-	@Autowired
-	private AccmService service;
-	
-	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
 //		log.info("@@@@@@@@@@@ selectAll : " + memberService.findAll());

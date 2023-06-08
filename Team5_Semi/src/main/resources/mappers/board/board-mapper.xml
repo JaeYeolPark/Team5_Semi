@@ -144,5 +144,11 @@
 	<delete id="deleteReply" parameterType="int">
 		DELETE FROM REPLY WHERE RNO=#{rno}
 	</delete>
+	
+	<select id="findByMnoForBoardCount" parameterType="int" resultType="int">
+		select count(*) 
+		FROM BOARD
+		WHERE MNO = ${mno};
+	</select>
 </mapper>
 

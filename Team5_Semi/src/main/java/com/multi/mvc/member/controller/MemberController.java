@@ -13,10 +13,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
+import com.multi.mvc.board.model.service.BoardService;
 import com.multi.mvc.kakao.KaKaoService;
 import com.multi.mvc.member.model.service.MemberService;
 import com.multi.mvc.member.model.vo.Member;
@@ -34,6 +36,11 @@ public class MemberController {
 	
 	@Autowired
 	private KaKaoService kakaoService;
+	
+	@Autowired
+	private BoardService boardService;
+	
+	
 	
 	
 	@GetMapping("/login")
@@ -160,8 +167,9 @@ public class MemberController {
 		return "member/view";
 	}
 	
+	
 	// 회원정보 수정
-	@PostMapping("/member/update")
+	@PostMapping("/member/personalInfo")
 	public String update(Model model,
 			@ModelAttribute Member updateMember, // request에서 온 값
 			@SessionAttribute(name="loginMember", required = false) Member loginMember // 세션값
@@ -183,10 +191,10 @@ public class MemberController {
 			loginMember = service.findById(loginMember.getId());
 			model.addAttribute("loginMember", loginMember); // 세션을 업데이트 하는 코드
 			model.addAttribute("msg", "회원정보를 수정하였습니다.");
-			model.addAttribute("location","/member/view");
+			model.addAttribute("location","/member/personalInfo");
 		} else {
 			model.addAttribute("msg", "회원정보 수정에 실패하였습니다.");
-			model.addAttribute("location","/member/view");
+			model.addAttribute("location","/member/personalInfo");
 		}
 		return "common/msg";
 	}
@@ -231,6 +239,23 @@ public class MemberController {
 		return "/common/msg";
 	}
 	
+	@RequestMapping("/member/myPage")
+	public String viewMyPage(Model model, 
+			@SessionAttribute(name="loginMember", required = false) Member loginMember) {
+		int result = boardService.findByMnoForBoardCount(loginMember.getMno());
+		Member member = service.findById(loginMember.getId());
+		model.addAttribute("member", member);
+		model.addAttribute("boardCount", result);
+		return "/member/myPage";
+	}
+	
+	@GetMapping("/member/personalInfo")
+	public String viewPersonalInfo(Model model, 
+			@SessionAttribute(name="loginMember", required = false) Member loginMember) {
+		Member member = service.findById(loginMember.getId());
+		model.addAttribute("member", member);
+		return "/member/personalInfo";
+	}
 	
 	// contoller에서 전체 Error 처리하는 핸들러 
 //	@ExceptionHandler(Exception.class)

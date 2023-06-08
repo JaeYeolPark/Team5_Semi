@@ -42,4 +42,6 @@ public interface BoardMapper {
 	int deleteBoard(int bno);
 
 	int deleteReply(int rno);
+
+	int findByMnoForBoardCount(int mno);
 }

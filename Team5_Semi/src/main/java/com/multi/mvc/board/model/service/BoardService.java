@@ -112,4 +112,10 @@ public class BoardService {
 		return mapper.deleteReply(rno);
 	}
 
+
+	public int findByMnoForBoardCount(int mno) {
+		return mapper.findByMnoForBoardCount(mno);
+		
+	}
+
 }
