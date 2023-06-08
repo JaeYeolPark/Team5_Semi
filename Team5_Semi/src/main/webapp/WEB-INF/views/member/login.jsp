@@ -8,8 +8,7 @@
 <jsp:include page="/WEB-INF/views/common/header.jsp"/>
 
     <section class="py-5">
-      <div class="container-fluid px-xxl-7">
-        <center>
+      <div class="container-fluid px-xxl-7" align="center">
           <div class="col-md-9">
             <div class="w-100 py-5 px-md-5 px-xxl-6 position-relative">
               <div class="mb-5"><img class="img-fluid mb-1" src="${path}/resources/img/logo1.png" alt="35place 로고" style="max-width: 12rem;">
@@ -40,11 +39,10 @@
                 <p class="text-center"><small class="text-muted text-center">
                     <span><a class="text-dark" href="#">아이디 찾기</a></span><span> | </span>
                     <span><a class="text-dark" href="#">비밀번호 찾기</a></span><span> | </span>
-                    <span><a class="text-dark" href="signup.html">회원 가입</a></span></small></p>
+                    <span><a class="text-dark" href="${path}/member/enroll">회원 가입</a></span></small></p>
               </form>
             </div>
           </div>
-        </center>
       </div>
     </section>
     

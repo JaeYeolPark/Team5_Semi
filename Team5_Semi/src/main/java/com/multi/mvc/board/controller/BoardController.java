@@ -48,8 +48,8 @@ public class BoardController {
 //	 param : {page=1, searchType=title, searchValue=아이폰}
 	// /board/list
 //	@GetMapping("list") // /board/list
-	@GetMapping({"/community/courseList", "/community/travelReviewList"})
-	public String list(Model model, @RequestParam Map<String, Object> param) {
+	@GetMapping("/community/courseList")
+	public String courseList(Model model, @RequestParam Map<String, Object> param) {
 		log.info("board list 요청, param : " + param);
 		
 		param.put("type", "B1");
@@ -64,7 +64,7 @@ public class BoardController {
 		} catch (Exception e) {}
 		
 		int boardCount = service.getBoardCount(param);
-		PageInfo pageInfo = new PageInfo(page, 10, boardCount, 10); // 게시글이 보여지는 갯수 = 10
+		PageInfo pageInfo = new PageInfo(page, 10, boardCount, 12); // 게시글이 보여지는 갯수 = 12
 		List<Board> list = service.getBoardList(pageInfo, param);
 		
 		model.addAttribute("list", list);
@@ -78,7 +78,37 @@ public class BoardController {
 		}
 	}
 	
-	@RequestMapping("/board/view")
+	@GetMapping("/community/review")
+	public String review(Model model, @RequestParam Map<String, Object> param) {
+		log.info("board list 요청, param : " + param);
+		
+		param.put("type", "B2");
+		
+		int page = 1;
+		try {
+			if(param.get("searchType") != null) {
+				param.put((String) param.get("searchType"), param.get("searchValue"));
+			}
+			
+			page = Integer.parseInt((String) param.get("page"));
+		} catch (Exception e) {}
+		
+		int boardCount = service.getBoardCount(param);
+		PageInfo pageInfo = new PageInfo(page, 10, boardCount, 9); // 게시글이 보여지는 갯수 = 9
+		List<Board> list = service.getBoardList(pageInfo, param);
+		
+		model.addAttribute("list", list);
+		model.addAttribute("param", param);
+		model.addAttribute("pageInfo", pageInfo);
+		
+		if(param.get("type").equals("B2")) {
+			return "/community/review";
+		}else {
+			return "/community/review";
+		}
+	}
+	
+	@RequestMapping("/community/view")
 	public String view(Model model, @RequestParam("no") int no) {
 		Board board = service.findByNo(no);
 		if(board == null) {
@@ -86,7 +116,7 @@ public class BoardController {
 		}
 		model.addAttribute("board", board);
 		model.addAttribute("replyList", board.getReplies());
-		return "board/view";
+		return "/community/view";
 	}
 	
 	
@@ -95,13 +125,13 @@ public class BoardController {
 		return "/common/error";
 	}
 	
-	@GetMapping("/board/write")
+	@GetMapping("/community/write")
 	public String writeView() {
-		return "/board/write";
+		return "/community/write";
 	}
 	
 	// 게시글 처리 + 파일 업로드
-	@PostMapping("/board/write")
+	@PostMapping("/community/write")
 	public String write(Model model, HttpSession session,
 			@SessionAttribute(name="loginMember", required = false) Member loginMember,
 			@ModelAttribute Board board,
@@ -134,7 +164,7 @@ public class BoardController {
 		
 		if(result > 0) {
 			model.addAttribute("msg", "게시글이 등록 되었습니다.");
-			model.addAttribute("location", "/board/list");
+			model.addAttribute("location", "/community/list");
 		}else {
 			model.addAttribute("msg", "게시글 작성에 실패하였습니다.");
 			model.addAttribute("location", "/board/list");
@@ -235,7 +265,7 @@ public class BoardController {
 		} else {
 			model.addAttribute("msg","리플 등록에 실패하였습니다.");
 		}
-		model.addAttribute("location", "/board/view?no="+reply.getBno());
+		model.addAttribute("location", "/community/view?no="+reply.getBno());
 		return "/common/msg";
 	}
 	
