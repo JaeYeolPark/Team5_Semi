@@ -65,7 +65,7 @@ charset=UTF-8"
     body {
       font-family: SUITE;
     }
-    h1 {
+    h1, h2, h3, h4, h5 {
 	font-family: SUITE;
 	}
 
@@ -108,6 +108,13 @@ charset=UTF-8"
     .link:hover{
       text-decoration: none;
     }
+    .form-check-input{
+     	border: 1px solid #9dc3e6;
+    }
+    .form-check-input:checked {
+    	background-color: #9dc3e6;
+     	border-color: #9dc3e6;
+    }   
   </style>
 </head>
 
@@ -134,7 +141,7 @@ charset=UTF-8"
 									href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">커뮤니티 </a>
 									<div class="dropdown-menu" aria-labelledby="homeDropdownMenuLink">
 										<a class="dropdown-item" href="#">메인 페이지</a>
-										<a class="dropdown-item" href="#">여행후기</a>
+										<a class="dropdown-item" href="${path}/community/review">여행후기</a>
 										<a class="dropdown-item" href="${path}/community/courseList">나만의 여행코스</a>
 									</div>
 								</li>
