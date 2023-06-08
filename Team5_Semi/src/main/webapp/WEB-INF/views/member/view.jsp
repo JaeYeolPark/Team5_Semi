@@ -6,94 +6,114 @@
 <c:set var="path" value="${pageContext.request.contextPath}"/>
 
 
-<jsp:include page="/WEB-INF/views/common/header.jsp">
-	<jsp:param value="회원정보 조회(수정)" name="title"/>
-</jsp:include>
+<jsp:include page="/WEB-INF/views/common/header.jsp" />
 
-<style>
-	section #enroll-container {text-align: center;}
-	section #enroll-container input {margin: 3px;}
-	section #enroll-container table {margin: 0 auto;}
-	section #enroll-container table th {padding: 0 10px; text-align: right;}
-	section #enroll-container table td {padding: 0 10px;text-align: left;}
-</style>
 
-<section id="content">
-	<h3 align="center">회원정보 조회(수정)</h3>
-	<form id="enroll-container" name="memberEnrollFrm" action="${path}/member/update" method="post">
-		<table>
-			<tr>
-				<th>아이디</th>
-				<td>
-					<input type="text" name="id" id="id" value="${loginMember.id}" required readonly>
-				</td>
-			</tr>		
-			<tr>
-				<th>이름</th>
-				<td>
-					<input type="text" name="name" id="name" value="${loginMember.name}" required>
-				</td>
-			</tr>		
-			<tr>
-				<th>전화번호</th>
-				<td>
-					<input type="tel" name="phone" maxlength="11" value="${loginMember.phone}" placeholder="(-없이)01012345678">
-				</td>
-			</tr>		
-			<tr>
-				<th>이메일</th>
-				<td>
-					<input type="email" name="email" id="email" value="${loginMember.email}" >
-				</td>
-			</tr>		
-			<tr>
-				<th>주소</th>
-				<td>
-					<input type="text" name="address" id="address" value="${loginMember.address}">
-				</td>
-			</tr>		
-			<tr>
-				<th>취미</th>
-				<td>
-					<label><input type="checkbox" name="hobby" value="운동"
-					${fn:contains(loginMember.hobby, '운동') ? 'checked' : ''} 
-					>운동</label> 
-					<label><input type="checkbox" name="hobby" value="수영"
-					${fn:contains(loginMember.hobby, '수영') ? 'checked' : ''} 
-					>수영</label> 
-					<label><input type="checkbox" name="hobby" value="게임"
-					${fn:contains(loginMember.hobby, '게임') ? 'checked' : ''} 
-					>게임</label> 
-					<label><input type="checkbox" name="hobby" value="독서"
-					${fn:contains(loginMember.hobby, '독서') ? 'checked' : ''} 
-					>독서</label> 
-					<label><input type="checkbox" name="hobby" value="여행"
-					${fn:contains(loginMember.hobby, '여행') ? 'checked' : ''} 
-					>여행</label> 
-				</td>
-			</tr>		
-		</table>
-		<input type="button" value="비밀번호 변경" id="updatePwd">
-		<input type="submit" value="정보수정">
-		<input type="button" value="탈퇴" id="deleteMember">
-	</form>
-</section>
+    <section class="py-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-3 me-lg-auto">
+            <div class="card border-0 shadow mb-6 mb-lg-0">
+              <div class="card-header bg-gray-100 py-4 border-0 text-center"><a class="d-inline-block" href="#"><img class="d-block avatar avatar-xxl p-2 mb-2" src="${path}/resources/imgPick/profile1.png" alt="${loginMember.name} 님의 아바타"></a>
+                <h5>${loginMember.name}</h5>
+                <h6>${loginMember.id}</h6>
+              </div>
+              <div class="card-body p-4">
+                <div class="d-flex align-items-center mb-3">
+                  <div class="icon-rounded icon-rounded-sm bg-primary-light flex-shrink-0 me-2">
+                    <svg class="svg-icon text-primary svg-icon-md">
+                      <use xlink:href="#diploma-1"> </use>
+                    </svg>
+                  </div>
+                  <div>
+                    <p class="mb-0">35개의 리뷰</p>
+                  </div>
+                </div>
+                <div class="d-flex align-items-center mb-3">
+                  <div class="icon-rounded icon-rounded-sm bg-primary-light flex-shrink-0 me-2">
+                    <svg class="svg-icon text-primary svg-icon-md">
+                      <use xlink:href="#checkmark-1"> </use>
+                    </svg>
+                  </div>
+                  <div>
+                    <p class="mb-0">인증 완료</p>
+                  </div>
+                </div>
+                <hr>
+                <h6>회원 정보</h6>
+                <ul class="card-text text-muted">
+                  <li>이메일:<br>${loginMember.email}</li>
+                  <li>전화번호:<br>${loginMember.phone}</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-9 ps-lg-5">
+            <h2 class="hero-heading mb-0">${loginMember.name} 님 안녕하세요!</h2>
+            <br><br>
+            
+            <div class="row">
+              <div class="col-6 col-md-6 mb-30px">
+                <div class="card h-100 w-100 border-0 shadow hover-animate">
+                  <div class="card-body">
+                    <div class="icon-rounded bg-secondary-light mb-4">
+                      <svg class="svg-icon text-secondary w-2rem h-2rem">
+                        <use xlink:href="#identity-1"> </use>
+                      </svg>
+                    </div>
+                    <h5 class="card-title mb-3"><a class="text-decoration-none text-dark stretched-link" href="user-personal.html">회원 정보</a></h5>
+                    <p class="text-muted card-text">회원정보 관리  |  정보 수정  |  회원 탈퇴</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-6 col-md-6 mb-30px">
+                <div class="card h-100 border-0 shadow hover-animate">
+                  <div class="card-body">
+                    <div class="icon-rounded bg-secondary-light mb-4">
+                      <svg class="svg-icon text-secondary w-2rem h-2rem">
+                        <use xlink:href="#pay-by-card-1"> </use>
+                      </svg>
+                    </div>
+                    <h5 class="card-title mb-3"><a class="text-decoration-none text-dark stretched-link" href="#">결제 정보</a></h5>
+                    <p class="text-muted card-text">결제 수단 관리  |  카드 등록</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-6 col-md-6 mb-30px">
+                <div class="card h-100 border-0 shadow hover-animate">
+                  <div class="card-body">
+                    <div class="icon-rounded bg-secondary-light mb-4">
+                      <svg class="svg-icon text-secondary w-2rem h-2rem">
+                        <use xlink:href="#chat-app-1"> </use>
+                      </svg>
+                    </div>
+                    <h5 class="card-title mb-3"><a class="text-decoration-none text-dark stretched-link" href="#">내가 쓴 글</a></h5>
+                    <p class="text-muted card-text">작성한 커뮤니티 글  |  작성한 댓글 </p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-6 col-md-6 mb-30px">
+                <div class="card h-100 border-0 shadow hover-animate">
+                  <div class="card-body">
+                    <div class="icon-rounded bg-secondary-light mb-4">
+                      <svg class="svg-icon text-secondary w-2rem h-2rem">
+                        <use xlink:href="#diary-1"> </use>
+                      </svg>
+                    </div>
+                    <h5 class="card-title mb-3"><a class="text-decoration-none text-dark stretched-link" href="#">예약 정보</a></h5>
+                    <p class="text-muted card-text">예약 확인  |  예약 변경  |  예약 취소 </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<script type="text/javascript">
-	$(function () {
-		$("#deleteMember").click((e) => {
-			if(confirm("정말로 탈퇴하시겠습니까?!")) {
-				location.replace('${path}/member/delete');
-			}
-		});
-		
-		$("#updatePwd").click((e) => {
-			const url = "${path}/member/updatePwd";
-			const status = "left=500px,top=200px,width=400px,height=210px"
-			window.open(url, "비밀번호 수정", status);
-		});
-	});
-</script>
+
+
+
 
 
 <jsp:include page="/WEB-INF/views/common/footer.jsp"/>

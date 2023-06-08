@@ -4,10 +4,10 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <c:set var="path" value="${pageContext.request.contextPath}"/>
+<script type="text/javascript" src="${path}/resources/js/jquery-3.7.0.js" ></script>
 
 
 <jsp:include page="/WEB-INF/views/common/header.jsp" />
-
 
     <section class="py-5" id="content">
       <div class="container-fluid px-xxl-7" align="center">
@@ -19,28 +19,24 @@
             <input type="hidden" name="kakaoToken" value="${kakaoMap.id}">
               <div class="mb-4">
                 <label class="form-label" for="userRealName"> 이름</label>
-                <input class="form-control" name="userRealName" id="name" type="text" placeholder="홍길동" value="${kakaoMap.nickname}" autocomplete="off" required data-msg="이름을 입력하지 않으셨습니다!">
+                <input class="form-control" id="userRealName" name="name" type="text" placeholder="홍길동" value="${kakaoMap.nickname}" autocomplete="off" required data-msg="이름을 입력하지 않으셨습니다!">
               </div>
               <div class="mb-4">
-                <label class="form-label" for="loginUsername"> 이메일 주소</label>
-                <input class="form-control" name="loginUsername" id="id" value="${kakaoMap.email}" type="email" placeholder="name@address.com" autocomplete="off" required data-msg="이메일 주소를 입력하지 않으셨습니다!">
+                <label class="form-label" for="id"> 이메일 주소</label>
+                <input class="form-control" id="id" name="id" value="${kakaoMap.email}" type="email" placeholder="name@address.com" autocomplete="off" required data-msg="이메일 주소를 입력하지 않으셨습니다!">
                 <input type="button" id="checkDuplicate" value="중복 검사" class="btn btn-light">
               </div>
               <div class="mb-4">
-                <label class="form-label" for="loginPassword"> 비밀번호</label>
-                <input class="form-control" name="loginPassword" id="password" placeholder="Password" type="password" required data-msg="비밀번호를 입력해 주세요!">
+                <label class="form-label" for="password1"> 비밀번호</label>
+                <input class="form-control" name="password" id="password1" placeholder="Password" type="password" required data-msg="비밀번호를 입력해 주세요!">
               </div>
               <div class="mb-4">
-                <label class="form-label" for="loginPassword2"> 비밀번호 확인</label>
-                <input class="form-control" name="loginPassword2" id="password2" placeholder="Password" type="password" required data-msg="비밀번호를 한 번 더 입력하십시오!">
+                <label class="form-label" for="password2"> 비밀번호 확인</label>
+                <input class="form-control" id="password2" placeholder="Password" type="password" required data-msg="비밀번호를 한 번 더 입력하십시오!">
               </div>
               <div class="mb-4">
                 <label class="form-label" for="telNo"> 전화번호</label>
-                <input class="form-control" name="telNo" id="telNo" type="tel" placeholder="010-1234-5678" autocomplete="off" required data-msg="전화번호를 입력하지 않으셨습니다!">
-              </div>
-              <div class="mb-4">
-                <label class="form-label" for="dob"> 생년월일</label>
-                <input class="form-control text-muted" name="dob" id="dob" type="date" autocomplete="off" required data-msg="생년월일을 입력하십시오!">
+                <input class="form-control" name="phone" id="telNo" type="tel" placeholder="010-1234-5678" autocomplete="off" required data-msg="전화번호를 입력하지 않으셨습니다!">
               </div>
               <div class="d-grid gap-2">
                 <button class="btn btn-primary" type="submit" id="enrollSubmit">회원 가입</button>
