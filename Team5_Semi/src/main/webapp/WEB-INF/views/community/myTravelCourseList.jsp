@@ -16,7 +16,7 @@
                 <h2 style="display: inline;">&nbsp;&nbsp;나만의 여행코스</h2>
             </div>
             <div style="display: flex; justify-content: right; margin-bottom: 4px;">
-                <button class="btn btn-primary btn-sm mb-2" type="button" onclick="location.href='#'">&nbsp;글쓰기</button>
+                <button class="btn btn-primary btn-sm mb-2" type="button" onclick="location.href='${path}/community/write'">&nbsp;글쓰기</button>
             </div>
             <!-- blog item-->
             <div class="container px-4 py-5" id="custom-cards">
