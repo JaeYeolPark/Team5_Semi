@@ -23,7 +23,7 @@
 						<div class="mb-4 me-4 col-md-5">
 							<label class="form-label" for="id">아이디</label>
 							<input class="form-control" type="text" name="id" id="id" 
-									value="${loginMember.id }" required readonly/>
+									value="${loginMember.id }" required readonly disabled/>
 						</div>
 						<div class="mb-4 me-4 col-md-5">
 							<label class="form-label" for="name">이름</label> <input
@@ -41,11 +41,21 @@
 								value="${member.phone }">
 						</div>
 						<div class="mb-4 me-4 col-md-5">
+							<label class="form-label" for="address">주소</label> <input
+								class="form-control" type="text" name="address" id="address"
+								value="${member.address }">
+						</div>
+						<div class="mb-4 me-4 col-md-5">
+							
+						</div>
+						
+						
+						<div class="mb-4 me-4 col-md-5">
 							<input class="btn btn-lg btn-primary mb-0" style="width: 100%;" type="submit" value="회원정보 수정">
 						</div>
 						<div class="mb-4 me-4 col-md-5">
 							<input type="button" class="btn btn-lg btn-primary mb-0" style="width: 100%;"
-									id="updatePwd" onclick="location.href='${path}/member/updatePwd'" value="비밀번호 변경">비밀번호 변경</button>
+									id="updatePwd" onclick="location.href='${path}/member/updatePwd'" value="비밀번호 변경">
 						</div>
 					</div>
 				</form>
