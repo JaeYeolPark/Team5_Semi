@@ -11,12 +11,15 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.multi.mvc.member.model.mapper.MemberMapper;
 import com.multi.mvc.member.model.vo.Member;
+import com.multi.mvc.tour.model.vo.Accommodation;
+import com.multi.mvc.tour.model.vo.Booking;
 
 @Service
 public class MemberService {
 	
 	@Autowired
 	private MemberMapper mapper;
+	
 	
 	@Autowired
 	private BCryptPasswordEncoder pwEncoder; //  SHA-256 hash code로 패스워드 일방향 암호 지원 모듈
@@ -101,6 +104,20 @@ public class MemberService {
 			// 인증 실패했을때
 			return null;
 		}
+	}
+	
+	public int findBoardCountByMno(int mno) {
+		return mapper.findBoardCountByMno(mno);
+		
+	}
+
+	public List<Booking> findBookingByMno(int mno) {
+		List<Booking> list = mapper.findBookingByMno(mno);
+		return list;
+	}
+
+	public Accommodation findAccmByContentId(int contentId) {
+		return mapper.findAccmByContentId(contentId);
 	}
 }
 

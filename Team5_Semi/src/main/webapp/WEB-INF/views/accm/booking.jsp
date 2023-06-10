@@ -119,7 +119,8 @@
 										class="fas fa-users fa-fw text-muted me-2"></i>${bkParam.headCount }
 										명</li>
 									<li class="mb-0"><i
-										class="far fa-calendar fa-fw text-muted me-2"></i> <fmt:formatDate
+										class="far fa-calendar fa-fw text-muted me-2"></i> 
+										<fmt:formatDate
 											value="${parsedStartDate}" pattern="yyyy-MM-dd"></fmt:formatDate>
 										<i class="fas fa-arrow-right fa-fw text-muted mx-3"></i> <fmt:formatDate
 											value="${parsedEndDate }" pattern="yyyy-MM-dd"></fmt:formatDate>

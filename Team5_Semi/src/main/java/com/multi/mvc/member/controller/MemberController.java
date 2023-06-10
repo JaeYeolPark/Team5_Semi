@@ -1,7 +1,11 @@
 package com.multi.mvc.member.controller;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +26,8 @@ import com.multi.mvc.board.model.service.BoardService;
 import com.multi.mvc.kakao.KaKaoService;
 import com.multi.mvc.member.model.service.MemberService;
 import com.multi.mvc.member.model.vo.Member;
+import com.multi.mvc.tour.model.vo.Accommodation;
+import com.multi.mvc.tour.model.vo.Booking;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -32,13 +38,13 @@ public class MemberController {
 	
 	@Autowired
 	private MemberService service;
-
 	
 	@Autowired
 	private KaKaoService kakaoService;
 	
 	@Autowired
 	private BoardService boardService;
+	
 	
 	
 	
@@ -156,15 +162,22 @@ public class MemberController {
 	
 	
 
-	// 회원가입 페이지를 연결시켜주는 핸들러
-	@GetMapping("/member/view")
-	public String memberView(Model model) {
-		log.info("회원 정보 보기 및 수정");
-		// session으로 처리할 예정으로 아래 코드는 불필요
-		// 원래는 수정 할 정보를 조회해서 model에 담아서 view로 보내야한다.
-//		Member member = service.findMember();
-//		model.addAttribute("member", member);
-		return "member/view";
+	@RequestMapping("/member/myPage")
+	public String viewMyPage(Model model, 
+			@SessionAttribute(name="loginMember", required = false) Member loginMember) {
+		int result = service.findBoardCountByMno(loginMember.getMno());
+		Member member = service.findById(loginMember.getId());
+		model.addAttribute("member", member);
+		model.addAttribute("boardCount", result);
+		return "/member/myPage";
+	}
+	
+	@GetMapping("/member/personalInfo")
+	public String viewPersonalInfo(Model model, 
+			@SessionAttribute(name="loginMember", required = false) Member loginMember) {
+		Member member = service.findById(loginMember.getId());
+		model.addAttribute("member", member);
+		return "/member/personalInfo";
 	}
 	
 	
@@ -239,23 +252,25 @@ public class MemberController {
 		return "/common/msg";
 	}
 	
-	@RequestMapping("/member/myPage")
-	public String viewMyPage(Model model, 
+	@RequestMapping("/member/myBooking")
+	public String viewMyBooking(Model model, 
 			@SessionAttribute(name="loginMember", required = false) Member loginMember) {
-		int result = boardService.findByMnoForBoardCount(loginMember.getMno());
-		Member member = service.findById(loginMember.getId());
-		model.addAttribute("member", member);
-		model.addAttribute("boardCount", result);
-		return "/member/myPage";
+		List<Booking> list = service.findBookingByMno(loginMember.getMno());
+		
+		List<Accommodation> accmList = new ArrayList<>();
+		
+		for(int i = 0; i < list.size(); i++) {
+			accmList.add(service.findAccmByContentId(list.get(i).getContentId()));
+		}
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		Date now = new Date();
+		
+		model.addAttribute("nowTime", now);
+		model.addAttribute("list", list);
+		model.addAttribute("accmList", accmList);
+		return "/member/myBooking";
 	}
 	
-	@GetMapping("/member/personalInfo")
-	public String viewPersonalInfo(Model model, 
-			@SessionAttribute(name="loginMember", required = false) Member loginMember) {
-		Member member = service.findById(loginMember.getId());
-		model.addAttribute("member", member);
-		return "/member/personalInfo";
-	}
 	
 	// contoller에서 전체 Error 처리하는 핸들러 
 //	@ExceptionHandler(Exception.class)

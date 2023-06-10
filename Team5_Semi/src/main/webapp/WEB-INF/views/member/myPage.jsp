@@ -17,7 +17,7 @@
 						<a class="d-inline-block" href="#"><img
 							class="d-block avatar avatar-xxl p-2 mb-2"
 							src="imgPick/profile1.png" alt=""></a>
-						<h5>홍길동</h5>
+						<h5>${member.name }</h5>
 					</div>
 					<div class="card-body p-4">
 						<div class="d-flex align-items-center mb-3">
@@ -116,7 +116,7 @@
 								</div>
 								<h5 class="card-title mb-3">
 									<a class="text-decoration-none text-dark stretched-link"
-										href="#">예약 정보</a>
+										href="${path }/member/myBooking">예약 정보</a>
 								</h5>
 								<p class="text-muted card-text">예약 확인 | 예약 변경 | 예약 취소</p>
 							</div>
