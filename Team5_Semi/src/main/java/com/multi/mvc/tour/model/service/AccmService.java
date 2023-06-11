@@ -39,5 +39,9 @@ public class AccmService {
 	public int setBooking(Booking booking) { 
 		return mapper.insertBooking(booking);
 	}
+
+	public List<Accommodation> getMainAccmList() {
+		return mapper.getMainAccmList();
+	}
 	
 }

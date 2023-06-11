@@ -95,5 +95,12 @@
 		FROM restaurant
 		WHERE CONTENTID = #{contentid}
 	</select>
+	
+	<select id="getMainRestList" resultMap="restaurantResultMap">
+		SELECT
+			*
+		FROM restaurant
+		LIMIT 30
+	</select>
 
 </mapper>

@@ -116,5 +116,12 @@
 			default, #{mNO}, #{contentId}, #{startDate}, #{endDate}, #{headCount}
 		)
 	</insert>
+	
+	<select id="getMainAccmList" resultMap="accmResultMap">
+		SELECT
+			*
+		FROM accommodation
+		LIMIT 12
+	</select>
 
 </mapper>

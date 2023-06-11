@@ -36,5 +36,9 @@ public class RestaurantService {
 		Restaurant restaurant = mapper.findByContentId(id);
 		return restaurant;
 	}
+
+	public List<Restaurant> getMainRestList() {
+		return mapper.getMainRestList();
+	}
 	
 }

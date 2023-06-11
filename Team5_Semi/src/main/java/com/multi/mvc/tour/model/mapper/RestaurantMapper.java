@@ -14,4 +14,5 @@ public interface RestaurantMapper {
 	int selectRestaurantCount(Map<String, Object> map);
 	List<Restaurant> selectRestaurantList(Map<String, Object> map);
 	Restaurant findByContentId(int id);
+	List<Restaurant> getMainRestList();
 }

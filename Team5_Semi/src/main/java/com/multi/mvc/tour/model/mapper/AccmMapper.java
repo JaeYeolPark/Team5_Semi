@@ -16,4 +16,5 @@ public interface AccmMapper {
 	List<Accommodation> selectAccmList(Map<String, Object> map);
 	Accommodation findByContentId(int id);
 	int insertBooking(Booking booking);
+	List<Accommodation> getMainAccmList();
 }
