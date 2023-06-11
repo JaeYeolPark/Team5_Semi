@@ -55,8 +55,8 @@
 							<option value="35" ${selectAreaCode == '35' ? 'selected' : '' }>경상북도</option>
 							<option value="38" ${selectAreaCode == '38' ? 'selected' : '' }>전라남도</option>
 							<option value="37" ${selectAreaCode == '37' ? 'selected' : '' }>전라북도</option>
-							<option value="33" ${selectAreaCode == '33' ? 'selected' : '' }>충청남도</option>
-							<option value="34" ${selectAreaCode == '34' ? 'selected' : '' }>충청북도</option>
+							<option value="34" ${selectAreaCode == '34' ? 'selected' : '' }>충청남도</option>
+							<option value="33" ${selectAreaCode == '33' ? 'selected' : '' }>충청북도</option>
 						</select>
 					</div>
 					<div class="col-lg-2 form-group d-grid mb-0">

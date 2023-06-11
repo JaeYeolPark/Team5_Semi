@@ -35,32 +35,35 @@
 				</div>
 			</div>
 		</div>
-		<div class="container">
-			<div class="search-bar rounded p-3 p-lg-4 position-relative mt-n5 z-index-20">
-				<form action="#">
-					<div class="row">
-						<div class="col-lg-4 d-flex align-items-center form-group" style="width: 840px;">
-							<input class="form-control border-0 shadow-0" type="search" name="search" placeholder="검색어를 입력하세요">
-						</div>
-						<div class="col-md-6 col-lg-3 d-flex align-items-center form-group no-divider" style="width: 200px;">
-							<select class="selectpicker" title="지역 선택" data-style="btn-form-control">
-								<option value="small">강원도</option>
-								<option value="medium">경기도</option>
-								<option value="large">경상남도</option>
-								<option value="large">경상북도</option>
-								<option value="large">전라남도</option>
-								<option value="large">전라북도</option>
-								<option value="large">충청남도</option>
-								<option value="large">충청북도</option>
+		
+		<form name="searchForm" action="${path }/tourspot/search" method="get">
+		<c:set var="selectAreaCode" value="${param.selectAreaCode}" />
+			<div class="container">
+				<div class="search-bar rounded p-3 p-lg-4 position-relative mt-n5 z-index-20">
+						<div class="row">
+							<div class="col-lg-4 d-flex align-items-center form-group" style="width: 840px;">
+								<input class="form-control border-0 shadow-0" type="text" name="searchValue" placeholder="검색어를 입력하세요" value="${param.searchValue}" />
+							</div>
+							<div class="col-md-6 col-lg-3 d-flex align-items-center form-group no-divider" style="width: 200px;">
+								<select class="selectpicker" id="selectAreaCode" name="selectAreaCode" data-style="btn-form-control form-control-lg" title="지역 선택">
+									<option value="" ${selectAreaCode == '' ? 'selected' : '' }>전체</option>
+									<option value="32" ${selectAreaCode == '32' ? 'selected' : '' }>강원도</option>
+									<option value="31" ${selectAreaCode == '31' ? 'selected' : '' }>경기도</option>
+									<option value="36" ${selectAreaCode == '36' ? 'selected' : '' }>경상남도</option>
+									<option value="35" ${selectAreaCode == '35' ? 'selected' : '' }>경상북도</option>
+									<option value="38" ${selectAreaCode == '38' ? 'selected' : '' }>전라남도</option>
+									<option value="37" ${selectAreaCode == '37' ? 'selected' : '' }>전라북도</option>
+									<option value="34" ${selectAreaCode == '34' ? 'selected' : '' }>충청남도</option>
+									<option value="33" ${selectAreaCode == '33' ? 'selected' : '' }>충청북도</option>
 							</select>
+							</div>
+							<div class="col-lg-2 form-group d-grid mb-0">
+								<button class="btn btn-primary h-100" type="submit">Search</button>
+							</div>
 						</div>
-						<div class="col-lg-2 form-group d-grid mb-0">
-							<button class="btn btn-primary h-100" type="submit">Search</button>
-						</div>
-					</div>
-				</form>
+				</div>
 			</div>
-		</div>
+		</form>
 		<div class="swiper-pagination swiper-pagination-white"></div>
 		<div class="swiper-nav d-none d-lg-block">
 			<div class="swiper-button-prev" id="homePrev"></div>
@@ -78,7 +81,7 @@
 						<div class="p-3 p-sm-5 text-white z-index-20">
 							<h4 class="h2">강원도</h4>
 							<p class="mb-4">새로운 강원도! 특별 자치시대!</p>
-							<a class="btn btn-link text-reset ps-0 stretched-link text-decoration-none" href="#">자세히 보기<i class="fa fa-chevron-right ms-2"></i></a>
+							<a class="btn btn-link text-reset ps-0 stretched-link text-decoration-none" href="${path }/tourspot/search?searchValue=&selectAreaCode=32">자세히 보기<i class="fa fa-chevron-right ms-2"></i></a>
 						</div>
 					</div>
 				</div>
@@ -88,7 +91,7 @@
 						<div class="p-3 p-sm-5 text-white z-index-20">
 							<h4 class="h2">경기도</h4>
 							<p class="mb-4">변화의 중심 기회의 경기</p>
-							<a class="btn btn-link text-reset ps-0 stretched-link text-decoration-none" href="#">자세히 보기<i class="fa fa-chevron-right ms-2"></i></a>
+							<a class="btn btn-link text-reset ps-0 stretched-link text-decoration-none" href="${path }/tourspot/search?searchValue=&selectAreaCode=31">자세히 보기<i class="fa fa-chevron-right ms-2"></i></a>
 						</div>
 					</div>
 				</div>
@@ -98,7 +101,7 @@
 						<div class="p-3 p-sm-5 text-white z-index-20">
 							<h4 class="h2">경상남도</h4>
 							<p class="mb-4">Bravo Gyeongnam</p>
-							<a class="btn btn-link text-reset ps-0 stretched-link text-decoration-none" href="#">자세히 보기<i class="fa fa-chevron-right ms-2"></i></a>
+							<a class="btn btn-link text-reset ps-0 stretched-link text-decoration-none" href="${path }/tourspot/search?searchValue=&selectAreaCode=36">자세히 보기<i class="fa fa-chevron-right ms-2"></i></a>
 						</div>
 					</div>
 				</div>
@@ -108,7 +111,7 @@
 						<div class="p-3 p-sm-5 text-white z-index-20">
 							<h4 class="h2">경상북도</h4>
 							<p class="mb-4">경북의 힘으로 새로운 대한민국</p>
-							<a class="btn btn-link text-reset ps-0 stretched-link text-decoration-none" href="#">자세히 보기<i class="fa fa-chevron-right ms-2"></i></a>
+							<a class="btn btn-link text-reset ps-0 stretched-link text-decoration-none" href="${path }/tourspot/search?searchValue=&selectAreaCode=35">자세히 보기<i class="fa fa-chevron-right ms-2"></i></a>
 						</div>
 					</div>
 				</div>
@@ -118,7 +121,7 @@
 						<div class="p-3 p-sm-5 text-white z-index-20">
 							<h4 class="h2">전라남도</h4>
 							<p class="mb-4">생명의 땅 으뜸 전남</p>
-							<a class="btn btn-link text-reset ps-0 stretched-link text-decoration-none" href="#">자세히 보기<i class="fa fa-chevron-right ms-2"></i></a>
+							<a class="btn btn-link text-reset ps-0 stretched-link text-decoration-none" href="${path }/tourspot/search?searchValue=&selectAreaCode=38">자세히 보기<i class="fa fa-chevron-right ms-2"></i></a>
 						</div>
 					</div>
 				</div>
@@ -128,7 +131,7 @@
 						<div class="p-3 p-sm-5 text-white z-index-20">
 							<h4 class="h2">전라북도</h4>
 							<p class="mb-4">함께 혁신, 함께 성공, 새로운 전북</p>
-							<a class="btn btn-link text-reset ps-0 stretched-link text-decoration-none" href="#">자세히 보기<i class="fa fa-chevron-right ms-2"></i></a>
+							<a class="btn btn-link text-reset ps-0 stretched-link text-decoration-none" href="${path }/tourspot/search?searchValue=&selectAreaCode=37">자세히 보기<i class="fa fa-chevron-right ms-2"></i></a>
 						</div>
 					</div>
 				</div>
@@ -138,7 +141,7 @@
 						<div class="p-3 p-sm-5 text-white z-index-20">
 							<h4 class="h2">충청남도</h4>
 							<p class="mb-4">힘쎈 충남, 대한민국의 힘</p>
-							<a class="btn btn-link text-reset ps-0 stretched-link text-decoration-none" href="#">자세히 보기<i class="fa fa-chevron-right ms-2"></i></a>
+							<a class="btn btn-link text-reset ps-0 stretched-link text-decoration-none" href="${path }/tourspot/search?searchValue=&selectAreaCode=34">자세히 보기<i class="fa fa-chevron-right ms-2"></i></a>
 						</div>
 					</div>
 				</div>
@@ -148,7 +151,7 @@
 						<div class="p-3 p-sm-5 text-white z-index-20">
 							<h4 class="h2">충청북도</h4>
 							<p class="mb-4">생명과 태양의 땅 충북</p>
-							<a class="btn btn-link text-reset ps-0 stretched-link text-decoration-none" href="#">자세히 보기<i class="fa fa-chevron-right ms-2"></i></a>
+							<a class="btn btn-link text-reset ps-0 stretched-link text-decoration-none" href="${path }/tourspot/search?searchValue=&selectAreaCode=33">자세히 보기<i class="fa fa-chevron-right ms-2"></i></a>
 						</div>
 					</div>
 				</div>
