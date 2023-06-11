@@ -315,7 +315,7 @@
 						<h1>나만의 여행코스</h1>
 					</div>
 					<div class="col-md-4 d-lg-flex align-items-center justify-content-end">
-						<a class="text-muted text-sm" href="${path }/community/myTravelCourseList" style="position: relative; left: 50%"> 전체보기<i class="fas fa-angle-double-right ms-2"></i></a>
+						<a class="text-muted text-sm" href="${path}/community/courseList" style="position: relative; left: 50%"> 전체보기<i class="fas fa-angle-double-right ms-2"></i></a>
 					</div>
 				</div>
 				<div class="text-block" style="width: 95%; height: 530px; position: relative; left: 10%; border: 1px solid #e9ecef;" >

@@ -39,17 +39,16 @@
 					<h6 class="text-uppercase text-white-50 mb-3">정보찾기</h6>
 					<ul class="list-unstyled">
 						<li><a class="text-white-50" href="#">여행정보</a></li>
-						<li><a class="text-white-50" href="#">숙박</a></li>
-						<li><a class="text-white-50" href="#">음식점</a></li>
-						<li><a class="text-white-50" href="#">관광지</a></li>
+						<li><a class="text-white-50" href="${path}/accm/search">숙박</a></li>
+						<li><a class="text-white-50" href="${path}/restaurant/search">음식점</a></li>
+						<li><a class="text-white-50" href="${path}/tourspot/search">관광지</a></li>
 					</ul>
 				</div>
 				<div class="col-lg-2 col-md-6 mb-5 mb-lg-0">
 					<h6 class="text-uppercase text-white-50 mb-3">커뮤니티</h6>
 					<ul class="list-unstyled">
-						<li><a class="text-white-50" href="#">메인 페이지</a></li>
-						<li><a class="text-white-50" href="#">여행후기</a></li>
-						<li><a class="text-white-50" href="#">나만의 여행코스</a></li>
+						<li><a class="text-white-50" href="${path}/community/review">여행후기</a></li>
+						<li><a class="text-white-50" href="${path}/community/courseList">나만의 여행코스</a></li>
 					</ul>
 				</div>
 				<div class="col-lg-4">

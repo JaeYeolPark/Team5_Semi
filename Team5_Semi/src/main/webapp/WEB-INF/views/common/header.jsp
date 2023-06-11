@@ -140,7 +140,6 @@ charset=UTF-8"
 								<li class="nav-item dropdown"><a class="nav-link dropdown-toggle" id="docsDropdownMenuLink"
 									href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">커뮤니티 </a>
 									<div class="dropdown-menu" aria-labelledby="homeDropdownMenuLink">
-										<a class="dropdown-item" href="#">메인 페이지</a>
 										<a class="dropdown-item" href="${path}/community/review">여행후기</a>
 										<a class="dropdown-item" href="${path}/community/courseList">나만의 여행코스</a>
 									</div>
