@@ -44,4 +44,8 @@ public interface BoardMapper {
 	int deleteReply(int rno);
 
 	int findByMnoForBoardCount(int mno);
+
+	List<Board> getMainCourseList();
+
+	List<Board> getMainReviewList();
 }

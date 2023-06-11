@@ -67,6 +67,7 @@
 			<div class="swiper-button-next" id="homeNext"></div>
 		</div>
 	</div>
+	</div>
 
 	<section class="pt-6">
 		<div class="container-fluid">
@@ -246,9 +247,8 @@
 							<!-- place item-->
 							<div class="w-100 h-100 hover-animate" data-marker-id="59c0c8e39aa2edasd626e485d">
 								<div class="card h-100 border-0 shadow">
-									<div class="card-img-top overflow-hidden gradient-overlay" style="height:200px">
-										<img class="img-fluid" src="${item.firstimage}" alt="이미지가 없습니다." />
-										<a class="tile-link" href="${path }/accm/detail?contentid=${item.contentid}"></a>
+									<div class="card-img-top overflow-hidden gradient-overlay" style="height: 200px">
+										<img class="img-fluid" src="${item.firstimage}" alt="이미지가 없습니다." /> <a class="tile-link" href="${path }/accm/detail?contentid=${item.contentid}"></a>
 									</div>
 									<div class="card-body d-flex align-items-center">
 										<div class="w-100">
@@ -258,7 +258,7 @@
 											<div class="d-flex card-subtitle mb-3">
 												<p class="flex-grow-1 mb-0 text-muted text-sm">Private room</p>
 											</div>
-	
+
 										</div>
 									</div>
 								</div>
@@ -271,8 +271,8 @@
 	</section>
 	<!-- Divider Section-->
 	<section class="pt-6 pb-lg-6">
-		<div class="container" style="display: flex; flex-direction: row;">
-			<div style="flex-grow: 1; width: 1600px;">
+		<div class="container" style="display: flex; flex-direction: row; ">
+			<div style="flex-grow: 1; width: 1600px;" class="col">
 				<div class="row mb-5">
 					<div class="col-md-6" style="">
 						<h1>여행후기</h1>
@@ -282,53 +282,31 @@
 					</div>
 				</div>
 				<div style="display: flex; flex-direction: column; width: 190%;">
-					<div style="flex-grow: 1; width1: 50%;">
-						<div class="col-md-6">
-							<div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-								<div class="col p-4 d-flex flex-column position-static">
-									<strong class="d-inline-block mb-2 text-primary">World</strong>
-									<h3 class="mb-0">Featured post</h3>
-									<div class="mb-1 text-muted">Nov 12</div>
-									<p class="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
-									<a href="#" class="stretched-link">Continue reading</a>
-								</div>
-								<div class="col-auto d-none d-lg-block">
-									<svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice"
-										focusable="false">
-                      <title>Placeholder</title>
-                      <rect width="100%" height="100%" fill="#55595c" />
-										<text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text>
-                    </svg>
-
-								</div>
-							</div>
-						</div>
-					</div>
-					<div style="flex-grow: 1;">
-						<div class="col-md-6">
-							<div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-								<div class="col p-4 d-flex flex-column position-static">
-									<strong class="d-inline-block mb-2 text-primary">World</strong>
-									<h3 class="mb-0">Featured post</h3>
-									<div class="mb-1 text-muted">Nov 12</div>
-									<p class="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
-									<a href="#" class="stretched-link">Continue reading</a>
-								</div>
-								<div class="col-auto d-none d-lg-block">
-									<svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice"
-										focusable="false">
-                      <title>Placeholder</title>
-                      <rect width="100%" height="100%" fill="#55595c" />
-										<text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text>
-                    </svg>
-
+					<c:forEach var="item" items="${reviewList }">
+						<div style="flex-grow: 1; width1: 50%;">
+							<div class="col-md-6">
+								<div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+									<div class="col p-4 d-flex flex-column position-static">
+										<h3 class="mb-0">${item.title }</h3>
+										<div class="mb-1 text-muted">${item.modifyDate }</div>
+										<p class="card-text mb-auto">${item.content }</p>
+										<a href="#" class="stretched-link">Continue reading</a>
+									</div>
+									<div class="col-auto d-none d-lg-block">
+										<svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" role="img" 
+											aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
+											<title>Placeholder</title>
+											<rect width="100%" height="100%" fill="#55595c" />
+											<text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text>
+	                    				</svg>
+									</div>
 								</div>
 							</div>
 						</div>
-					</div>
+					</c:forEach>
 				</div>
 			</div>
-			<div style="flex-grow: 1;">
+			<div style="flex-grow: 1; width:50%;" class="col">
 				<div class="row mb-5" style="position: relative; left: 12%">
 					<div class="col-md-5">
 						<h1>나만의 여행코스</h1>
@@ -337,25 +315,19 @@
 						<a class="text-muted text-sm" href="${path }/community/myTravelCourseList" style="position: relative; left: 50%"> 전체보기<i class="fas fa-angle-double-right ms-2"></i></a>
 					</div>
 				</div>
-				<div class="text-block" style="width: 95%; height: 530px; position: relative; left: 10%; border: 1px solid #e9ecef;">
-					<div class="d-flex d-block d-sm-flex review" style="padding-bottom: 90px;">
-						<div>
-							<h6 class="mt-2 mb-1">Padmé Amidala</h6>
-							<p class="text-muted text-sm">One morning, when Gregor Samsa woke from troubled dreams, he found himself transformed in his bed into a horrible vermin. He lay on his armour-like back, and
-								if he lifted his head a little he could see his brown belly, slightly domed and divided by arches into stiff sections</p>
+				<div class="text-block" style="width: 95%; height: 530px; position: relative; left: 10%; border: 1px solid #e9ecef;" >
+					<c:forEach var="item" items="${courseList }">
+						<div class="d-flex d-block d-sm-flex review" style="padding-bottom: 90px;">
+							<div>
+								<h6 class="mt-2 mb-1">${item.title }</h6>
+								<p class="text-muted text-sm">${item.content }</p>
+							</div>
 						</div>
-					</div>
-					<div class="d-flex d-block d-sm-flex review">
-						<div style="padding-top: 40px;">
-							<h6 class="mt-2 mb-1">Luke Skywalker</h6>
-							<p class="text-muted text-sm">The bedding was hardly able to cover it and seemed ready to slide off any moment. His many legs, pitifully thin compared with the size of the rest of him,
-								waved about helplessly as he looked. &quot;What's happened to me?&quot; he thought. It wasn't a dream.</p>
-						</div>
-					</div>
+					</c:forEach>
+					
 				</div>
 			</div>
 		</div>
-</div>
 </section>
 
 <!-- Instagram-->

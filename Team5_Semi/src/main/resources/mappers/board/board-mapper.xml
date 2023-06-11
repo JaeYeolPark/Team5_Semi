@@ -49,6 +49,7 @@
 		JOIN MEMBER M ON(B.mNO = M.mNO)
 		WHERE 1 = 1
 		AND B.STATUS = 'Y'
+		AND TYPE = #{type}
 		<if test="id != null">
 			AND M.ID LIKE '%${id}%'
 		</if>
@@ -144,6 +145,23 @@
 	<delete id="deleteReply" parameterType="int">
 		DELETE FROM REPLY WHERE RNO=#{rno}
 	</delete>
+	
+	
+	<select id="getMainCourseList" resultMap="boardResultMap">
+		SELECT *
+		FROM BOARD
+		WHERE TYPE = 'B1'
+		ORDER BY BNO DESC
+		LIMIT 2
+	</select>
+	
+	<select id="getMainReviewList" resultMap="boardResultMap">
+		SELECT *
+		FROM BOARD
+		WHERE TYPE = 'B2'
+		ORDER BY BNO DESC
+		LIMIT 2
+	</select>
 	
 	
 </mapper>

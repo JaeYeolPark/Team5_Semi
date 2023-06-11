@@ -118,4 +118,14 @@ public class BoardService {
 		
 	}
 
+
+	public List<Board> getMainCourseList() {
+		return mapper.getMainCourseList();
+	}
+
+
+	public List<Board> getMainReviewList() {
+		return mapper.getMainReviewList();
+	}
+
 }

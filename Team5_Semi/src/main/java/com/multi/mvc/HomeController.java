@@ -9,6 +9,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.multi.mvc.board.model.service.BoardService;
+import com.multi.mvc.board.model.vo.Board;
 import com.multi.mvc.tour.model.service.AccmService;
 import com.multi.mvc.tour.model.service.RestaurantService;
 import com.multi.mvc.tour.model.vo.Accommodation;
@@ -29,15 +31,22 @@ public class HomeController {
 	@Autowired
 	private RestaurantService restService;
 	
+	@Autowired
+	private BoardService boardService;
+	
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
 //		log.info("@@@@@@@@@@@ selectAll : " + memberService.findAll());
 		List<Accommodation> accmList = accmService.getMainAccmList();
 		List<Restaurant> restList = restService.getMainRestList();
+		List<Board> courseList = boardService.getMainCourseList();
+		List<Board> reviewList = boardService.getMainReviewList();
 		
 		model.addAttribute("restList",restList);
 		model.addAttribute("accmList",accmList);
+		model.addAttribute("courseList",courseList);
+		model.addAttribute("reviewList",reviewList);
 		
 		return "main";
 	}
