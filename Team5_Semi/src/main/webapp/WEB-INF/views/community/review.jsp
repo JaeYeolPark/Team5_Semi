@@ -22,13 +22,11 @@
 			<c:forEach var="item" items="${list }">
 				<div class="col-lg-4 col-sm-6 mb-4 hover-animate" style="height: 400px;">
 					<div class="card shadow border-0 h-100">
-						<a href="${path}/community/view?no=${item.bno}"> <c:if
-								test="${not empty board.originalFileName 
-								and (fn:contains(board.originalFileName,'.jpg')
-									 or fn:contains(board.originalFileName,'.png')
-									  or fn:contains(board.originalFileName,'.jpeg'))}">
-								<img src="${path}/resources/upload/board/${board.renamedFileName}" width="100%" height="100%" />
-							</c:if> <c:if test="${empty board.originalFileName}">
+						<a href="${path}/community/view?no=${item.bno}"> 
+							<c:if test="${not empty item.originalFileName and (fn:contains(item.originalFileName,'.jpg') or fn:contains(item.originalFileName,'.png') or fn:contains(item.originalFileName,'.jpeg'))}">
+								<img src="${path}/resources/upload/board/${item.renamedFileName}" width="100%" height="100%" />
+							</c:if> 
+							<c:if test="${empty item.originalFileName}">
 								<img class="card-img rounded-2 img-thumbnail" src="${path }/resources/img/notfound.png" alt="">
 							</c:if></a>
 						<div class="card-body">
