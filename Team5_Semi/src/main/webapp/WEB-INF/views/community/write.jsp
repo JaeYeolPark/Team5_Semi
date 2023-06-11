@@ -22,11 +22,11 @@
 	                <h4>게시판</h4>
 	                <div class="mb-4">
 	                    <div class="form-check" style="display: inline-block; margin-right: 20px;">
-	                        <input class="form-check-input" id="radio1" name="radio" type="radio">
+	                        <input class="form-check-input" id="radio1" name="type" type="radio" value="B2" checked>
 	                        <label class="form-check-label" for="radio1">여행후기</label>
 	                    </div>
 	                    <div class="form-check" style="display: inline-block;">
-	                        <input class="form-check-input" id="radio2" name="radio" type="radio">
+	                        <input class="form-check-input" id="radio2" name="type" type="radio"  value="B1">
 	                        <label class="form-check-label" for="radio2">나만의 여행코스</label>
 	                    </div>
 	                </div>

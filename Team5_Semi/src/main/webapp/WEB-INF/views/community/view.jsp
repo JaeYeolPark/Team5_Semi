@@ -32,9 +32,11 @@
       <div class="row">
         <div class="col-xl-8 col-lg-10 mx-auto">                               
           <div>
+          
+          	
             <p class="lead mb-5 mt-5"><c:out value="${board.content}"/></p>
             
-            <blockquote class="blockquote blockquote-primary"><c:out value="${board.content}"/></blockquote>
+<%--             <blockquote class="blockquote blockquote-primary"><c:out value="${board.content}"/></blockquote> --%>
           </div>
           <!-- comments-->
             <div class="mt-5">
@@ -85,6 +87,13 @@
             <!-- /comment form-->
           </div>
         </div>
+        
+      <!-- 삭제 코드도 거의 되어 있어요. -->
+      	<c:if test="${not empty loginMember && (loginMember.id == board.writerId 
+							|| loginMember.role == 'ROLE_ADMIN')}">
+			<button type="button" id="btnUpdate">수정</button>
+			<button type="button" id="btnDelete">삭제</button>
+		</c:if>
         
 <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 

@@ -140,13 +140,6 @@ public class BoardController {
 			) {
 		log.info("board write 요청, board : " + board);
 		
-		// 보안코드 예시
-		if(loginMember.getId().equals(board.getWriterId()) == false) {
-			model.addAttribute("msg","잘못된 접근입니다.");
-			model.addAttribute("location","/");
-			return "common/msg";
-		}
-		
 		board.setMno(loginMember.getMno());
 		
 		// 파일 저장 로직
@@ -165,10 +158,10 @@ public class BoardController {
 		
 		if(result > 0) {
 			model.addAttribute("msg", "게시글이 등록 되었습니다.");
-			model.addAttribute("location", "/community/list");
+			model.addAttribute("location", "/community/review");
 		}else {
 			model.addAttribute("msg", "게시글 작성에 실패하였습니다.");
-			model.addAttribute("location", "/board/list");
+			model.addAttribute("location", "/community/review");
 		}
 		return "common/msg";
 	}
