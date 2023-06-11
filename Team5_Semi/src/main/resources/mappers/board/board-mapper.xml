@@ -44,7 +44,7 @@
 	<!--				  문제점 : parameterMap으로 되어 있었음 -> 안돌아갑니다.  -->
 	<select id="selectBoardList" parameterType="map" resultMap="boardResultMap">
 		SELECT 
-			B.bNO, B.TITLE, M.ID, B.CREATE_DATE, B.ORIGINAL_FILENAME, B.READCOUNT,B.STATUS
+			B.bNO, B.TITLE, M.ID, B.CREATE_DATE, B.ORIGINAL_FILENAME, B.RENAMED_FILENAME, B.READCOUNT,B.STATUS
 		FROM BOARD B 
 		JOIN MEMBER M ON(B.mNO = M.mNO)
 		WHERE 1 = 1
