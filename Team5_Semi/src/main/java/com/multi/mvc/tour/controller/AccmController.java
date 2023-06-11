@@ -1,7 +1,5 @@
 package com.multi.mvc.tour.controller;
 
-import java.io.InputStream;
-import java.io.Writer;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
@@ -13,7 +11,6 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
-import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.WebDataBinder;
@@ -25,12 +22,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttribute;
 
-import com.multi.mvc.board.model.vo.Board;
 import com.multi.mvc.common.util.PageInfo;
 import com.multi.mvc.member.model.vo.Member;
 import com.multi.mvc.tour.model.service.AccmService;
+import com.multi.mvc.tour.model.service.ImageService;
 import com.multi.mvc.tour.model.vo.Accommodation;
 import com.multi.mvc.tour.model.vo.Booking;
+import com.multi.mvc.tour.model.vo.ImageVO;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -45,6 +43,9 @@ public class AccmController {
 
 	@Autowired
 	private AccmService accmService;
+	
+	@Autowired
+	private ImageService imgService;
 
 	@RequestMapping("/accm/search")
 	public String list(Model model, @RequestParam Map<String, Object> param, @RequestParam(required = false) String[] hotelType) {
@@ -99,8 +100,10 @@ public class AccmController {
 		int accmCount = accmService.getAccmCount(param);
 		PageInfo pageInfo = new PageInfo(page, 10, accmCount, 7); // 게시글이 보여지는 갯수 = 10
 		List<Accommodation> list = accmService.getAccmList(pageInfo, param);
+		List<ImageVO> imgList = imgService.getImageList(id);
 
 		model.addAttribute("dAccmList", list);
+		model.addAttribute("imgList", imgList);
 		model.addAttribute("accm", accm);
 		return "/accm/detail";
 	}

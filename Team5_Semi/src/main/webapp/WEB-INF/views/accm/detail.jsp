@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
@@ -35,23 +34,15 @@
 						</p>
 						<ul class="list-inline text-sm mb-4">
 							<c:if test="${not empty accm.accomcountlodging }">
-								<li class="list-inline-item mr-3"><i
-									class="fa fa-users mr-1 text-secondary"></i> <c:out
-										value="수용가능인원 : ${accm.accomcountlodging }" /></li>
+								<li class="list-inline-item mr-3"><i class="fa fa-users mr-1 text-secondary"></i> <c:out value="수용가능인원 : ${accm.accomcountlodging }" /></li>
 							</c:if>
 							<c:if test="${not empty accm.roomcount }">
-								<li class="list-inline-item mr-3"><i
-									class="fa fa-door-open mr-1 text-secondary"></i> <c:out
-										value="총 객실수 : ${accm.roomcount }" /></li>
+								<li class="list-inline-item mr-3"><i class="fa fa-door-open mr-1 text-secondary"></i> <c:out value="총 객실수 : ${accm.roomcount }" /></li>
 							</c:if>
 							<c:if test="${not empty accm.roomtype }">
-								<li class="list-inline-item mr-3"><i
-									class="fa fa-bed mr-1 text-secondary"></i> <c:out
-										value="객실유형 : ${accm.roomtype }" /></li>
+								<li class="list-inline-item mr-3"><i class="fa fa-bed mr-1 text-secondary"></i> <c:out value="객실유형 : ${accm.roomtype }" /></li>
 							</c:if>
-							<li class="list-inline-item mr-3"><i
-								class="fa fa-bath mr-1 text-secondary"></i> <c:out
-									value="공용샤워실여부 : ${accm.publicbath }" /></li>
+							<li class="list-inline-item mr-3"><i class="fa fa-bath mr-1 text-secondary"></i> <c:out value="공용샤워실여부 : ${accm.publicbath }" /></li>
 						</ul>
 						<p class="mb-4 " style="font: bolder; font-size: 30px;">숙소 설명</p>
 						<p class="text-muted font-weight-light">
@@ -59,33 +50,23 @@
 						</p>
 					</div>
 					<div class="text-block">
-					<p class="mb-4 " style="font: bolder; font-size: 30px;">기본 정보</p>
+						<p class="mb-4 " style="font: bolder; font-size: 30px;">기본 정보</p>
 						<div class="row">
 							<div class="col-md-6">
 								<ul class="list-unstyled text-muted">
 
-									<li class="mb-2"><i
-										class="fa  fa-clock text-secondary w-1rem mr-3 text-center"></i>
-										<c:if test="${not empty accm.checkintime }">
-											<span class="text-sm ms-4"> <c:out
-													value="체크인 시간 : ${accm.checkintime }" />
-											</span>
-										</c:if> 
-										<c:if test="${empty accm.checkintime }">
-											<span class="text-sm ms-4"> <c:out
-													value="체크인 시간 : 정보가 없습니다" />
-											</span>
-										</c:if>
-									</li>
-									<li class="mb-2"><i
-										class="fa  fa-clock text-secondary w-1rem mr-3 text-center"></i>
-										<c:if test="${not empty accm.checkouttime }">
-											<span class="text-sm ms-4"> <c:out
-													value="체크아웃 시간 : ${accm.checkouttime }" />
+									<li class="mb-2"><i class="fa  fa-clock text-secondary w-1rem mr-3 text-center"></i> <c:if test="${not empty accm.checkintime }">
+											<span class="text-sm ms-4"> <c:out value="체크인 시간 : ${accm.checkintime }" />
 											</span>
 										</c:if> <c:if test="${empty accm.checkintime }">
-											<span class="text-sm ms-4"> <c:out
-													value="체크아웃 시간 : 정보가 없습니다" />
+											<span class="text-sm ms-4"> <c:out value="체크인 시간 : 정보가 없습니다" />
+											</span>
+										</c:if></li>
+									<li class="mb-2"><i class="fa  fa-clock text-secondary w-1rem mr-3 text-center"></i> <c:if test="${not empty accm.checkouttime }">
+											<span class="text-sm ms-4"> <c:out value="체크아웃 시간 : ${accm.checkouttime }" />
+											</span>
+										</c:if> <c:if test="${empty accm.checkintime }">
+											<span class="text-sm ms-4"> <c:out value="체크아웃 시간 : 정보가 없습니다" />
 											</span>
 										</c:if></li>
 								</ul>
@@ -98,69 +79,47 @@
 
 						<ul class="list-inline">
 							<c:if test="${accm.karaoke != '0' }">
-								<li class="list-inline-item mb-2"><span
-									class="badge badge-pill badge-light p-3 text-muted font-weight-normal">
-										<c:out value="노래방" />
+								<li class="list-inline-item mb-2"><span class="badge badge-pill badge-light p-3 text-muted font-weight-normal"> <c:out value="노래방" />
 								</span></li>
 							</c:if>
 							<c:if test="${accm.publicpc != '0' }">
-								<li class="list-inline-item mb-2"><span
-									class="badge badge-pill badge-light p-3 text-muted font-weight-normal">
-										<c:out value="컴퓨터" />
+								<li class="list-inline-item mb-2"><span class="badge badge-pill badge-light p-3 text-muted font-weight-normal"> <c:out value="컴퓨터" />
 								</span></li>
 							</c:if>
 							<c:if test="${accm.publicbath != '0' }">
-								<li class="list-inline-item mb-2"><span
-									class="badge badge-pill badge-light p-3 text-muted font-weight-normal">
-										<c:out value="샤워실" />
+								<li class="list-inline-item mb-2"><span class="badge badge-pill badge-light p-3 text-muted font-weight-normal"> <c:out value="샤워실" />
 								</span></li>
 							</c:if>
 							<c:if test="${accm.seminar != '0' }">
-								<li class="list-inline-item mb-2"><span
-									class="badge badge-pill badge-light p-3 text-muted font-weight-normal">
-										<c:out value="세미나실" />
+								<li class="list-inline-item mb-2"><span class="badge badge-pill badge-light p-3 text-muted font-weight-normal"> <c:out value="세미나실" />
 								</span></li>
 							</c:if>
 							<c:if test="${accm.sports != '0' }">
-								<li class="list-inline-item mb-2"><span
-									class="badge badge-pill badge-light p-3 text-muted font-weight-normal">
-										<c:out value="스포츠시설" />
+								<li class="list-inline-item mb-2"><span class="badge badge-pill badge-light p-3 text-muted font-weight-normal"> <c:out value="스포츠시설" />
 								</span></li>
 							</c:if>
 							<c:if test="${accm.barbecue != '0' }">
-								<li class="list-inline-item mb-2"><span
-									class="badge badge-pill badge-light p-3 text-muted font-weight-normal">
-										<c:out value="바비큐장" />
+								<li class="list-inline-item mb-2"><span class="badge badge-pill badge-light p-3 text-muted font-weight-normal"> <c:out value="바비큐장" />
 								</span></li>
 							</c:if>
 							<c:if test="${accm.beauty != '0' }">
-								<li class="list-inline-item mb-2"><span
-									class="badge badge-pill badge-light p-3 text-muted font-weight-normal">
-										<c:out value="뷰티시설" />
+								<li class="list-inline-item mb-2"><span class="badge badge-pill badge-light p-3 text-muted font-weight-normal"> <c:out value="뷰티시설" />
 								</span></li>
 							</c:if>
 							<c:if test="${accm.beverage != '0' }">
-								<li class="list-inline-item mb-2"><span
-									class="badge badge-pill badge-light p-3 text-muted font-weight-normal">
-										<c:out value="식음료장" />
+								<li class="list-inline-item mb-2"><span class="badge badge-pill badge-light p-3 text-muted font-weight-normal"> <c:out value="식음료장" />
 								</span></li>
 							</c:if>
 							<c:if test="${accm.bicycle != '0' }">
-								<li class="list-inline-item mb-2"><span
-									class="badge badge-pill badge-light p-3 text-muted font-weight-normal">
-										<c:out value="자전거대여" />
+								<li class="list-inline-item mb-2"><span class="badge badge-pill badge-light p-3 text-muted font-weight-normal"> <c:out value="자전거대여" />
 								</span></li>
 							</c:if>
 							<c:if test="${accm.campfire != '0' }">
-								<li class="list-inline-item mb-2"><span
-									class="badge badge-pill badge-light p-3 text-muted font-weight-normal">
-										<c:out value="캠프파이어" />
+								<li class="list-inline-item mb-2"><span class="badge badge-pill badge-light p-3 text-muted font-weight-normal"> <c:out value="캠프파이어" />
 								</span></li>
 							</c:if>
 							<c:if test="${accm.fitness != '0' }">
-								<li class="list-inline-item mb-2"><span
-									class="badge badge-pill badge-light p-3 text-muted font-weight-normal">
-										<c:out value="피트니스센터" />
+								<li class="list-inline-item mb-2"><span class="badge badge-pill badge-light p-3 text-muted font-weight-normal"> <c:out value="피트니스센터" />
 								</span></li>
 							</c:if>
 						</ul>
@@ -173,37 +132,28 @@
 					</div>
 				</div>
 				<div class="col-lg-4">
-					<div class="p-4 shadow ms-lg-4 rounded"
-						style="top: 100px;">
+					<div class="p-4 shadow ms-lg-4 rounded" style="top: 100px;">
 						<p class="text-muted">
 							<span class="text-primary h2">68,000 원</span> x 1박
 						</p>
 						<hr class="my-4">
-						<form class="form" id="bookingForm" method="get" action="${path }/accm/booking"
-							autocomplete="off">
+						<form class="form" id="bookingForm" method="get" action="${path }/accm/booking" autocomplete="off">
 							<div class="mb-4">
-								<label class="form-label" for="bookingDate">여행 일정 *</label>
-								<input class="form-control" id="startDate" name="startDate" type="date" required/>
-								<input class="form-control" id="endDate" name="endDate" type="date" required/>
-								
-								<fmt:parseDate var="startDate_D"  value="${startDate }" pattern="yyyy-MM-dd"/>
-								<fmt:parseDate var="endDate_D" value="${endDate }"  pattern="yyyy-MM-dd"/>
+								<label class="form-label" for="bookingDate">여행 일정 *</label> <input class="form-control" id="startDate" name="startDate" type="date" required /> <input class="form-control" id="endDate"
+									name="endDate" type="date" required />
+
+								<fmt:parseDate var="startDate_D" value="${startDate }" pattern="yyyy-MM-dd" />
+								<fmt:parseDate var="endDate_D" value="${endDate }" pattern="yyyy-MM-dd" />
 								<fmt:parseNumber var="startDate_N" value="${startDate_D.time / (1000*60*60*24)}" integerOnly="true" />
-								<fmt:parseNumber var="endDate_N" value="${endDate_D.time / (1000*60*60*24)}" integerOnly="true" /> 
-								
-								<input type="hidden" name="price" value="68000"/>
-								<input type="hidden" name="days" value="${startDate_N - endDate_N}">
-								<input type="hidden" name="checkin" value="${accm.checkintime}">
-								<input type="hidden" name="checkout" value="${accm.checkouttime}">
-								<input type="hidden" name="bkAddr" value="${accm.addr1 } ${accm.addr2}">
-								<input type="hidden" name="bkImg" value="${accm.firstimage }">
-								<input type="hidden" name="bkContentId" value="${accm.contentid }">
-								<input type="hidden" name="bkTitle" value="${accm.title }">
-								<input type="hidden" name="refund" value="${accm.refundregulation }">
+								<fmt:parseNumber var="endDate_N" value="${endDate_D.time / (1000*60*60*24)}" integerOnly="true" />
+
+								<input type="hidden" name="price" value="68000" /> <input type="hidden" name="days" value="${startDate_N - endDate_N}"> <input type="hidden" name="checkin" value="${accm.checkintime}">
+								<input type="hidden" name="checkout" value="${accm.checkouttime}"> <input type="hidden" name="bkAddr" value="${accm.addr1 } ${accm.addr2}"> <input type="hidden" name="bkImg"
+									value="${accm.firstimage }"> <input type="hidden" name="bkContentId" value="${accm.contentid }"> <input type="hidden" name="bkTitle" value="${accm.title }"> <input
+									type="hidden" name="refund" value="${accm.refundregulation }">
 							</div>
 							<div class="mb-4">
-								<label class="form-label" for="guests">인원 *</label>
-								<select class="form-control" name="headCount" id="headCount">
+								<label class="form-label" for="guests">인원 *</label> <select class="form-control" name="headCount" id="headCount">
 									<option value="1">1명</option>
 									<option value="2">2명</option>
 									<option value="3">3명</option>
@@ -213,14 +163,21 @@
 							</div>
 							<div class="d-grid mb-4">
 								<c:if test="${not empty loginMember }">
-									<button class="btn btn-primary" type="submit" >예약하기</button>
+									<button class="btn btn-primary" type="submit">예약하기</button>
 								</c:if>
 								<c:if test="${empty loginMember }">
-									<button class="btn" style="gray;" type="submit" disabled >로그인해주세요</button>
+									<button class="btn" style="" type="submit" disabled>로그인해주세요</button>
 								</c:if>
 							</div>
 						</form>
 					</div>
+					<c:if test="${not empty imgList }">
+						<c:forEach var="item" items="${imgList }">
+							<div class="m-4 shadow ms-lg-4 rounded" style="top: 100px;">
+								<img src="${item.orignimgurl }" class="img-fluid" alt="">
+							</div>
+						</c:forEach>
+					</c:if>
 				</div>
 				<div class="col-lg-4"></div>
 			</div>
@@ -238,19 +195,18 @@
 						<!-- Slides-->
 						<div class="swiper-slide h-auto px-2 mb-4">
 							<!-- venue item-->
-							<div class="w-100 h-100 hover-animate"
-								data-marker-id="59c0c8e33b1527bfe2abaf92">
+							<div class="w-100 h-100 hover-animate" data-marker-id="59c0c8e33b1527bfe2abaf92">
 								<div class="card h-100 border-0 shadow">
-									<div class="card-img-top overflow-hidden dark-overlay bg-cover"
-										style="background-image: url(${item.firstimage}); min-height: 200px;">
+									<div class="card-img-top overflow-hidden dark-overlay bg-cover" style="background-image: url(${item.firstimage}); min-height: 200px;">
 										<a class="tile-link" href="${path }/accm/detail?contentid=${item.contentid}"></a>
 										<div class="card-img-overlay-bottom z-index-20">
 											<h5 class="text-white text-shadow">${item.title }</h5>
 										</div>
 									</div>
-									<div class="card-body" >
+									<div class="card-body">
 										<p class="text-sm text-muted mb-3">${fn:substring(item.overview,0,99) }
-										<c:if test="${item.overview.length() > 100 }">...</c:if></p>
+											<c:if test="${item.overview.length() > 100 }">...</c:if>
+										</p>
 									</div>
 								</div>
 							</div>
@@ -262,8 +218,7 @@
 	</section>
 </body>
 
-<script type="text/javascript"
-	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=394919af8b3f58765ba429c8f8ba8270"></script>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=394919af8b3f58765ba429c8f8ba8270"></script>
 <script>
 	var container = document.getElementById('detailMap'); //지도를 담을 영역의 DOM 레퍼런스
 	
@@ -330,8 +285,7 @@
 
 
 
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
 
 <jsp:include page="/WEB-INF/views/common/footer.jsp" />
