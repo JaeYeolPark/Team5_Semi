@@ -29,7 +29,7 @@
              <div class="testimonial card rounded-3 shadow border-0" style="width: 300px; height: 280px; margin-left: 20px;">
               <div class="text">
                 <div class="testimonial-quote"><i class="fas fa-quote-right"></i></div>
-                <a class="link" href="#"><p class="testimonial-text">${item.title }</p></a><strong>- ${item.writerId }</strong>
+                <a class="link" href="${path}/community/view?no=${item.bno}"><p class="testimonial-text">${item.title }</p></a><strong>- ${item.writerId }</strong>
               </div>
             </div>
             
@@ -39,67 +39,67 @@
             <div class="testimonial card rounded-3 shadow border-0" style="width: 300px; height: 280px; margin-left: 20px;">
               <div class="text">
                 <div class="testimonial-quote"><i class="fas fa-quote-right"></i></div>
-                <a class="link" href="#"><p class="testimonial-text">나만의 여행 코스 제목 나만의 여행 코스 제목</p></a><strong>- 글쓴이</strong>
+                <a class="link" href="${path}/community/view?no=${item.bno}"><p class="testimonial-text">나만의 여행 코스 제목 나만의 여행 코스 제목</p></a><strong>- 글쓴이</strong>
               </div>
             </div>
             <div class="testimonial card rounded-3 shadow border-0" style="width: 300px; height: 280px; margin-left: 20px;">
               <div class="text">
                 <div class="testimonial-quote"><i class="fas fa-quote-right"></i></div>
-                <a class="link" href="#"><p class="testimonial-text">나만의 여행 코스 제목 나만의 여행 코스 제목</p></a><strong>- 글쓴이</strong>
+                <a class="link" href="${path}/community/view?no=${item.bno}"><p class="testimonial-text">나만의 여행 코스 제목 나만의 여행 코스 제목</p></a><strong>- 글쓴이</strong>
               </div>
             </div>
             <div class="testimonial card rounded-3 shadow border-0" style="width: 300px; height: 280px; margin-left: 20px;">
               <div class="text">
                 <div class="testimonial-quote"><i class="fas fa-quote-right"></i></div>
-                <a class="link" href="#"><p class="testimonial-text">나만의 여행 코스 제목 나만의 여행 코스 제목</p></a><strong>- 글쓴이</strong>
+                <a class="link" href="${path}/community/view?no=${item.bno}"><p class="testimonial-text">나만의 여행 코스 제목 나만의 여행 코스 제목</p></a><strong>- 글쓴이</strong>
               </div>
             </div>
             <div class="testimonial card rounded-3 shadow border-0" style="width: 300px; height: 280px; margin-left: 20px;">
               <div class="text">
                 <div class="testimonial-quote"><i class="fas fa-quote-right"></i></div>
-                <a class="link" href="#"><p class="testimonial-text">나만의 여행 코스 제목 나만의 여행 코스 제목</p></a><strong>- 글쓴이</strong>
+                <a class="link" href="${path}/community/view?no=${item.bno}"><p class="testimonial-text">나만의 여행 코스 제목 나만의 여행 코스 제목</p></a><strong>- 글쓴이</strong>
               </div>
             </div>
             <div class="testimonial card rounded-3 shadow border-0" style="width: 300px; height: 280px; margin-left: 20px;">
               <div class="text">
                 <div class="testimonial-quote"><i class="fas fa-quote-right"></i></div>
-                <a class="link" href="#"><p class="testimonial-text">나만의 여행 코스 제목 나만의 여행 코스 제목</p></a><strong>- 글쓴이</strong>
+                <a class="link" href="${path}/community/view?no=${item.bno}"><p class="testimonial-text">나만의 여행 코스 제목 나만의 여행 코스 제목</p></a><strong>- 글쓴이</strong>
               </div>
             </div>
             <div class="testimonial card rounded-3 shadow border-0" style="width: 300px; height: 280px; margin-left: 20px;">
               <div class="text">
                 <div class="testimonial-quote"><i class="fas fa-quote-right"></i></div>
-                <a class="link" href="#"><p class="testimonial-text">나만의 여행 코스 제목 나만의 여행 코스 제목</p></a><strong>- 글쓴이</strong>
+                <a class="link" href="${path}/community/view?no=${item.bno}"><p class="testimonial-text">나만의 여행 코스 제목 나만의 여행 코스 제목</p></a><strong>- 글쓴이</strong>
               </div>
             </div>
             <div class="testimonial card rounded-3 shadow border-0" style="width: 300px; height: 280px; margin-left: 20px;">
               <div class="text">
                 <div class="testimonial-quote"><i class="fas fa-quote-right"></i></div>
-                <a class="link" href="#"><p class="testimonial-text">나만의 여행 코스 제목 나만의 여행 코스 제목</p></a><strong>- 글쓴이</strong>
+                <a class="link" href="${path}/community/view?no=${item.bno}"><p class="testimonial-text">나만의 여행 코스 제목 나만의 여행 코스 제목</p></a><strong>- 글쓴이</strong>
               </div>
             </div>
             <div class="testimonial card rounded-3 shadow border-0" style="width: 300px; height: 280px; margin-left: 20px;">
               <div class="text">
                 <div class="testimonial-quote"><i class="fas fa-quote-right"></i></div>
-                <a class="link" href="#"><p class="testimonial-text">나만의 여행 코스 제목 나만의 여행 코스 제목</p></a><strong>- 글쓴이</strong>
+                <a class="link" href="${path}/community/view?no=${item.bno}"><p class="testimonial-text">나만의 여행 코스 제목 나만의 여행 코스 제목</p></a><strong>- 글쓴이</strong>
               </div>
             </div>
             <div class="testimonial card rounded-3 shadow border-0" style="width: 300px; height: 280px; margin-left: 20px;">
               <div class="text">
                 <div class="testimonial-quote"><i class="fas fa-quote-right"></i></div>
-                <a class="link" href="#"><p class="testimonial-text">나만의 여행 코스 제목 나만의 여행 코스 제목</p></a><strong>- 글쓴이</strong>
+                <a class="link" href="${path}/community/view?no=${item.bno}"><p class="testimonial-text">나만의 여행 코스 제목 나만의 여행 코스 제목</p></a><strong>- 글쓴이</strong>
               </div>
             </div>
             <div class="testimonial card rounded-3 shadow border-0" style="width: 300px; height: 280px; margin-left: 20px;">
               <div class="text">
                 <div class="testimonial-quote"><i class="fas fa-quote-right"></i></div>
-                <a class="link" href="#"><p class="testimonial-text">나만의 여행 코스 제목 나만의 여행 코스 제목</p></a><strong>- 글쓴이</strong>
+                <a class="link" href="${path}/community/view?no=${item.bno}"><p class="testimonial-text">나만의 여행 코스 제목 나만의 여행 코스 제목</p></a><strong>- 글쓴이</strong>
               </div>
             </div>
             <div class="testimonial card rounded-3 shadow border-0" style="width: 300px; height: 280px; margin-left: 20px;">
               <div class="text">
                 <div class="testimonial-quote"><i class="fas fa-quote-right"></i></div>
-                <a class="link" href="#"><p class="testimonial-text">나만의 여행 코스 제목 나만의 여행 코스 제목</p></a><strong>- 글쓴이</strong>
+                <a class="link" href="${path}/community/view?no=${item.bno}"><p class="testimonial-text">나만의 여행 코스 제목 나만의 여행 코스 제목</p></a><strong>- 글쓴이</strong>
               </div>
             </div>
             
