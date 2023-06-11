@@ -84,7 +84,7 @@
 						<!-- place item-->
 						<c:forEach var="booking" items="${list }">
 							<c:if test="${item.contentid == booking.contentId }">
-								<c:if test="${booking.endDate.getTime() < nowTime.getTime()}">
+								<c:if test="${booking.endDate.getTime() <= nowTime.getTime()}">
 									<div class="col-sm-6 col-lg-4 mb-30px hover-animate"
 										data-marker-id="59c0c8e33b1527bfe2abaf92">
 										<div class="card h-100 border-0 shadow">

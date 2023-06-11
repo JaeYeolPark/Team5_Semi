@@ -69,6 +69,7 @@
 		JOIN MEMBER M ON(B.mNO = M.mNO)
 		WHERE 1 = 1
 		AND B.STATUS = 'Y'
+		AND TYPE = #{type}
 		<if test="id != null">
 			AND M.ID LIKE '%${id}%'
 		</if>

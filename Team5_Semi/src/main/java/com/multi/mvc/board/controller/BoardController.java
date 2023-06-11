@@ -67,6 +67,7 @@ public class BoardController {
 		PageInfo pageInfo = new PageInfo(page, 10, boardCount, 12); // 게시글이 보여지는 갯수 = 12
 		List<Board> list = service.getBoardList(pageInfo, param);
 		
+		model.addAttribute("boardCount",boardCount);
 		model.addAttribute("list", list);
 		model.addAttribute("param", param);
 		model.addAttribute("pageInfo", pageInfo);
