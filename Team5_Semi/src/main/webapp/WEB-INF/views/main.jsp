@@ -297,10 +297,13 @@
 									</div>
 									<div class="col-auto d-none d-lg-block">
 										<svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" role="img" 
-											aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
-											<title>Placeholder</title>
-											<rect width="100%" height="100%" fill="#55595c" />
-											<text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text>
+											aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><a href="${path}/community/view?no=${item.bno}"> 
+											<c:if test="${not empty item.originalFileName and (fn:contains(item.originalFileName,'.jpg') or fn:contains(item.originalFileName,'.png') or fn:contains(item.originalFileName,'.jpeg'))}">
+											<img width="200" height="250" src="${path}/resources/upload/board/${item.renamedFileName}" width="100%" height="100%" />
+											</c:if> 
+											<c:if test="${empty item.originalFileName}">
+												<img width="200" height="250" src="${path }/resources/img/notfound.png" alt="">
+											</c:if></a>
 	                    				</svg>
 									</div>
 								</div>
