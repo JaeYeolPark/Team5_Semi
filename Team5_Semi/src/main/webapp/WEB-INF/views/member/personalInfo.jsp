@@ -23,7 +23,7 @@
 						<div class="mb-4 me-4 col-md-5">
 							<label class="form-label" for="id">아이디</label>
 							<input class="form-control" type="text" name="id" id="id" 
-									value="${loginMember.id }" required readonly disabled/>
+									value="${loginMember.id }" required readonly style="background:LightGray"/>
 						</div>
 						<div class="mb-4 me-4 col-md-5">
 							<label class="form-label" for="name">이름</label> <input
@@ -46,7 +46,7 @@
 								value="${member.address }">
 						</div>
 						<div class="mb-4 me-4 col-md-5">
-							
+							<input type="hidden" name="mno" id="mno" value="${loginMember.mno }">
 						</div>
 						
 						
