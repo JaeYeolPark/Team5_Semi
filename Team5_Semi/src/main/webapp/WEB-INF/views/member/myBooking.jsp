@@ -35,11 +35,11 @@
 				<h5>예약 현황</h5>
 				<br>
 				<div class="row">
-					<c:if test="${not empty accmList }">
-						<c:forEach var="item" items="${accmList }">
+					<c:if test="${not empty list }">
+						<c:forEach var="booking" items="${list }">
 							<!-- place item-->
-							<c:forEach var="booking" items="${list }">
-								<c:if test="${item.contentid == booking.contentId }">
+							<c:forEach var="item" items="${accmList }">
+								<c:if test="${item.contentid eq booking.contentId }">
 									<c:if test="${booking.endDate.getTime() > nowTime.getTime()}">
 										<div class="col-sm-6 col-lg-4 mb-30px hover-animate" data-marker-id="59c0c8e33b1527bfe2abaf92">
 											<div class="card h-100 border-0 shadow">
@@ -73,10 +73,10 @@
 				<br>
 				<div class="row">
 					<!-- place item-->
-					<c:forEach var="item" items="${accmList }">
-						<!-- place item-->
 						<c:forEach var="booking" items="${list }">
-							<c:if test="${item.contentid == booking.contentId }">
+						<!-- place item-->
+						<c:forEach var="item" items="${accmList }">
+							<c:if test="${item.contentid eq booking.contentId }">
 								<c:if test="${booking.endDate.getTime() <= nowTime.getTime()}">
 									<div class="col-sm-6 col-lg-4 mb-30px hover-animate" data-marker-id="59c0c8e33b1527bfe2abaf92">
 										<div class="card h-100 border-0 shadow">

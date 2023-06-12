@@ -26,6 +26,7 @@ import com.multi.mvc.board.model.service.BoardService;
 import com.multi.mvc.kakao.KaKaoService;
 import com.multi.mvc.member.model.service.MemberService;
 import com.multi.mvc.member.model.vo.Member;
+import com.multi.mvc.tour.model.service.AccmService;
 import com.multi.mvc.tour.model.vo.Accommodation;
 import com.multi.mvc.tour.model.vo.Booking;
 
@@ -45,7 +46,8 @@ public class MemberController {
 	@Autowired
 	private BoardService boardService;
 	
-	
+	@Autowired
+	private AccmService accmService;
 	
 	
 	
@@ -257,12 +259,8 @@ public class MemberController {
 			@SessionAttribute(name="loginMember", required = false) Member loginMember) {
 		List<Booking> list = service.findBookingByMno(loginMember.getMno());
 		
-		List<Accommodation> accmList = new ArrayList<>();
+		List<Accommodation> accmList = accmService.selectAccmAll();
 		
-		for(int i = 0; i < list.size(); i++) {
-			accmList.add(service.findAccmByContentId(list.get(i).getContentId()));
-		}
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		Date now = new Date();
 		
 		model.addAttribute("nowTime", now);
